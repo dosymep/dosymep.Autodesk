@@ -9,6 +9,16 @@ namespace dosymep.Revit.ServerClient {
     /// </summary>
     public interface IServerClient {
         /// <summary>
+        /// The server name.
+        /// </summary>
+        string ServerName { get; }
+        
+        /// <summary>
+        /// The server version.
+        /// </summary>
+        string ServerVersion { get; }
+        
+        /// <summary>
         /// URL: GET /serverProperties
         /// Queries the server’s properties.
         /// </summary>
