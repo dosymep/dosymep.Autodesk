@@ -15,4 +15,8 @@
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
         <DocumentationFile>bin\Release\dosymep.Revit.ServerClient.xml</DocumentationFile>
     </PropertyGroup>
+    
+    <ItemGroup>
+      <Reference Include="System.Net.Http" />
+    </ItemGroup>
 </Project>
