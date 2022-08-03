@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Dynamic;
 using System.IO;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
 using dosymep.Revit.ServerClient.DataContracts;
+
+using Newtonsoft.Json.Linq;
 
 namespace dosymep.Revit.ServerClient.Internal {
     /// <summary>
@@ -116,8 +120,9 @@ namespace dosymep.Revit.ServerClient.Internal {
             modelPath = UpdateFolderPath(modelPath);
             HttpResponseMessage response = await _httpClient.Get($"{modelPath}/projectInfo", cancellationToken);
             response.EnsureSuccessStatusCode();
-            
-            return _jsonSerialization.Deserialize<ProjectInfo>(await response.Content.ReadAsStringAsync());
+
+            List<ParamInfoItem> items = _jsonSerialization.Deserialize<List<ParamInfoItem>>(await response.Content.ReadAsStringAsync());
+            return new ProjectInfo() {Items = items};
         }
 
         /// <inheritdoc />
