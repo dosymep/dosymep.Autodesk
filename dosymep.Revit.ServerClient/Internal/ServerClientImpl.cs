@@ -56,7 +56,7 @@ namespace dosymep.Revit.ServerClient.Internal {
         }
 
         /// <inheritdoc />
-        public async Task<FolderInfoData> GetDirectoryInformationAsync(string folderPath,
+        public async Task<FolderInfoData> GetFolderInfoAsync(string folderPath,
             CancellationToken cancellationToken = default) {
             if(string.IsNullOrEmpty(folderPath)) {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(folderPath));
@@ -80,7 +80,7 @@ namespace dosymep.Revit.ServerClient.Internal {
         }
 
         /// <inheritdoc />
-        public async Task<ModelInfoData> GetModelInformationAsync(string modelPath,
+        public async Task<ModelInfoData> GetModelInfoAsync(string modelPath,
             CancellationToken cancellationToken = default) {
             if(string.IsNullOrEmpty(modelPath)) {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(modelPath));

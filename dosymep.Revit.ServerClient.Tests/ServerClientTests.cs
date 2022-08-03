@@ -43,7 +43,7 @@ namespace dosymep.Revit.ServerClient.Tests {
 
         [Test]
         [TestCase("Вкладки")]
-        public async Task GetFolderContentsTest(string folderPath) {
+        public async Task FolderContentsTest(string folderPath) {
             FolderContents folderContents = await _serverClient.GetFolderContentsAsync(folderPath);
 
             Assert.AreEqual(folderContents.Path, folderPath);
@@ -53,8 +53,8 @@ namespace dosymep.Revit.ServerClient.Tests {
 
         [Test]
         [TestCase("Вкладки")]
-        public async Task GetDirectoryInformationTest(string folderPath) {
-            FolderInfoData folderInfoData = await _serverClient.GetDirectoryInformationAsync(folderPath);
+        public async Task FolderInfoTest(string folderPath) {
+            FolderInfoData folderInfoData = await _serverClient.GetFolderInfoAsync(folderPath);
 
             Assert.AreEqual(folderInfoData.Path, folderPath);
             Assert.AreEqual(folderInfoData.Exists, true);
@@ -63,7 +63,7 @@ namespace dosymep.Revit.ServerClient.Tests {
 
         [Test]
         [TestCase(@"UnitTests\ModelHistoryTest.rvt")]
-        public async Task GetModelHistoryTest(string modelPath) {
+        public async Task ModelHistoryTest(string modelPath) {
             ModelHistoryData modelHistoryData = await _serverClient.GetModelHistoryAsync(modelPath);
 
             Assert.AreEqual(modelHistoryData.Path, modelPath);
@@ -71,8 +71,8 @@ namespace dosymep.Revit.ServerClient.Tests {
 
         [Test]
         [TestCase(@"UnitTests\ModelHistoryTest.rvt")]
-        public async Task GetModelInformationTest(string modelPath) {
-            ModelInfoData modelInfoData = await _serverClient.GetModelInformationAsync(modelPath);
+        public async Task ModelInfoTest(string modelPath) {
+            ModelInfoData modelInfoData = await _serverClient.GetModelInfoAsync(modelPath);
 
             Assert.AreEqual(modelInfoData.Path, modelPath);
             Assert.AreEqual(modelInfoData.ModelGuid, new Guid("4ed0d224-aef6-422c-9525-49a8bbe432d1"));
@@ -91,14 +91,14 @@ namespace dosymep.Revit.ServerClient.Tests {
 
         [Test]
         [TestCase(@"UnitTests\ModelHistoryTest.rvt")]
-        public async Task GetProjectInfoTest(string modelPath) {
+        public async Task ProjectInfoTest(string modelPath) {
             ProjectInfo projectInfo = await _serverClient.GetProjectInfoAsync(modelPath);
 
             Assert.AreNotEqual(projectInfo, null);
         }
 
         [Test]
-        public async Task GetRootFolderContentsTest() {
+        public async Task RootFolderContentsTest() {
             FolderContents folderContents = await _serverClient.GetRootFolderContentsAsync();
             Assert.AreNotEqual(folderContents, null);
             Assert.Greater(folderContents.Folders.Count, 0);
@@ -106,7 +106,7 @@ namespace dosymep.Revit.ServerClient.Tests {
         
         [Test]
         [TestCase()]
-        public async Task GetRecursiveFolderContentsTest() {
+        public async Task RecursiveFolderContentsTest() {
             List<FolderContents> folderContents = await _serverClient.GetRecursiveFolderContentsAsync();
             Assert.Greater(folderContents.Count, 0);
         }
@@ -114,7 +114,7 @@ namespace dosymep.Revit.ServerClient.Tests {
         [Test]
         [TestCase("PRKS-06")]
         [TestCase("UnitTests")]
-        public async Task GetRecursiveFolderContentsTest(string folderPath) {
+        public async Task RecursiveFolderContentsTest(string folderPath) {
             List<FolderContents> folderContents = await _serverClient.GetRecursiveFolderContentsAsync(folderPath);
             Assert.Greater(folderContents.Count, 0);
         }

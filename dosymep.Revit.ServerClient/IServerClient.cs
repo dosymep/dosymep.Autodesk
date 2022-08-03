@@ -44,7 +44,7 @@ namespace dosymep.Revit.ServerClient {
         /// <param name="folderPath">The path of the specified folder.</param>
         /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>Returns the folder directory information.</returns>
-        Task<FolderInfoData> GetDirectoryInformationAsync(string folderPath, CancellationToken cancellationToken = default);
+        Task<FolderInfoData> GetFolderInfoAsync(string folderPath, CancellationToken cancellationToken = default);
         
         /// <summary>
         /// URL: GET /{modelPath}/history
@@ -62,7 +62,7 @@ namespace dosymep.Revit.ServerClient {
         /// <param name="modelPath">The path of the specified model.</param>
         /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>Returns the file information of a model.</returns>
-        Task<ModelInfoData> GetModelInformationAsync(string modelPath, CancellationToken cancellationToken = default);
+        Task<ModelInfoData> GetModelInfoAsync(string modelPath, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// URL: GET /{modelPath}/thumbnail?width={width}&amp;height={height}
