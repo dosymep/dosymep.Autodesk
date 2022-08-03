@@ -40,5 +40,15 @@ namespace dosymep.Revit.ServerClient.Tests {
             Assert.AreEqual(folderContents.Models.Count, 0);
             Assert.AreEqual(folderContents.Folders.Count, 4);
         }
+        
+        [Test]
+        public async Task GetDirectoryInformationTest() {
+            string folderPath = "Вкладки";
+            DirectoryData directoryData = await _serverClient.GetDirectoryInformationAsync(folderPath);
+            
+            Assert.AreEqual(directoryData.Path, folderPath);
+            Assert.AreEqual(directoryData.Exists, true);
+            Assert.AreEqual(directoryData.IsFolder, true);
+        }
     }
 }
