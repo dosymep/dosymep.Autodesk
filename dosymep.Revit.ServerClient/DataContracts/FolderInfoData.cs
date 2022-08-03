@@ -5,31 +5,11 @@ namespace dosymep.Revit.ServerClient.DataContracts {
     /// <summary>
     /// The directory data. 
     /// </summary>
-    public class FolderInfoData : RelativePathData {
-        /// <summary>
-        /// The creation time.
-        /// </summary>
-        public DateTime? DateCreated { set; get; }
-
-        /// <summary>
-        /// The last modified time.
-        /// </summary>
-        public DateTime? DateModified { set; get; }
-
-        /// <summary>
-        /// The user who did the last modification.
-        /// </summary>
-        public string LastModifiedBy { set; get; }
-
+    public class FolderInfoData : ObjectInfoData {
         /// <summary>
         /// The size of the folder.
         /// </summary>
         public long Size { set; get; }
-
-        /// <summary>
-        /// The model size if the folder is a model’s folder.
-        /// </summary>
-        public long ModelSize { set; get; }
 
         /// <summary>
         /// The count of sub-folders under the folder.
