@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -58,6 +59,15 @@ namespace dosymep.Revit.ServerClient.Tests {
             ModelHistoryData modelHistoryData = await _serverClient.GetModelHistoryAsync(folderPath);
             
             Assert.AreEqual(modelHistoryData.Path, folderPath);
+        }
+        
+        [Test]
+        public async Task GetModelInformationTest() {
+            string folderPath = Path.Combine("UnitTests", "ModelHistoryTest.rvt");
+            ModelInfoData modelInfoData = await _serverClient.GetModelInformationAsync(folderPath);
+            
+            Assert.AreEqual(modelInfoData.Path, folderPath);
+            Assert.AreEqual(modelInfoData.ModelGuid, new Guid("4ed0d224-aef6-422c-9525-49a8bbe432d1"));
         }
     }
 }
