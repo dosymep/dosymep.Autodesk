@@ -10,6 +10,7 @@ namespace dosymep.Revit.ServerClient.Internal {
     /// </summary>
     internal class ServerClientImpl : IServerClient {
         private readonly IRevitHttpClient _httpClient;
+        private readonly JsonSerialization _jsonSerialization;
 
         /// <summary>
         /// Creates instance server client.
@@ -21,6 +22,7 @@ namespace dosymep.Revit.ServerClient.Internal {
             ServerVersion = serverVersion;
 
             _httpClient = new RevitHttpClient(serverName, serverVersion);
+            _jsonSerialization = new JsonSerialization();
         }
 
         /// <inheritdoc />
