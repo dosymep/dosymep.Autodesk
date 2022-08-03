@@ -32,88 +32,171 @@ namespace dosymep.Revit.ServerClient.Internal {
         public string ServerVersion { get; }
 
         /// <inheritdoc />
-        public Task<ServerProperties> GetServerPropertiesAsync(CancellationToken cancellationToken = default) {
-            throw new System.NotImplementedException();
+        public async Task<ServerProperties> GetServerPropertiesAsync(CancellationToken cancellationToken = default) {
+            HttpResponseMessage response = await _httpClient.Get("/serverProperties", cancellationToken);
+            return _jsonSerialization.Deserialize<ServerProperties>(await response.Content.ReadAsStringAsync());
         }
 
         /// <inheritdoc />
-        public Task<FolderContents> GetFolderContentsAsync(string folderPath,
+        public async Task<FolderContents> GetFolderContentsAsync(string folderPath,
             CancellationToken cancellationToken = default) {
-            throw new System.NotImplementedException();
+            if(string.IsNullOrEmpty(folderPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(folderPath));
+            }
+            
+            HttpResponseMessage response = await _httpClient.Get($"/{folderPath}/contents", cancellationToken);
+            return _jsonSerialization.Deserialize<FolderContents>(await response.Content.ReadAsStringAsync());
         }
 
         /// <inheritdoc />
-        public Task<DirectoryData> GetDirectoryInformationAsync(string folderPath,
+        public async Task<DirectoryData> GetDirectoryInformationAsync(string folderPath,
             CancellationToken cancellationToken = default) {
-            throw new System.NotImplementedException();
+            if(string.IsNullOrEmpty(folderPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(folderPath));
+            }
+
+            HttpResponseMessage response = await _httpClient.Get($"/{folderPath}/DirectoryInfo", cancellationToken);
+            return _jsonSerialization.Deserialize<DirectoryData>(await response.Content.ReadAsStringAsync());
         }
 
         /// <inheritdoc />
-        public Task<ModelHistoryData> GetModelHistoryAsync(string modelPath,
+        public async Task<ModelHistoryData> GetModelHistoryAsync(string modelPath,
             CancellationToken cancellationToken = default) {
-            throw new System.NotImplementedException();
+            if(string.IsNullOrEmpty(modelPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(modelPath));
+            }
+
+            HttpResponseMessage response = await _httpClient.Get($"/{modelPath}/history", cancellationToken);
+            return _jsonSerialization.Deserialize<ModelHistoryData>(await response.Content.ReadAsStringAsync());
         }
 
         /// <inheritdoc />
-        public Task<ModelInfoData> GetModelInformationAsync(string modelPath,
+        public async Task<ModelInfoData> GetModelInformationAsync(string modelPath,
             CancellationToken cancellationToken = default) {
-            throw new System.NotImplementedException();
+            if(string.IsNullOrEmpty(modelPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(modelPath));
+            }
+            
+            HttpResponseMessage response = await _httpClient.Get($"/{modelPath}/modelInfo", cancellationToken);
+            return _jsonSerialization.Deserialize<ModelInfoData>(await response.Content.ReadAsStringAsync());
         }
 
         /// <inheritdoc />
-        public Task<Stream> GetModelThumbnailAsync(string modelPath, int width, int height,
+        public async Task<Stream> GetModelThumbnailAsync(string modelPath, int width, int height,
             CancellationToken cancellationToken = default) {
-            throw new System.NotImplementedException();
+            if(string.IsNullOrEmpty(modelPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(modelPath));
+            }
+
+            if(width <= 0) {
+                throw new ArgumentOutOfRangeException(nameof(width));
+            }
+
+            if(height <= 0) {
+                throw new ArgumentOutOfRangeException(nameof(height));
+            }
+
+            HttpResponseMessage response = await _httpClient.Get($"/{modelPath}/thumbnail?width={width}&amp;height={height}", cancellationToken);
+            return await response.Content.ReadAsStreamAsync();
         }
 
         /// <inheritdoc />
-        public Task<ProjectInfo> GetProjectInfoAsync(string modelPath, CancellationToken cancellationToken = default) {
-            throw new System.NotImplementedException();
+        public async Task<ProjectInfo> GetProjectInfoAsync(string modelPath, CancellationToken cancellationToken = default) {
+            if(modelPath == null) {
+                throw new ArgumentNullException(nameof(modelPath));
+            }
+
+            HttpResponseMessage response = await _httpClient.Get($"/{modelPath}/projectInfo", cancellationToken);
+            response.EnsureSuccessStatusCode();
+            
+            return _jsonSerialization.Deserialize<ProjectInfo>(await response.Content.ReadAsStringAsync());
         }
 
         /// <inheritdoc />
-        public Task LockAsync(string objectPath, CancellationToken cancellationToken = default) {
-            throw new System.NotImplementedException();
+        public async Task LockAsync(string objectPath, CancellationToken cancellationToken = default) {
+            if(objectPath == null) {
+                throw new ArgumentNullException(nameof(objectPath));
+            }
+
+            await _httpClient.Put($"/{objectPath}/lock", cancellationToken);
         }
 
         /// <inheritdoc />
-        public Task UnlockAsync(string objectPath, bool objectMustExist,
+        public async Task UnlockAsync(string objectPath, bool objectMustExist,
             CancellationToken cancellationToken = default) {
-            throw new System.NotImplementedException();
+            if(string.IsNullOrEmpty(objectPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(objectPath));
+            }
+
+            await _httpClient.Delete($"/{objectPath}/lock?objectMustExist={objectMustExist}", cancellationToken);
         }
 
         /// <inheritdoc />
-        public Task CancelLockAsync(string objectPath, CancellationToken cancellationToken = default) {
-            throw new System.NotImplementedException();
+        public async Task CancelLockAsync(string objectPath, CancellationToken cancellationToken = default) {
+            if(string.IsNullOrEmpty(objectPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(objectPath));
+            }
+
+            await _httpClient.Delete($"/{objectPath}/inProgressLock", cancellationToken);
         }
 
         /// <inheritdoc />
-        public Task<LockedDescendentsData> GetDescendentsLocksAsync(string folderPath,
+        public async Task<LockedDescendentsData> GetDescendentsLocksAsync(string folderPath,
             CancellationToken cancellationToken = default) {
-            throw new System.NotImplementedException();
+            if(string.IsNullOrEmpty(folderPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(folderPath));
+            }
+
+            HttpResponseMessage response = await _httpClient.Get($"/{folderPath}/descendent/locks", cancellationToken);
+            return _jsonSerialization.Deserialize<LockedDescendentsData>(await response.Content.ReadAsStringAsync());
         }
 
         /// <inheritdoc />
-        public Task<UnlockDescendentsData> GetDescendentsUnlocksAsync(string folderPath,
+        public async Task<UnlockDescendentsData> GetDescendentsUnlocksAsync(string folderPath,
             CancellationToken cancellationToken = default) {
-            throw new System.NotImplementedException();
+            if(string.IsNullOrEmpty(folderPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(folderPath));
+            }
+
+            HttpResponseMessage response = await _httpClient.Get($"/{folderPath}/descendent/locks", cancellationToken);
+            return _jsonSerialization.Deserialize<UnlockDescendentsData>(await response.Content.ReadAsStringAsync());
         }
 
         /// <inheritdoc />
-        public Task CreateNewFolderAsync(string folderPath, CancellationToken cancellationToken = default) {
-            throw new System.NotImplementedException();
+        public async Task CreateNewFolderAsync(string folderPath, CancellationToken cancellationToken = default) {
+            if(string.IsNullOrEmpty(folderPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(folderPath));
+            }
+
+            await _httpClient.Put($"/{folderPath}", cancellationToken);
         }
 
         /// <inheritdoc />
-        public Task DeleteOrRenameAsync(string objectPath, string newObjectName,
+        public async Task DeleteOrRenameAsync(string objectPath, string newObjectName,
             CancellationToken cancellationToken = default) {
-            throw new System.NotImplementedException();
+            if(string.IsNullOrEmpty(objectPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(objectPath));
+            }
+
+            if(string.IsNullOrEmpty(newObjectName)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(newObjectName));
+            }
+
+            await _httpClient.Delete($"/{objectPath}?newObjectName={newObjectName}", cancellationToken);
         }
 
         /// <inheritdoc />
-        public Task CopyOrMoveAsync(string sourceObjectPath, string destinationObjectPath, PasteAction pasteAction,
+        public async Task CopyOrMoveAsync(string sourceObjectPath, string destinationObjectPath, PasteAction pasteAction,
             bool replaceExisting, CancellationToken cancellationToken = default) {
-            throw new System.NotImplementedException();
+            if(string.IsNullOrEmpty(sourceObjectPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(sourceObjectPath));
+            }
+
+            if(string.IsNullOrEmpty(destinationObjectPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(destinationObjectPath));
+            }
+
+            await _httpClient.Post($"/{sourceObjectPath}?destinationObjectPath={destinationObjectPath}&pasteAction={pasteAction}&replaceExisting={replaceExisting}", cancellationToken);
         }
     }
 }
