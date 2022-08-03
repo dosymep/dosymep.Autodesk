@@ -1,3 +1,4 @@
+using System.IO;
 using System.Threading.Tasks;
 
 using dosymep.Revit.ServerClient.DataContracts;
@@ -49,6 +50,14 @@ namespace dosymep.Revit.ServerClient.Tests {
             Assert.AreEqual(directoryData.Path, folderPath);
             Assert.AreEqual(directoryData.Exists, true);
             Assert.AreEqual(directoryData.IsFolder, true);
+        }
+        
+        [Test]
+        public async Task GetModelHistoryTest() {
+            string folderPath = Path.Combine("UnitTests", "ModelHistoryTest.rvt");
+            ModelHistoryData modelHistoryData = await _serverClient.GetModelHistoryAsync(folderPath);
+            
+            Assert.AreEqual(modelHistoryData.Path, folderPath);
         }
     }
 }
