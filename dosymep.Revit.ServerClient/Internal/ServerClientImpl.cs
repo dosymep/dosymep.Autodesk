@@ -103,7 +103,7 @@ namespace dosymep.Revit.ServerClient.Internal {
             }
 
             modelPath = UpdateFolderPath(modelPath);
-            HttpResponseMessage response = await _httpClient.Get($"{modelPath}/thumbnail?width={width}&amp;height={height}", cancellationToken);
+            HttpResponseMessage response = await _httpClient.Get($"{modelPath}/thumbnail?width={width}&height={height}", cancellationToken);
             return await response.Content.ReadAsStreamAsync();
         }
 
