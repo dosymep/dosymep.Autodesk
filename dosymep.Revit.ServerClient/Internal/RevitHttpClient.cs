@@ -27,9 +27,10 @@ namespace dosymep.Revit.ServerClient.Internal {
                     nameof(serverVersion));
             }
 
-            _baseUrl = $"http://{serverName}/RevitServerAdminRESTService{serverVersion}/AdminRESTService.svc";
+            _baseUrl = $"http://{serverName}/RevitServerAdminRESTService{serverVersion}/AdminRESTService.svc/";
 
             _httpClient = new HttpClient();
+            _httpClient.BaseAddress = new Uri(_baseUrl, UriKind.Absolute);
             _httpClient.DefaultRequestHeaders.Add("User-Name", Environment.UserName);
             _httpClient.DefaultRequestHeaders.Add("User-Machine-Name", Environment.MachineName);
         }
@@ -71,7 +72,7 @@ namespace dosymep.Revit.ServerClient.Internal {
         }
 
         private HttpRequestMessage CreateHttpRequestMessage(HttpMethod httpMethod, string requestUri) {
-            return new HttpRequestMessage(httpMethod, Path.Combine(_baseUrl, requestUri)) { Headers = {{"Operation-GUID", Guid.NewGuid().ToString()}} };
+            return new HttpRequestMessage(httpMethod, new Uri(requestUri, UriKind.Relative)) { Headers = {{"Operation-GUID", Guid.NewGuid().ToString()}} };
         }
 
         #region IDisposable
