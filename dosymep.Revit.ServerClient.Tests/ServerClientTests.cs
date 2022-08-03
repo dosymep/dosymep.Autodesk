@@ -18,7 +18,7 @@ namespace dosymep.Revit.ServerClient.Tests {
                 .SetServerVersion("2022")
                 .Build();
         }
-        
+
         [TearDown]
         public void Teardown() {
             _serverClient?.Dispose();
@@ -41,8 +41,8 @@ namespace dosymep.Revit.ServerClient.Tests {
         }
 
         [Test]
-        public async Task GetFolderContentsTest() {
-            string folderPath = "Вкладки";
+        [TestCase("Вкладки")]
+        public async Task GetFolderContentsTest(string folderPath) {
             FolderContents folderContents = await _serverClient.GetFolderContentsAsync(folderPath);
 
             Assert.AreEqual(folderContents.Path, folderPath);
@@ -51,8 +51,8 @@ namespace dosymep.Revit.ServerClient.Tests {
         }
 
         [Test]
-        public async Task GetDirectoryInformationTest() {
-            string folderPath = "Вкладки";
+        [TestCase("Вкладки")]
+        public async Task GetDirectoryInformationTest(string folderPath) {
             DirectoryData directoryData = await _serverClient.GetDirectoryInformationAsync(folderPath);
 
             Assert.AreEqual(directoryData.Path, folderPath);
@@ -61,40 +61,38 @@ namespace dosymep.Revit.ServerClient.Tests {
         }
 
         [Test]
-        public async Task GetModelHistoryTest() {
-            string folderPath = Path.Combine("UnitTests", "ModelHistoryTest.rvt");
-            ModelHistoryData modelHistoryData = await _serverClient.GetModelHistoryAsync(folderPath);
+        [TestCase("UnitTests/ModelHistoryTest.rvt")]
+        public async Task GetModelHistoryTest(string modelPath) {
+            ModelHistoryData modelHistoryData = await _serverClient.GetModelHistoryAsync(modelPath);
 
-            Assert.AreEqual(modelHistoryData.Path, folderPath);
+            Assert.AreEqual(modelHistoryData.Path, modelPath);
         }
 
         [Test]
-        public async Task GetModelInformationTest() {
-            string folderPath = Path.Combine("UnitTests", "ModelHistoryTest.rvt");
-            ModelInfoData modelInfoData = await _serverClient.GetModelInformationAsync(folderPath);
+        [TestCase("UnitTests/ModelHistoryTest.rvt")]
+        public async Task GetModelInformationTest(string modelPath) {
+            ModelInfoData modelInfoData = await _serverClient.GetModelInformationAsync(modelPath);
 
-            Assert.AreEqual(modelInfoData.Path, folderPath);
+            Assert.AreEqual(modelInfoData.Path, modelPath);
             Assert.AreEqual(modelInfoData.ModelGuid, new Guid("4ed0d224-aef6-422c-9525-49a8bbe432d1"));
         }
 
         [Test]
-        public async Task GetModelThumbnailTest() {
-            int width = 96;
-            int height = 96;
-            string folderPath = Path.Combine("UnitTests", "ModelHistoryTest.rvt");
-            using(Stream modelThumbnail = await _serverClient.GetModelThumbnailAsync(folderPath, width, height)) {
+        [TestCase("UnitTests/ModelHistoryTest.rvt", 96, 96)]
+        public async Task GetModelThumbnailTest(string modelPath, int width, int height) {
+            using(Stream modelThumbnail = await _serverClient.GetModelThumbnailAsync(modelPath, width, height)) {
                 BitmapSource bitmap = BitmapFrame.Create(modelThumbnail);
-                
+
                 Assert.AreEqual((int) bitmap.Width, width);
                 Assert.AreEqual((int) bitmap.Height, height);
             }
         }
-        
+
         [Test]
-        public async Task GetProjectInfoTest() {
-            string folderPath = Path.Combine("UnitTests", "ModelHistoryTest.rvt");
-            ProjectInfo projectInfo = await _serverClient.GetProjectInfoAsync(folderPath);
-            
+        [TestCase("UnitTests/ModelHistoryTest.rvt")]
+        public async Task GetProjectInfoTest(string modelPath) {
+            ProjectInfo projectInfo = await _serverClient.GetProjectInfoAsync(modelPath);
+
             Assert.AreNotEqual(projectInfo, null);
         }
     }
