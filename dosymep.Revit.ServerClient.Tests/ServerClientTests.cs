@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
@@ -94,6 +95,28 @@ namespace dosymep.Revit.ServerClient.Tests {
             ProjectInfo projectInfo = await _serverClient.GetProjectInfoAsync(modelPath);
 
             Assert.AreNotEqual(projectInfo, null);
+        }
+
+        [Test]
+        public async Task GetRootFolderContentsTest() {
+            FolderContents folderContents = await _serverClient.GetRootFolderContentsAsync();
+            Assert.AreNotEqual(folderContents, null);
+            Assert.Greater(folderContents.Folders.Count, 0);
+        }
+        
+        [Test]
+        [TestCase()]
+        public async Task GetRecursiveFolderContentsTest() {
+            List<FolderContents> folderContents = await _serverClient.GetRecursiveFolderContentsAsync();
+            Assert.Greater(folderContents.Count, 0);
+        }
+
+        [Test]
+        [TestCase("PRKS-06")]
+        [TestCase("UnitTests")]
+        public async Task GetRecursiveFolderContentsTest(string folderPath) {
+            List<FolderContents> folderContents = await _serverClient.GetRecursiveFolderContentsAsync(folderPath);
+            Assert.Greater(folderContents.Count, 0);
         }
     }
 }
