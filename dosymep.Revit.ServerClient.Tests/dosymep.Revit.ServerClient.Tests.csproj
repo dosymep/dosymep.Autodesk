@@ -17,4 +17,10 @@
       <ProjectReference Include="..\dosymep.Revit.ServerClient\dosymep.Revit.ServerClient.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="PresentationCore" />
+      <Reference Include="PresentationFramework" />
+      <Reference Include="WindowsBase" />
+    </ItemGroup>
+
 </Project>
