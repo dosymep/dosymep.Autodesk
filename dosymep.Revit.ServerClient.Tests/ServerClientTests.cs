@@ -30,5 +30,15 @@ namespace dosymep.Revit.ServerClient.Tests {
 
             Assert.AreEqual(serverProperties.AccessLevelTypes, null);
         }
+
+        [Test]
+        public async Task GetFolderContentsTest() {
+            string folderPath = "Вкладки";
+            FolderContents folderContents = await _serverClient.GetFolderContentsAsync(folderPath);
+            
+            Assert.AreEqual(folderContents.Path, folderPath);
+            Assert.AreEqual(folderContents.Models.Count, 0);
+            Assert.AreEqual(folderContents.Folders.Count, 4);
+        }
     }
 }
