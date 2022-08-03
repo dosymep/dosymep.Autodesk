@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -39,7 +40,7 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentException($"'{nameof(requestUri)}' cannot be null or empty.", nameof(requestUri));
             }
 
-            return _httpClient.SendAsync(CreateHttpRequestMessage(HttpMethod.Get, requestUri), cancellationToken);
+            return _httpClient.SendWithExceptionAsync(CreateHttpRequestMessage(HttpMethod.Get, requestUri), cancellationToken);
         }
 
         /// <inheritdoc/>
@@ -48,7 +49,7 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentException($"'{nameof(requestUri)}' cannot be null or empty.", nameof(requestUri));
             }
 
-            return _httpClient.SendAsync(CreateHttpRequestMessage(HttpMethod.Put, requestUri), cancellationToken);
+            return _httpClient.SendWithExceptionAsync(CreateHttpRequestMessage(HttpMethod.Put, requestUri), cancellationToken);
         }
 
         /// <inheritdoc/>
@@ -57,7 +58,7 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentException($"'{nameof(requestUri)}' cannot be null or empty.", nameof(requestUri));
             }
 
-            return _httpClient.SendAsync(CreateHttpRequestMessage(HttpMethod.Post, requestUri), cancellationToken);
+            return _httpClient.SendWithExceptionAsync(CreateHttpRequestMessage(HttpMethod.Post, requestUri), cancellationToken);
         }
 
         /// <inheritdoc/>
@@ -66,14 +67,11 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentException($"'{nameof(requestUri)}' cannot be null or empty.", nameof(requestUri));
             }
 
-            return _httpClient.SendAsync(CreateHttpRequestMessage(HttpMethod.Delete, requestUri), cancellationToken);
+            return _httpClient.SendWithExceptionAsync(CreateHttpRequestMessage(HttpMethod.Delete, requestUri), cancellationToken);
         }
 
         private HttpRequestMessage CreateHttpRequestMessage(HttpMethod httpMethod, string requestUri) {
-            var requestMessage = new HttpRequestMessage(httpMethod, _baseUrl + "/" + requestUri);
-            requestMessage.Headers.Add("Operation-GUID", Guid.NewGuid().ToString());
-
-            return requestMessage;
+            return new HttpRequestMessage(httpMethod, Path.Combine(_baseUrl, requestUri)) { Headers = {{"Operation-GUID", Guid.NewGuid().ToString()}} };
         }
 
         #region IDisposable
@@ -85,5 +83,13 @@ namespace dosymep.Revit.ServerClient.Internal {
 
         #endregion
 
+    }
+
+    internal static class HttpClientExtensions {
+        public static async Task<HttpResponseMessage> SendWithExceptionAsync(this HttpClient httpClient,
+            HttpRequestMessage requestMessage, CancellationToken cancellationToken = default) {
+            HttpResponseMessage response = await httpClient.SendAsync(requestMessage, cancellationToken);
+            return response.EnsureSuccessStatusCode();
+        }
     }
 }
