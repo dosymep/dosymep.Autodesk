@@ -30,7 +30,7 @@ namespace dosymep.Revit.ServerClient {
         /// <returns>Returns all revit contents.</returns>
         public static Task<List<FolderContents>> GetRecursiveFolderContentsAsync(this IServerClient serverClient,
             CancellationToken cancellationToken = default) {
-            return serverClient.GetRecursiveFolderContentsAsync("|");
+            return serverClient.GetRecursiveFolderContentsAsync("|", cancellationToken);
         }
 
         /// <summary>
