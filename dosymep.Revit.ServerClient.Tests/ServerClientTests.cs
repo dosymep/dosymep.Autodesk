@@ -83,5 +83,13 @@ namespace dosymep.Revit.ServerClient.Tests {
                 Assert.AreEqual((int) bitmap.Height, height);
             }
         }
+        
+        [Test]
+        public async Task GetProjectInfoTest() {
+            string folderPath = Path.Combine("UnitTests", "ModelHistoryTest.rvt");
+            ProjectInfo projectInfo = await _serverClient.GetProjectInfoAsync(folderPath);
+            
+            Assert.AreNotEqual(projectInfo, null);
+        }
     }
 }
