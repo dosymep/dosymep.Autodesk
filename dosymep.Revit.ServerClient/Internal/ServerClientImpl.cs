@@ -136,7 +136,7 @@ namespace dosymep.Revit.ServerClient.Internal {
         }
 
         /// <inheritdoc />
-        public async Task UnlockAsync(string objectPath, bool objectMustExist,
+        public async Task UnlockAsync(string objectPath, bool objectMustExist = false,
             CancellationToken cancellationToken = default) {
             if(string.IsNullOrEmpty(objectPath)) {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(objectPath));

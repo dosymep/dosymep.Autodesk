@@ -99,7 +99,7 @@ namespace dosymep.Revit.ServerClient {
         /// <param name="objectPath">The path of the server, the specified folder, or the specified model.</param>
         /// <param name="objectMustExist">Whether the folder or model must exist.</param>
         /// <param name="cancellationToken">Cancellation token.</param>
-        Task UnlockAsync(string objectPath, bool objectMustExist, CancellationToken cancellationToken = default);
+        Task UnlockAsync(string objectPath, bool objectMustExist = false, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// URL: DELETE /{objectPath}/inProgressLock
