@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 
+using Newtonsoft.Json;
+
 namespace dosymep.Revit.ServerClient.DataContracts {
     /// <summary>
     /// The server properties.
@@ -33,6 +35,7 @@ namespace dosymep.Revit.ServerClient.DataContracts {
         /// <summary>
         /// The server's access level types.
         /// </summary>
+        [JsonIgnore]
         public Dictionary<string, List<string>> AccessLevelTypes { set; get; }
     }
 }
