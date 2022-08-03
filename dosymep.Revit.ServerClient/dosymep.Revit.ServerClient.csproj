@@ -19,4 +19,8 @@
     <ItemGroup>
       <Reference Include="System.Net.Http" />
     </ItemGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
 </Project>
