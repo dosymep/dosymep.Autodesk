@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -198,5 +200,14 @@ namespace dosymep.Revit.ServerClient.Internal {
 
             await _httpClient.Post($"/{sourceObjectPath}?destinationObjectPath={destinationObjectPath}&pasteAction={pasteAction}&replaceExisting={replaceExisting}", cancellationToken);
         }
+
+        #region IDisposable
+
+        /// <inheritdoc />
+        public void Dispose() {
+            _httpClient.Dispose();
+        }
+
+        #endregion
     }
 }

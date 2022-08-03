@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace dosymep.Revit.ServerClient {
     /// <summary>
     /// Provides connection to revit server.
     /// </summary>
-    public interface IServerClient {
+    public interface IServerClient : IDisposable {
         /// <summary>
         /// The server name.
         /// </summary>
