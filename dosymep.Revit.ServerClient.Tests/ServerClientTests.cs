@@ -18,6 +18,12 @@ namespace dosymep.Revit.ServerClient.Tests {
                 .SetServerVersion("2022")
                 .Build();
         }
+        
+        [TearDown]
+        public void Teardown() {
+            _serverClient?.Dispose();
+            _serverClient = null;
+        }
 
         [Test]
         public async Task ServerPropertiesTest() {
