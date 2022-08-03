@@ -61,7 +61,7 @@ namespace dosymep.Revit.ServerClient.Tests {
         }
 
         [Test]
-        [TestCase("UnitTests/ModelHistoryTest.rvt")]
+        [TestCase(@"UnitTests\ModelHistoryTest.rvt")]
         public async Task GetModelHistoryTest(string modelPath) {
             ModelHistoryData modelHistoryData = await _serverClient.GetModelHistoryAsync(modelPath);
 
@@ -69,7 +69,7 @@ namespace dosymep.Revit.ServerClient.Tests {
         }
 
         [Test]
-        [TestCase("UnitTests/ModelHistoryTest.rvt")]
+        [TestCase(@"UnitTests\ModelHistoryTest.rvt")]
         public async Task GetModelInformationTest(string modelPath) {
             ModelInfoData modelInfoData = await _serverClient.GetModelInformationAsync(modelPath);
 
@@ -78,7 +78,7 @@ namespace dosymep.Revit.ServerClient.Tests {
         }
 
         [Test]
-        [TestCase("UnitTests/ModelHistoryTest.rvt", 96, 96)]
+        [TestCase(@"UnitTests\ModelHistoryTest.rvt", 96, 96)]
         public async Task GetModelThumbnailTest(string modelPath, int width, int height) {
             using(Stream modelThumbnail = await _serverClient.GetModelThumbnailAsync(modelPath, width, height)) {
                 BitmapSource bitmap = BitmapFrame.Create(modelThumbnail);
@@ -89,7 +89,7 @@ namespace dosymep.Revit.ServerClient.Tests {
         }
 
         [Test]
-        [TestCase("UnitTests/ModelHistoryTest.rvt")]
+        [TestCase(@"UnitTests\ModelHistoryTest.rvt")]
         public async Task GetProjectInfoTest(string modelPath) {
             ProjectInfo projectInfo = await _serverClient.GetProjectInfoAsync(modelPath);
 
