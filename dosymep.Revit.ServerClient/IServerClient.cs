@@ -6,7 +6,7 @@ using dosymep.Revit.ServerClient.DataContracts;
 
 namespace dosymep.Revit.ServerClient {
     /// <summary>
-    /// Интерфейс предоставляющий доступ к функциональности Revit Server.
+    /// Provides connection to revit server.
     /// </summary>
     public interface IServerClient {
         /// <summary>
@@ -64,7 +64,7 @@ namespace dosymep.Revit.ServerClient {
         Task<ModelInfoData> GetModelInformationAsync(string modelPath, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// URL: GET /{modelPath}/thumbnail?width={width}&height={height}
+        /// URL: GET /{modelPath}/thumbnail?width={width}&amp;height={height}
         /// Gets the thumbnail of a model.
         /// </summary>
         /// <param name="modelPath">The path of the specified model.</param>
@@ -144,7 +144,7 @@ namespace dosymep.Revit.ServerClient {
         Task DeleteOrRenameAsync(string objectPath, string newObjectName, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// URL: POST /{sourceObjectPath}?destinationObjectPath={destinationObjectPath}&pasteAction={pasteAction}&replaceExisting={replaceExisting}
+        /// URL: POST /{sourceObjectPath}?destinationObjectPath={destinationObjectPath}&amp;pasteAction={pasteAction}&amp;replaceExisting={replaceExisting}
         /// Copies or moves a folder or a model to another folder or model.
         /// </summary>
         /// <param name="sourceObjectPath">The path of the source object.</param>
