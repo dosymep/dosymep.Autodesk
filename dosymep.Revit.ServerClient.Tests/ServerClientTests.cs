@@ -54,11 +54,11 @@ namespace dosymep.Revit.ServerClient.Tests {
         [Test]
         [TestCase("Вкладки")]
         public async Task GetDirectoryInformationTest(string folderPath) {
-            DirectoryData directoryData = await _serverClient.GetDirectoryInformationAsync(folderPath);
+            FolderInfoData folderInfoData = await _serverClient.GetDirectoryInformationAsync(folderPath);
 
-            Assert.AreEqual(directoryData.Path, folderPath);
-            Assert.AreEqual(directoryData.Exists, true);
-            Assert.AreEqual(directoryData.IsFolder, true);
+            Assert.AreEqual(folderInfoData.Path, folderPath);
+            Assert.AreEqual(folderInfoData.Exists, true);
+            Assert.AreEqual(folderInfoData.IsFolder, true);
         }
 
         [Test]

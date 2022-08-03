@@ -5,7 +5,7 @@ namespace dosymep.Revit.ServerClient.DataContracts {
     /// <summary>
     /// The directory data. 
     /// </summary>
-    public class DirectoryData : RelativePathData {
+    public class FolderInfoData : RelativePathData {
         /// <summary>
         /// The creation time.
         /// </summary>

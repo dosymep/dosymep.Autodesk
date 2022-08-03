@@ -56,7 +56,7 @@ namespace dosymep.Revit.ServerClient.Internal {
         }
 
         /// <inheritdoc />
-        public async Task<DirectoryData> GetDirectoryInformationAsync(string folderPath,
+        public async Task<FolderInfoData> GetDirectoryInformationAsync(string folderPath,
             CancellationToken cancellationToken = default) {
             if(string.IsNullOrEmpty(folderPath)) {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(folderPath));
@@ -64,7 +64,7 @@ namespace dosymep.Revit.ServerClient.Internal {
 
             folderPath = UpdateFolderPath(folderPath);
             HttpResponseMessage response = await _httpClient.Get($"{folderPath}/DirectoryInfo", cancellationToken);
-            return _jsonSerialization.Deserialize<DirectoryData>(await response.Content.ReadAsStringAsync());
+            return _jsonSerialization.Deserialize<FolderInfoData>(await response.Content.ReadAsStringAsync());
         }
 
         /// <inheritdoc />

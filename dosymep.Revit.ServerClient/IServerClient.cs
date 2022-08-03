@@ -44,7 +44,7 @@ namespace dosymep.Revit.ServerClient {
         /// <param name="folderPath">The path of the specified folder.</param>
         /// <param name="cancellationToken">Cancellation token.</param>
         /// <returns>Returns the folder directory information.</returns>
-        Task<DirectoryData> GetDirectoryInformationAsync(string folderPath, CancellationToken cancellationToken = default);
+        Task<FolderInfoData> GetDirectoryInformationAsync(string folderPath, CancellationToken cancellationToken = default);
         
         /// <summary>
         /// URL: GET /{modelPath}/history
