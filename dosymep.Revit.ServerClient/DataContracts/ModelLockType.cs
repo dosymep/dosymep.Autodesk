@@ -4,12 +4,12 @@
     /// </summary>
     public enum ModelLockType {
         /// <summary>
-        /// 
+        /// Data
         /// </summary>
         Data,
         
         /// <summary>
-        /// 
+        /// Permissions
         /// </summary>
         Permissions,
     }
