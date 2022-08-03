@@ -75,5 +75,15 @@ namespace dosymep.Revit.ServerClient.Internal {
 
             return requestMessage;
         }
+
+        #region IDisposable
+
+        /// <inheritdoc />
+        public void Dispose() {
+            _httpClient.Dispose();
+        }
+
+        #endregion
+
     }
 }

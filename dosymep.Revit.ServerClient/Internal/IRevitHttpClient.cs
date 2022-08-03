@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -6,7 +7,7 @@ namespace dosymep.Revit.ServerClient.Internal {
     /// <summary>
     /// Interface HTTP connection with server.
     /// </summary>
-    internal interface IRevitHttpClient {
+    internal interface IRevitHttpClient : IDisposable {
         /// <summary>
         /// Generate GET request to the server.
         /// </summary>
