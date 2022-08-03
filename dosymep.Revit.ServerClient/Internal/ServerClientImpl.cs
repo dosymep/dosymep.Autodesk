@@ -35,7 +35,7 @@ namespace dosymep.Revit.ServerClient.Internal {
 
         /// <inheritdoc />
         public async Task<ServerProperties> GetServerPropertiesAsync(CancellationToken cancellationToken = default) {
-            HttpResponseMessage response = await _httpClient.Get("/serverProperties", cancellationToken);
+            HttpResponseMessage response = await _httpClient.Get("serverProperties", cancellationToken);
             return _jsonSerialization.Deserialize<ServerProperties>(await response.Content.ReadAsStringAsync());
         }
 
@@ -46,7 +46,7 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(folderPath));
             }
             
-            HttpResponseMessage response = await _httpClient.Get($"/{folderPath}/contents", cancellationToken);
+            HttpResponseMessage response = await _httpClient.Get($"{folderPath}/contents", cancellationToken);
             return _jsonSerialization.Deserialize<FolderContents>(await response.Content.ReadAsStringAsync());
         }
 
@@ -57,7 +57,7 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(folderPath));
             }
 
-            HttpResponseMessage response = await _httpClient.Get($"/{folderPath}/DirectoryInfo", cancellationToken);
+            HttpResponseMessage response = await _httpClient.Get($"{folderPath}/DirectoryInfo", cancellationToken);
             return _jsonSerialization.Deserialize<DirectoryData>(await response.Content.ReadAsStringAsync());
         }
 
@@ -68,7 +68,7 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(modelPath));
             }
 
-            HttpResponseMessage response = await _httpClient.Get($"/{modelPath}/history", cancellationToken);
+            HttpResponseMessage response = await _httpClient.Get($"{modelPath}/history", cancellationToken);
             return _jsonSerialization.Deserialize<ModelHistoryData>(await response.Content.ReadAsStringAsync());
         }
 
@@ -79,7 +79,7 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(modelPath));
             }
             
-            HttpResponseMessage response = await _httpClient.Get($"/{modelPath}/modelInfo", cancellationToken);
+            HttpResponseMessage response = await _httpClient.Get($"{modelPath}/modelInfo", cancellationToken);
             return _jsonSerialization.Deserialize<ModelInfoData>(await response.Content.ReadAsStringAsync());
         }
 
@@ -98,7 +98,7 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentOutOfRangeException(nameof(height));
             }
 
-            HttpResponseMessage response = await _httpClient.Get($"/{modelPath}/thumbnail?width={width}&amp;height={height}", cancellationToken);
+            HttpResponseMessage response = await _httpClient.Get($"{modelPath}/thumbnail?width={width}&amp;height={height}", cancellationToken);
             return await response.Content.ReadAsStreamAsync();
         }
 
@@ -108,7 +108,7 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentNullException(nameof(modelPath));
             }
 
-            HttpResponseMessage response = await _httpClient.Get($"/{modelPath}/projectInfo", cancellationToken);
+            HttpResponseMessage response = await _httpClient.Get($"{modelPath}/projectInfo", cancellationToken);
             response.EnsureSuccessStatusCode();
             
             return _jsonSerialization.Deserialize<ProjectInfo>(await response.Content.ReadAsStringAsync());
@@ -120,7 +120,7 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentNullException(nameof(objectPath));
             }
 
-            await _httpClient.Put($"/{objectPath}/lock", cancellationToken);
+            await _httpClient.Put($"{objectPath}/lock", cancellationToken);
         }
 
         /// <inheritdoc />
@@ -130,7 +130,7 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(objectPath));
             }
 
-            await _httpClient.Delete($"/{objectPath}/lock?objectMustExist={objectMustExist}", cancellationToken);
+            await _httpClient.Delete($"{objectPath}/lock?objectMustExist={objectMustExist}", cancellationToken);
         }
 
         /// <inheritdoc />
@@ -139,7 +139,7 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(objectPath));
             }
 
-            await _httpClient.Delete($"/{objectPath}/inProgressLock", cancellationToken);
+            await _httpClient.Delete($"{objectPath}/inProgressLock", cancellationToken);
         }
 
         /// <inheritdoc />
@@ -149,7 +149,7 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(folderPath));
             }
 
-            HttpResponseMessage response = await _httpClient.Get($"/{folderPath}/descendent/locks", cancellationToken);
+            HttpResponseMessage response = await _httpClient.Get($"{folderPath}/descendent/locks", cancellationToken);
             return _jsonSerialization.Deserialize<LockedDescendentsData>(await response.Content.ReadAsStringAsync());
         }
 
@@ -160,7 +160,7 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(folderPath));
             }
 
-            HttpResponseMessage response = await _httpClient.Get($"/{folderPath}/descendent/locks", cancellationToken);
+            HttpResponseMessage response = await _httpClient.Get($"{folderPath}/descendent/locks", cancellationToken);
             return _jsonSerialization.Deserialize<UnlockDescendentsData>(await response.Content.ReadAsStringAsync());
         }
 
@@ -170,7 +170,7 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(folderPath));
             }
 
-            await _httpClient.Put($"/{folderPath}", cancellationToken);
+            await _httpClient.Put($"{folderPath}", cancellationToken);
         }
 
         /// <inheritdoc />
@@ -184,7 +184,7 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(newObjectName));
             }
 
-            await _httpClient.Delete($"/{objectPath}?newObjectName={newObjectName}", cancellationToken);
+            await _httpClient.Delete($"{objectPath}?newObjectName={newObjectName}", cancellationToken);
         }
 
         /// <inheritdoc />
@@ -198,7 +198,7 @@ namespace dosymep.Revit.ServerClient.Internal {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(destinationObjectPath));
             }
 
-            await _httpClient.Post($"/{sourceObjectPath}?destinationObjectPath={destinationObjectPath}&pasteAction={pasteAction}&replaceExisting={replaceExisting}", cancellationToken);
+            await _httpClient.Post($"{sourceObjectPath}?destinationObjectPath={destinationObjectPath}&pasteAction={pasteAction}&replaceExisting={replaceExisting}", cancellationToken);
         }
 
         #region IDisposable
