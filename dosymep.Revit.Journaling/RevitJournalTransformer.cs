@@ -28,7 +28,6 @@ namespace dosymep.Revit.Journaling {
                 .AppendLine(string.Join(Environment.NewLine,
                     journalElements.Select(item => item.Reduce<string, JournalElement>(this))
                         .Where(item => !string.IsNullOrEmpty(item))))
-                .AppendLine()
                 .AppendLine(RevitJournalTemplates.ExitApplication);
 
             return builder.ToString();
