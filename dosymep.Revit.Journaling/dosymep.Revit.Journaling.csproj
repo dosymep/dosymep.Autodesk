@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <Authors>dosymep</Authors>
+        <RepositoryType>Git</RepositoryType>
+        <PackageTags>dosymep, revit, journaling</PackageTags>
+        <PackageProjectUrl>https://github.com/dosymep/dosymep.Revit.Journaling</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/dosymep/dosymep.Revit.Journaling</RepositoryUrl>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\dosymep.Revit.Journaling.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\dosymep.Revit.Journaling.xml</DocumentationFile>
+    </PropertyGroup>
+
+</Project>
