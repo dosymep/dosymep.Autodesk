@@ -19,7 +19,7 @@ Set Jrn = CrsJournalScript";
         /// <param name="{0}">PerformAutomaticActionInErrorDialog.</param>
         /// <param name="{1}">PermissiveJournal.</param>
         public static readonly string InitDebug
-            = @"' Добавление отладочных опций
+            = @"' Initialization debug mode
 Jrn.Directive ""DebugMode"", ""PerformAutomaticActionInErrorDialog"", True
 Jrn.Directive ""DebugMode"", ""PermissiveJournal"", True";
 
