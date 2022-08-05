@@ -22,8 +22,37 @@ namespace dosymep.Revit.Journaling {
         /// <param name="journalElements">Journal elements.</param>
         /// <returns>Returns a string representation of the Revit Journal.</returns>
         public string Transform(IEnumerable<JournalElement> journalElements) {
+            return Transform(DateTimeOffset.Now, journalElements);
+        }
+        
+        /// <summary>
+        /// Consistently transforms journal elements.
+        /// </summary>
+        /// <param name="journalElements">Journal elements.</param>
+        /// <returns>Returns a string representation of the Revit Journal.</returns>
+        public string Transform(params JournalElement[] journalElements) {
+            return Transform(DateTimeOffset.Now, journalElements.AsEnumerable());
+        }
+
+        /// <summary>
+        /// Consistently transforms journal elements. (for internal use)
+        /// </summary>
+        /// <param name="dateTimeOffset">Date time generated revit journal.</param>
+        /// <param name="journalElements">Journal elements.</param>
+        /// <returns>Returns a string representation of the Revit Journal.</returns>
+        public string Transform(DateTimeOffset dateTimeOffset, params JournalElement[] journalElements) {
+            return Transform(dateTimeOffset, journalElements.AsEnumerable());
+        }
+
+        /// <summary>
+        /// Consistently transforms journal elements. (for internal use)
+        /// </summary>
+        /// <param name="dateTimeOffset">Date time generated revit journal.</param>
+        /// <param name="journalElements">Journal elements.</param>
+        /// <returns>Returns a string representation of the Revit Journal.</returns>
+        public string Transform(DateTimeOffset dateTimeOffset, IEnumerable<JournalElement> journalElements) {
             var builder = new StringBuilder()
-                .AppendLine(string.Format(RevitJournalTemplates.Init, DateTimeOffset.Now))
+                .AppendLine(string.Format(RevitJournalTemplates.Init, dateTimeOffset))
                 .AppendLine(RevitJournalTemplates.InitDebug)
                 .AppendLine(string.Join(Environment.NewLine,
                     journalElements.Select(item => item.Reduce<string, JournalElement>(this))
@@ -31,15 +60,6 @@ namespace dosymep.Revit.Journaling {
                 .AppendLine(RevitJournalTemplates.ExitApplication);
 
             return builder.ToString();
-        }
-
-        /// <summary>
-        /// Consistently transforms journal elements.
-        /// </summary>
-        /// <param name="journalElements">Journal elements.</param>
-        /// <returns>Returns a string representation of the Revit Journal.</returns>
-        public string Transform(params JournalElement[] journalElements) {
-            return Transform(journalElements.AsEnumerable());
         }
 
         /// <summary>
