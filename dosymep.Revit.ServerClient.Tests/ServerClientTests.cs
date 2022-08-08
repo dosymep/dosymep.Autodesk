@@ -139,8 +139,9 @@ namespace dosymep.Revit.ServerClient.Tests {
         [Test]
         [Order(2)]
         [TestCase(@"UnitTests\RenamedFolder")]
-        public void RemoveObjectTest(string folderPath) {
-            Assert.ThrowsAsync<HttpRequestException>(async () => await _serverClient.RemoveObjectAsync(folderPath));
+        public async Task RemoveObjectTest(string folderPath) {
+            await _serverClient.RemoveObjectAsync(folderPath);
+            Assert.ThrowsAsync<HttpRequestException>(async () => await ExistsFolder(folderPath));
         }
 
         public async Task<bool> ExistsFolder(string folderPath) {
