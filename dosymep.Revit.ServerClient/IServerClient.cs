@@ -137,12 +137,20 @@ namespace dosymep.Revit.ServerClient {
 
         /// <summary>
         /// URL: DELETE /{objectPath}?newObjectName={newObjectName}
-        /// Rename or delete a folder or model.
+        /// Rename a folder or model.
         /// </summary>
         /// <param name="objectPath">The path of the specified folder or model.</param>
         /// <param name="newObjectName">New name for the folder or model. Empty value means the object will be deleted.</param>
         /// <param name="cancellationToken">Cancellation token.</param>
-        Task DeleteOrRenameAsync(string objectPath, string newObjectName, CancellationToken cancellationToken = default);
+        Task RenameObjectAsync(string objectPath, string newObjectName, CancellationToken cancellationToken = default);
+        
+        /// <summary>
+        /// URL: DELETE /{objectPath}?newObjectName={newObjectName}
+        /// Remove a folder or model.
+        /// </summary>
+        /// <param name="objectPath">The path of the specified folder or model.</param>
+        /// <param name="cancellationToken">Cancellation token.</param>
+        Task RemoveObjectAsync(string objectPath, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// URL: POST /{sourceObjectPath}?destinationObjectPath={destinationObjectPath}&amp;pasteAction={pasteAction}&amp;replaceExisting={replaceExisting}

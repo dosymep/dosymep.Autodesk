@@ -191,7 +191,7 @@ namespace dosymep.Revit.ServerClient.Internal {
         }
 
         /// <inheritdoc />
-        public async Task DeleteOrRenameAsync(string objectPath, string newObjectName,
+        public async Task RenameObjectAsync(string objectPath, string newObjectName,
             CancellationToken cancellationToken = default) {
             if(string.IsNullOrEmpty(objectPath)) {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(objectPath));
@@ -203,6 +203,16 @@ namespace dosymep.Revit.ServerClient.Internal {
 
             objectPath = UpdateFolderPath(objectPath);
             await _httpClient.Delete($"{objectPath}?newObjectName={newObjectName}", cancellationToken);
+        }
+
+        /// <inheritdoc />
+        public async Task RemoveObjectAsync(string objectPath, CancellationToken cancellationToken = default) {
+            if(string.IsNullOrEmpty(objectPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(objectPath));
+            }
+
+            objectPath = UpdateFolderPath(objectPath);
+            await _httpClient.Delete($"{objectPath}?newObjectName={null}", cancellationToken);
         }
 
         /// <inheritdoc />
