@@ -113,8 +113,8 @@ namespace dosymep.Revit.ServerClient.Internal {
 
         /// <inheritdoc />
         public async Task<ProjectInfo> GetProjectInfoAsync(string modelPath, CancellationToken cancellationToken = default) {
-            if(modelPath == null) {
-                throw new ArgumentNullException(nameof(modelPath));
+            if(string.IsNullOrEmpty(modelPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(modelPath));
             }
 
             modelPath = UpdateFolderPath(modelPath);
@@ -127,8 +127,8 @@ namespace dosymep.Revit.ServerClient.Internal {
 
         /// <inheritdoc />
         public async Task LockAsync(string objectPath, CancellationToken cancellationToken = default) {
-            if(objectPath == null) {
-                throw new ArgumentNullException(nameof(objectPath));
+            if(string.IsNullOrEmpty(objectPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(objectPath));
             }
 
             objectPath = UpdateFolderPath(objectPath);
