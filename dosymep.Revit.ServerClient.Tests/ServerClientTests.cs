@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
@@ -103,7 +104,7 @@ namespace dosymep.Revit.ServerClient.Tests {
             Assert.AreNotEqual(folderContents, null);
             Assert.Greater(folderContents.Folders.Count, 0);
         }
-        
+
         [Test]
         [TestCase()]
         public async Task RecursiveFolderContentsTest() {
@@ -117,6 +118,34 @@ namespace dosymep.Revit.ServerClient.Tests {
         public async Task RecursiveFolderContentsTest(string folderPath) {
             List<FolderContents> folderContents = await _serverClient.GetRecursiveFolderContentsAsync(folderPath);
             Assert.Greater(folderContents.Count, 0);
+        }
+
+        [Test]
+        [Order(0)]
+        [TestCase(@"UnitTests\NewFolder")]
+        public async Task CreateNewFolderTest(string folderPath) {
+            await _serverClient.CreateNewFolderAsync(folderPath);
+            Assert.IsTrue(await ExistsFolder(folderPath));
+        }
+
+        [Test]
+        [Order(1)]
+        [TestCase(@"UnitTests\NewFolder", @"UnitTests\RenamedFolder", @"RenamedFolder")]
+        public async Task RenameObjectTest(string folderPath, string newFolderPath, string renamedFolderName) {
+            await _serverClient.RenameObjectAsync(folderPath, renamedFolderName);
+            Assert.IsTrue(await ExistsFolder(newFolderPath));
+        }
+
+        [Test]
+        [Order(2)]
+        [TestCase(@"UnitTests\RenamedFolder")]
+        public void RemoveObjectTest(string folderPath) {
+            Assert.ThrowsAsync<HttpRequestException>(async () => await _serverClient.RemoveObjectAsync(folderPath));
+        }
+
+        public async Task<bool> ExistsFolder(string folderPath) {
+            FolderInfoData folderInfo = await _serverClient.GetFolderInfoAsync(folderPath);
+            return folderInfo.Exists;
         }
     }
 }
