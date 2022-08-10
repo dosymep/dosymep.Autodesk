@@ -42,14 +42,22 @@ namespace dosymep.Revit.ServerClient {
         /// <returns>Returns all revit server contents.</returns>
         public static async Task<List<FolderContents>> GetRecursiveFolderContentsAsync(this IServerClient serverClient,
             string folderPath, CancellationToken cancellationToken = default) {
-            FolderContents contents = await serverClient.GetFolderContentsAsync(folderPath, cancellationToken);
+            try {
+                FolderContents contents = await serverClient.GetFolderContentsAsync(folderPath, cancellationToken);
 
-            IEnumerable<Task<List<FolderContents>>> tasks = contents.Folders
-                .Select(item =>
-                    serverClient.GetRecursiveFolderContentsAsync(Path.Combine(contents.Path, item.Name), cancellationToken));
+                IEnumerable<Task<List<FolderContents>>> tasks = contents.Folders
+                    .Select(item =>
+                        serverClient.GetRecursiveFolderContentsAsync(Path.Combine(contents.Path, item.Name),
+                            cancellationToken));
 
-            List<FolderContents>[] result = await Task.WhenAll(tasks);
-            return result.SelectMany(item => item).Prepend(contents).ToList();
+                List<FolderContents>[] result = await Task.WhenAll(tasks);
+                return result.SelectMany(item => item).Prepend(contents).ToList();
+            } catch {
+                // RS is not deterministic because
+                // it can return folder paths
+                // that throw a 404 not found exception
+                return new List<FolderContents>();
+            }
         }
     }
 }
