@@ -13,11 +13,24 @@ namespace dosymep.Revit.ServerClient.Tests {
     public class ServerClientTests {
         private IServerClient _serverClient;
 
+        private static readonly string _serverName = "10.2.0.144";
+        private static readonly string _serverVersion = "2022";
+        private static readonly object[] _visibleModelPathCases = new object[] {
+            new object[] {
+                new FolderContents() {Path = @"Folder1"}, new ModelData() {Name = "Model1"},
+                $@"RSN://{_serverName}\Folder1\Model1"
+            },
+            new object[] {
+                new FolderContents() {Path = @"Folder2\Folder3"}, new FolderData() {Name = "Folder4"},
+                $@"RSN://{_serverName}\Folder2\Folder3\Folder4"
+            },
+        };
+
         [SetUp]
         public void Setup() {
             _serverClient = new ServerClientBuilder()
-                .SetServerName("10.2.0.144")
-                .SetServerVersion("2022")
+                .SetServerName(_serverName)
+                .SetServerVersion(_serverVersion)
                 .Build();
         }
 
@@ -142,6 +155,13 @@ namespace dosymep.Revit.ServerClient.Tests {
         public async Task RemoveObjectTest(string folderPath) {
             await _serverClient.RemoveObjectAsync(folderPath);
             Assert.ThrowsAsync<HttpRequestException>(async () => await ExistsFolder(folderPath));
+        }
+
+        [Test]
+        [TestCaseSource(nameof(_visibleModelPathCases))]
+        public void GetVisibleModelPathTest(FolderContents folderContents, ObjectData objectData, string result) {
+            string visibleModelPath = _serverClient.GetVisibleModelPath(folderContents, objectData);
+            Assert.AreEqual(visibleModelPath, result);
         }
 
         public async Task<bool> ExistsFolder(string folderPath) {
