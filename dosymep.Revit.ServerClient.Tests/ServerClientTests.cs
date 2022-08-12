@@ -35,8 +35,8 @@ namespace dosymep.Revit.ServerClient.Tests {
 
         private static readonly object[] _visibleModelPathCases = new object[] {
             new object[] {
-                new FolderContents() {Path = @"Folder1"}, new ModelData() {Name = "Model1"},
-                $@"RSN://{_serverName}\Folder1\Model1"
+                $@"RSN://{_serverName}\Folder1\Model1", new FolderContents() {Path = @"Folder1"},
+                new ModelData() {Name = "Model1"}
             }
         };
 
@@ -179,7 +179,7 @@ namespace dosymep.Revit.ServerClient.Tests {
 
         [Test]
         [TestCaseSource(nameof(_visibleModelPathCases))]
-        public void GetVisibleModelPathTest(FolderContents folderContents, ModelData objectData, string result) {
+        public void GetVisibleModelPathTest(string result, FolderContents folderContents, ModelData objectData) {
             string visibleModelPath = _serverClient.GetVisibleModelPath(folderContents, objectData);
             Assert.AreEqual(visibleModelPath, result);
         }
