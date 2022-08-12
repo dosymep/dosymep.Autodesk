@@ -12,6 +12,16 @@ namespace dosymep.Revit.ServerClient {
     /// </summary>
     public static class ServerClientExtensions {
         /// <summary>
+        /// Returns relative model path.
+        /// </summary>
+        /// <param name="folderContents">Parent folder contents.</param>
+        /// <param name="objectData">Object data.</param>
+        /// <returns>Returns relative model path.</returns>
+        public static string GetRelativeModelPath(this FolderContents folderContents, ObjectData objectData) {
+            return Path.Combine(folderContents.Path, objectData.Name);
+        }
+
+        /// <summary>
         /// Returns root folder contents.
         /// </summary>
         /// <param name="serverClient">Server client connection.</param>
@@ -47,7 +57,7 @@ namespace dosymep.Revit.ServerClient {
 
                 IEnumerable<Task<List<FolderContents>>> tasks = contents.Folders
                     .Select(item =>
-                        serverClient.GetRecursiveFolderContentsAsync(Path.Combine(contents.Path, item.Name),
+                        serverClient.GetRecursiveFolderContentsAsync(contents.GetRelativeModelPath(item),
                             cancellationToken));
 
                 List<FolderContents>[] result = await Task.WhenAll(tasks);
@@ -69,7 +79,7 @@ namespace dosymep.Revit.ServerClient {
         /// <returns>Returns visible model path for RS.</returns>
         public static string GetVisibleModelPath(this IServerClient serverClient,
             FolderContents folderContents, ObjectData objectData) {
-            return Path.Combine($"RSN://{serverClient.ServerName}", folderContents.Path, objectData.Name);
+            return Path.Combine($"RSN://{serverClient.ServerName}", folderContents.GetRelativeModelPath(objectData));
         }
     }
 }
