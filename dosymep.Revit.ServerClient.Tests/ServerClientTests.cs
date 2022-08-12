@@ -15,6 +15,24 @@ namespace dosymep.Revit.ServerClient.Tests {
 
         private static readonly string _serverName = "10.2.0.144";
         private static readonly string _serverVersion = "2022";
+
+        private static readonly object[] _relativePathCases = new object[] {
+            new object[] {
+                $@"Folder1\Folder2", new FolderContents() {Path = @"Folder1"}, new FolderData() {Name = "Folder2"}
+            },
+            new object[] {
+                $@"Folder1\Model1", new FolderContents() {Path = @"Folder1"}, new ModelData() {Name = "Model1"}
+            },
+            new object[] {
+                $@"Folder1\Folder2\Folder3", new FolderContents() {Path = @"Folder1\Folder2"},
+                new FolderData() {Name = "Folder3"}
+            },
+            new object[] {
+                $@"Folder1\Folder2\Model1", new FolderContents() {Path = @"Folder1\Folder2"},
+                new ModelData() {Name = "Model1"}
+            }
+        };
+
         private static readonly object[] _visibleModelPathCases = new object[] {
             new object[] {
                 new FolderContents() {Path = @"Folder1"}, new ModelData() {Name = "Model1"},
@@ -151,6 +169,12 @@ namespace dosymep.Revit.ServerClient.Tests {
         public async Task RemoveObjectTest(string folderPath) {
             await _serverClient.RemoveObjectAsync(folderPath);
             Assert.ThrowsAsync<HttpRequestException>(async () => await ExistsFolder(folderPath));
+        }
+
+        [Test]
+        [TestCaseSource(nameof(_relativePathCases))]
+        public void GetRelativePathCasesTest(string result, FolderContents folderContents, ObjectData objectData) {
+            Assert.AreEqual(folderContents.GetRelativeModelPath(objectData), result);
         }
 
         [Test]
