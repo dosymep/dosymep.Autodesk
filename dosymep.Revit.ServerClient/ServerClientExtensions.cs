@@ -59,5 +59,17 @@ namespace dosymep.Revit.ServerClient {
                 return new List<FolderContents>();
             }
         }
+
+        /// <summary>
+        /// Returns visible model path for RS.
+        /// </summary>
+        /// <param name="serverClient">Server client connection.</param>
+        /// <param name="folderContents">Parent folder contents.</param>
+        /// <param name="objectData">Object data.</param>
+        /// <returns>Returns visible model path for RS.</returns>
+        public static string GetVisibleModelPath(this IServerClient serverClient,
+            FolderContents folderContents, ObjectData objectData) {
+            return Path.Combine($"RSN://{serverClient.ServerName}", folderContents.Path, objectData.Name);
+        }
     }
 }
