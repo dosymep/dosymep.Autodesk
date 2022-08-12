@@ -1,10 +1,21 @@
 ﻿using System.Collections.Generic;
 
+using Newtonsoft.Json;
+
 namespace dosymep.Revit.ServerClient.DataContracts {
     /// <summary>
     /// The folder contents.
     /// </summary>
     public class FolderContents : RelativePathData {
+        /// <summary>
+        /// Constructs folder contents.
+        /// </summary>
+        /// <param name="path">The folder path..</param>
+        [JsonConstructor]
+        public FolderContents(string path)
+            : base(path) {
+        }
+        
         /// <summary>
         /// The list of sub-folders.
         /// </summary>

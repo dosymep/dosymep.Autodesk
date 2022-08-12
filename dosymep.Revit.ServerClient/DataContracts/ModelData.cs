@@ -1,10 +1,21 @@
 ﻿using System.Collections.Generic;
 
+using Newtonsoft.Json;
+
 namespace dosymep.Revit.ServerClient.DataContracts {
     /// <summary>
     /// The model data.
     /// </summary>
     public class ModelData : ObjectData {
+        /// <summary>
+        /// Constructs model data.
+        /// </summary>
+        /// <param name="name">The name of folder/model.</param>
+        [JsonConstructor]
+        public ModelData(string name)
+            : base(name) {
+        }
+        
         /// <summary>
         /// The size in bytes of the model.
         /// </summary>

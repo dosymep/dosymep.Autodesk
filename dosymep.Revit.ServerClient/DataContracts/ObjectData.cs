@@ -1,15 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using Newtonsoft.Json;
+
 namespace dosymep.Revit.ServerClient.DataContracts {
     /// <summary>
     /// The object data.
     /// </summary>
     public abstract class ObjectData : IEquatable<ObjectData> {
         /// <summary>
+        /// Constructs object data.
+        /// </summary>
+        /// <param name="name">The name of folder/model.</param>
+        [JsonConstructor]
+        protected ObjectData(string name) {
+            Name = name;
+        }
+
+        /// <summary>
         /// The name of folder/model.
         /// </summary>
-        public string Name { set; get; }
+        public string Name { get; }
 
         /// <summary>
         /// The lock state of the folder/model.

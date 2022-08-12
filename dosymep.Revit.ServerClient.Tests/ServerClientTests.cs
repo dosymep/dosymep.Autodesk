@@ -17,26 +17,17 @@ namespace dosymep.Revit.ServerClient.Tests {
         private static readonly string _serverVersion = "2022";
 
         private static readonly object[] _relativePathCases = new object[] {
+            new object[] {$@"Folder1\Folder2", new FolderContents(@"Folder1"), new FolderData("Folder2")},
+            new object[] {$@"Folder1\Model1", new FolderContents(@"Folder1"), new ModelData("Model1")},
             new object[] {
-                $@"Folder1\Folder2", new FolderContents() {Path = @"Folder1"}, new FolderData() {Name = "Folder2"}
+                $@"Folder1\Folder2\Folder3", new FolderContents(@"Folder1\Folder2"), new FolderData("Folder3")
             },
-            new object[] {
-                $@"Folder1\Model1", new FolderContents() {Path = @"Folder1"}, new ModelData() {Name = "Model1"}
-            },
-            new object[] {
-                $@"Folder1\Folder2\Folder3", new FolderContents() {Path = @"Folder1\Folder2"},
-                new FolderData() {Name = "Folder3"}
-            },
-            new object[] {
-                $@"Folder1\Folder2\Model1", new FolderContents() {Path = @"Folder1\Folder2"},
-                new ModelData() {Name = "Model1"}
-            }
+            new object[] {$@"Folder1\Folder2\Model1", new FolderContents(@"Folder1\Folder2"), new ModelData("Model1")}
         };
 
         private static readonly object[] _visibleModelPathCases = new object[] {
             new object[] {
-                $@"RSN://{_serverName}\Folder1\Model1", new FolderContents() {Path = @"Folder1"},
-                new ModelData() {Name = "Model1"}
+                $@"RSN://{_serverName}\Folder1\Model1", new FolderContents(@"Folder1"), new ModelData("Model1")
             }
         };
 

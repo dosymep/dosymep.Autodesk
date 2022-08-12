@@ -1,14 +1,25 @@
 ﻿using System;
 
+using Newtonsoft.Json;
+
 namespace dosymep.Revit.ServerClient.DataContracts {
     /// <summary>
     /// The relative path data.
     /// </summary>
-    public class RelativePathData : IEquatable<RelativePathData> {
+    public abstract class RelativePathData : IEquatable<RelativePathData> {
+        /// <summary>
+        /// Constructs relative path data.
+        /// </summary>
+        /// <param name="path">The folder path..</param>
+        [JsonConstructor]
+        protected RelativePathData(string path) {
+            Path = path;
+        }
+
         /// <summary>
         /// The folder path.
         /// </summary>
-        public string Path { set; get; }
+        public string Path { get; }
 
         /// <inheritdoc />
         public override string ToString() {

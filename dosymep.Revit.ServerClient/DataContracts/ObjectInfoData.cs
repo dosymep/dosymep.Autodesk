@@ -1,10 +1,21 @@
 ﻿using System;
 
+using Newtonsoft.Json;
+
 namespace dosymep.Revit.ServerClient.DataContracts {
     /// <summary>
     /// The object info data.
     /// </summary>
-    public class ObjectInfoData : RelativePathData {
+    public abstract class ObjectInfoData : RelativePathData {
+        /// <summary>
+        /// Constructs object info data.
+        /// </summary>
+        /// <param name="path">The folder path..</param>
+        [JsonConstructor]
+        protected ObjectInfoData(string path)
+            : base(path) {
+        }
+        
         /// <summary>
         /// The creation time.
         /// </summary>

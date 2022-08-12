@@ -1,12 +1,23 @@
-﻿namespace dosymep.Revit.ServerClient.DataContracts {
+﻿using Newtonsoft.Json;
+
+namespace dosymep.Revit.ServerClient.DataContracts {
     /// <summary>
     /// The file data.
     /// </summary>
     public class FileData {
         /// <summary>
+        /// Constructs file data.
+        /// </summary>
+        /// <param name="name">Name</param>
+        [JsonConstructor]
+        public FileData(string name) {
+            Name = name;
+        }
+        
+        /// <summary>
         /// Name
         /// </summary>
-        public string Name { set; get; }
+        public string Name { get; }
 
         /// <summary>
         /// Size

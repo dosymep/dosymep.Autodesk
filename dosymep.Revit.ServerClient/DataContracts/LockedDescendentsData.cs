@@ -1,10 +1,21 @@
 ﻿using System.Collections.Generic;
 
+using Newtonsoft.Json;
+
 namespace dosymep.Revit.ServerClient.DataContracts {
     /// <summary>
     /// The locked descendents data.
     /// </summary>
     public class LockedDescendentsData : RelativePathData {
+        /// <summary>
+        /// Constructs locked descendents data.
+        /// </summary>
+        /// <param name="path">The folder path..</param>
+        [JsonConstructor]
+        public LockedDescendentsData(string path)
+            : base(path) {
+        }
+        
         /// <summary>
         /// The list of paths of locked descendents.
         /// </summary>

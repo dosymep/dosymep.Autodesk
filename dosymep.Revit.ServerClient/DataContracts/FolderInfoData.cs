@@ -1,11 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using Newtonsoft.Json;
+
 namespace dosymep.Revit.ServerClient.DataContracts {
     /// <summary>
     /// The directory data. 
     /// </summary>
     public class FolderInfoData : ObjectInfoData {
+        /// <summary>
+        /// Constructs folder info data.
+        /// </summary>
+        /// <param name="path">The folder path..</param>
+        [JsonConstructor]
+        protected FolderInfoData(string path)
+            : base(path) {
+        }
+        
         /// <summary>
         /// The size of the folder.
         /// </summary>
