@@ -78,7 +78,7 @@ namespace dosymep.Revit.ServerClient {
         /// <param name="objectData">Object data.</param>
         /// <returns>Returns visible model path for RS.</returns>
         public static string GetVisibleModelPath(this IServerClient serverClient,
-            FolderContents folderContents, ObjectData objectData) {
+            FolderContents folderContents, ModelData objectData) {
             return Path.Combine($"RSN://{serverClient.ServerName}", folderContents.GetRelativeModelPath(objectData));
         }
     }
