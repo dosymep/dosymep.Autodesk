@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <Authors>dosymep</Authors>
+        <PackageProjectUrl>https://github.com/dosymep/dosymep.Revit.FileInfo</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/dosymep/dosymep.Revit.FileInfo</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <PackageTags>dosymep, revit</PackageTags>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\dosymep.Revit.BinaryFileInfo.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\dosymep.Revit.BinaryFileInfo.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="OpenMcdf" Version="2.2.1.9" />
+    </ItemGroup>
+
+</Project>
