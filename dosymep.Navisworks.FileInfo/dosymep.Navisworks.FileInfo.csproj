@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <Authors>dosymep</Authors>
+        <PackageProjectUrl>https://github.com/dosymep/dosymep.Autodesk/dosymep.Navisworks.FileInfo</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/dosymep/dosymep.Autodesk</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <PackageTags>dosymep, navisworks, files</PackageTags>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <DocumentationFile>bin\Debug\dosymep.Navisworks.FileInfo.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DocumentationFile>bin\Release\dosymep.Navisworks.FileInfo.xml</DocumentationFile>
+    </PropertyGroup>
+
+</Project>

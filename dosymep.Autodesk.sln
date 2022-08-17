@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.Revit.Journaling.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.Autodesk.FileInfo", "dosymep.Autodesk.FileInfo\dosymep.Autodesk.FileInfo.csproj", "{5E9539D2-1E4E-43BC-B334-E055AF0BEEDE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.Navisworks.FileInfo", "dosymep.Navisworks.FileInfo\dosymep.Navisworks.FileInfo.csproj", "{8E52274F-1E5E-4BF7-B134-D83D6FB1E019}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,5 +49,9 @@ Global
 		{5E9539D2-1E4E-43BC-B334-E055AF0BEEDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E9539D2-1E4E-43BC-B334-E055AF0BEEDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E9539D2-1E4E-43BC-B334-E055AF0BEEDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E52274F-1E5E-4BF7-B134-D83D6FB1E019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E52274F-1E5E-4BF7-B134-D83D6FB1E019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E52274F-1E5E-4BF7-B134-D83D6FB1E019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E52274F-1E5E-4BF7-B134-D83D6FB1E019}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
