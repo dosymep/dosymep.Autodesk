@@ -1,6 +1,16 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.Autodesk", "dosymep.Autodesk\dosymep.Autodesk.csproj", "{E6A179A7-14C0-47E5-805D-7A093B7807BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.Revit.FileInfo", "dosymep.Revit.FileInfo\dosymep.Revit.FileInfo.csproj", "{9087495A-9626-4DD4-B2BB-CDB3FF2FA5F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.Revit.Journaling", "dosymep.Revit.Journaling\dosymep.Revit.Journaling.csproj", "{98A046DC-7F86-4DD4-9343-9ED2710C3C78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.Revit.ServerClient", "dosymep.Revit.ServerClient\dosymep.Revit.ServerClient.csproj", "{0C07D280-33D3-4F40-A0E0-B72C535724BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.Revit.ServerClient.Tests", "dosymep.Revit.ServerClient.Tests\dosymep.Revit.ServerClient.Tests.csproj", "{5160A029-F6FC-4B37-A654-135F2BAF2F18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.Revit.Journaling.Tests", "dosymep.Revit.Journaling.Tests\dosymep.Revit.Journaling.Tests.csproj", "{5298FEBE-CC93-4CE9-B17E-1DB1CE74CDE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -11,5 +21,25 @@ Global
 		{E6A179A7-14C0-47E5-805D-7A093B7807BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6A179A7-14C0-47E5-805D-7A093B7807BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6A179A7-14C0-47E5-805D-7A093B7807BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9087495A-9626-4DD4-B2BB-CDB3FF2FA5F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9087495A-9626-4DD4-B2BB-CDB3FF2FA5F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9087495A-9626-4DD4-B2BB-CDB3FF2FA5F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9087495A-9626-4DD4-B2BB-CDB3FF2FA5F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98A046DC-7F86-4DD4-9343-9ED2710C3C78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98A046DC-7F86-4DD4-9343-9ED2710C3C78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98A046DC-7F86-4DD4-9343-9ED2710C3C78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98A046DC-7F86-4DD4-9343-9ED2710C3C78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C07D280-33D3-4F40-A0E0-B72C535724BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C07D280-33D3-4F40-A0E0-B72C535724BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C07D280-33D3-4F40-A0E0-B72C535724BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C07D280-33D3-4F40-A0E0-B72C535724BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5160A029-F6FC-4B37-A654-135F2BAF2F18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5160A029-F6FC-4B37-A654-135F2BAF2F18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5160A029-F6FC-4B37-A654-135F2BAF2F18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5160A029-F6FC-4B37-A654-135F2BAF2F18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5298FEBE-CC93-4CE9-B17E-1DB1CE74CDE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5298FEBE-CC93-4CE9-B17E-1DB1CE74CDE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5298FEBE-CC93-4CE9-B17E-1DB1CE74CDE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5298FEBE-CC93-4CE9-B17E-1DB1CE74CDE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
