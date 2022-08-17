@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <Authors>dosymep</Authors>
+        <PackageProjectUrl>https://github.com/dosymep/dosymep.Revit.ServerClient</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/dosymep/dosymep.Revit.ServerClient</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <PackageTags>dosymep</PackageTags>
+    </PropertyGroup>
+    
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <DocumentationFile>bin\Debug\dosymep.Revit.ServerClient.xml</DocumentationFile>
+    </PropertyGroup>
+    
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DocumentationFile>bin\Release\dosymep.Revit.ServerClient.xml</DocumentationFile>
+    </PropertyGroup>
+    
+    <ItemGroup>
+      <Reference Include="System.Net.Http" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+</Project>
