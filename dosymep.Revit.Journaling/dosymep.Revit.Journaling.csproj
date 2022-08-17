@@ -4,9 +4,9 @@
         <TargetFramework>net48</TargetFramework>
         <Authors>dosymep</Authors>
         <RepositoryType>Git</RepositoryType>
+        <PackageProjectUrl>https://github.com/dosymep/dosymep.Autodesk/dosymep.Revit.Journaling</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/dosymep/dosymep.Autodesk</RepositoryUrl>        
         <PackageTags>dosymep, revit, journaling</PackageTags>
-        <PackageProjectUrl>https://github.com/dosymep/dosymep.Revit.Journaling</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/dosymep/dosymep.Revit.Journaling</RepositoryUrl>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">

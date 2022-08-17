@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>net48</TargetFramework>
-        <Authors>dosymep</Authors>
-        <PackageProjectUrl>https://github.com/dosymep/dosymep.Revit.ServerClient</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/dosymep/dosymep.Revit.ServerClient</RepositoryUrl>
+        <Authors>dosymep</Authors>        
         <RepositoryType>Git</RepositoryType>
-        <PackageTags>dosymep</PackageTags>
+        <RepositoryUrl>https://github.com/dosymep/dosymep.Autodesk</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/dosymep/dosymep.Autodesk.dosymep.Revit.ServerClient</PackageProjectUrl>
+        <PackageTags>dosymep, revit, revit server</PackageTags>
     </PropertyGroup>
     
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
