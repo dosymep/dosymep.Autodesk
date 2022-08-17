@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dosymep.Revit.FileInfo", "dosymep.Revit.FileInfo\dosymep.Revit.FileInfo.csproj", "{527F4AF4-1F2F-40F8-93C6-627A40CA369A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8BB2C9A8-5168-4FFF-B6E3-A006FBF75709}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		CONTRIBUTING.md = CONTRIBUTING.md
+		CREDITS.md = CREDITS.md
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{527F4AF4-1F2F-40F8-93C6-627A40CA369A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{527F4AF4-1F2F-40F8-93C6-627A40CA369A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{527F4AF4-1F2F-40F8-93C6-627A40CA369A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{527F4AF4-1F2F-40F8-93C6-627A40CA369A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85775D8E-09E2-4CAE-BA5D-028D44A46537}
+	EndGlobalSection
+EndGlobal
