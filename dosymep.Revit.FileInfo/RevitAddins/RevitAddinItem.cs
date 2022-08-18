@@ -9,6 +9,11 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
     /// </summary>
     public abstract class RevitAddinItem {
         /// <summary>
+        /// AddInTypeTag
+        /// </summary>
+        public static readonly string AddInTypeTag = "Type";
+        
+        /// <summary>
         /// NameTag
         /// </summary>
         public static readonly string NameTag = "Name";
@@ -110,6 +115,8 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         /// </summary>
         /// <param name="addinItemNode">Root node.</param>
         public void FillXmlNode(XmlNode addinItemNode) {
+            addinItemNode.CreateAndAppendAttribute(AddInTypeTag, TypeName);
+            
             addinItemNode.CreateAndAppendElement(NameTag, Name);
             addinItemNode.CreateAndAppendElement(AddInIdTag, AddinId);
 
@@ -128,6 +135,11 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
 
             FillXmlNodeImpl(addinItemNode);
         }
+        
+        /// <summary>
+        /// Returns type name revit addin item. 
+        /// </summary>
+        protected abstract string TypeName { get; }
 
         /// <summary>
         /// Fills xml node.

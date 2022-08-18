@@ -22,7 +22,10 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
            
             return addinDBApplication;
         }
-        
+
+        /// <inheritdoc />
+        protected override string TypeName => RevitAddinManifest.AddInDBApplicationTag;
+
         /// <inheritdoc />
         protected override void FillXmlNodeImpl(XmlNode addinItemNode) {
             addinItemNode.CreateAndAppendElement(LoadInRevitWorkerTag, LoadInRevitWorker);

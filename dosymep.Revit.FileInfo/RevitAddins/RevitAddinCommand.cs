@@ -78,6 +78,9 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         }
         
         /// <inheritdoc />
+        protected override string TypeName => RevitAddinManifest.AddInCommandTag;
+        
+        /// <inheritdoc />
         protected override void FillXmlNodeImpl(XmlNode addinItemNode) {
             addinItemNode.CreateAndAppendElement(TextTag, Text);
             addinItemNode.CreateAndAppendElement(DescriptionTag, Description);

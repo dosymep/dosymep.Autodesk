@@ -17,6 +17,9 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         }
         
         /// <inheritdoc />
+        protected override string TypeName => RevitAddinManifest.AddInApplicationTag;
+        
+        /// <inheritdoc />
         protected override void FillXmlNodeImpl(XmlNode addinItemNode) { }
     }
 }

@@ -31,11 +31,6 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         public static readonly string AddInTag = "AddIn";
         
         /// <summary>
-        /// AddInTypeTag
-        /// </summary>
-        public static readonly string AddInTypeTag = "Type";
-        
-        /// <summary>
         /// AddInCommandTag
         /// </summary>
         public static readonly string AddInCommandTag = "Command";
@@ -91,11 +86,11 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
                     throw new ArgumentException($"The addin element is not valid. Tag should be {AddInTag}", nameof(fullFileName));
                 }
                 
-                if(addinElement.Attributes == null || addinElement.Attributes.Count == 0 || addinElement.Attributes[AddInTypeTag] == null) {
+                if(addinElement.Attributes == null || addinElement.Attributes.Count == 0 || addinElement.Attributes[RevitAddinItem.AddInTypeTag] == null) {
                     throw new ArgumentException($"The addin element does not have valid type. Tags should be {AddInCommandTag} or {AddInApplicationTag} or {AddInDBApplicationTag}", nameof(fullFileName));
                 }
 
-                XmlAttribute attribute = addinElement.Attributes[AddInTypeTag];
+                XmlAttribute attribute = addinElement.Attributes[RevitAddinItem.AddInTypeTag];
                 if(attribute.Value.Equals(AddInCommandTag)) {
                     addinManifest.AddinCommands.Add(RevitAddinCommand.CreateAddinCommand(addinElement, addinManifest));
                 } else if (attribute.Value.Equals(AddInApplicationTag)) {

@@ -40,6 +40,26 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             return element;
         }
 
+        public static XmlNode CreateAndAppendAttribute<T>(this XmlNode xmlNode, string xmlNodeName, T xmlValue) {
+            if(xmlNode == null) {
+                throw new ArgumentNullException(nameof(xmlNode));
+            }
+
+            if(string.IsNullOrEmpty(xmlNodeName)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(xmlNodeName));
+            }
+
+            XmlDocument document = xmlNode.OwnerDocument;
+            if(document == null) {
+                throw new ArgumentException("Owner document is not set.", nameof(xmlNode));
+            }
+
+            XmlAttribute attribute = document.CreateAttribute(xmlNodeName);
+            attribute.Value = xmlValue?.ToString() ?? string.Empty;
+            
+            return xmlNode.AppendChild(attribute);
+        }
+
         public static T GetXmlNodeValue<T>(this XmlNode xmlNode, string xmlNodeName) {
             if(xmlNode == null) {
                 throw new ArgumentNullException(nameof(xmlNode));
