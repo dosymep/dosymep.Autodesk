@@ -106,6 +106,34 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         }
 
         /// <summary>
+        /// Creates addin manifest by root path.
+        /// </summary>
+        /// <param name="rootPath">Root path.</param>
+        /// <returns>Returns enums addin manifests.</returns>
+        public static IEnumerable<RevitAddinManifest> CreateAddinManifests(string rootPath) {
+            return CreateAddinManifests(rootPath, SearchOption.TopDirectoryOnly);
+        }
+
+        /// <summary>
+        /// Creates addin manifest by root path.
+        /// </summary>
+        /// <param name="rootPath">Root path.</param>
+        /// <param name="searchOption">Search option in root path.</param>
+        /// <returns>Returns enums addin manifests.</returns>
+        public static IEnumerable<RevitAddinManifest> CreateAddinManifests(string rootPath, SearchOption searchOption) {
+            if(string.IsNullOrEmpty(rootPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(rootPath));
+            }
+
+            if(!Directory.Exists(rootPath)) {
+                throw new ArgumentException("Root path is not exists.", nameof(rootPath));
+            }
+
+            return Directory.GetFiles(rootPath, "*.addin", searchOption)
+                .Select(item => CreateAddinManifest(item));
+        }
+
+        /// <summary>
         /// The file name which is associated with the manifest.
         /// </summary>
         public string Name => Path.GetFileName(FullName);
