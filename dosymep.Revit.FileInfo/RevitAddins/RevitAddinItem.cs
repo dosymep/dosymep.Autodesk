@@ -259,7 +259,12 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
                 throw new InvalidOperationException("The addin manifest does not have full name.");
             }
 
-            return Path.Combine(Path.GetDirectoryName(_addinManifest.FullName), AssemblyPath);
+            string directoryName = Path.GetDirectoryName(_addinManifest.FullName);
+            if(string.IsNullOrEmpty(directoryName)) {
+                throw new InvalidOperationException("Manifest file path is not valid.");
+            }
+            
+            return Path.Combine(directoryName, AssemblyPath);
         }
         
         /// <inheritdoc />
