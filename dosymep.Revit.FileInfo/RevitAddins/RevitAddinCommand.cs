@@ -56,9 +56,10 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         /// Creates revit addin commands.
         /// </summary>
         /// <param name="addinElement">Addin element xml node.</param>
+        /// <param name="addinManifest">Root addin manifest.</param>
         /// <returns>Returns revit addin commands.</returns>
-        public static RevitAddinCommand CreateAddinCommand(XmlNode addinElement) {
-            RevitAddinCommand addinCommand = CreateRevitAddinItem<RevitAddinCommand>(addinElement);
+        public static RevitAddinCommand CreateAddinCommand(XmlNode addinElement, RevitAddinManifest addinManifest) {
+            RevitAddinCommand addinCommand = CreateRevitAddinItem<RevitAddinCommand>(addinElement, addinManifest);
             
             addinCommand.Text = addinElement.GetXmlNodeValue<string>(TextTag);
             addinCommand.Description = addinElement.GetXmlNodeValue<string>(DescriptionTag);

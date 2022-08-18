@@ -92,11 +92,11 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
 
                 XmlAttribute attribute = addinElement.Attributes[AddInTypeTag];
                 if(attribute.Value.Equals(AddInCommandTag)) {
-                    addinManifest.AddinCommands.Add(RevitAddinCommand.CreateAddinCommand(addinElement));
+                    addinManifest.AddinCommands.Add(RevitAddinCommand.CreateAddinCommand(addinElement, addinManifest));
                 } else if (attribute.Value.Equals(AddInApplicationTag)) {
-                    addinManifest.AddinApplications.Add(RevitAddinApplication.CreateAddinApplication(addinElement));
+                    addinManifest.AddinApplications.Add(RevitAddinApplication.CreateAddinApplication(addinElement, addinManifest));
                 } else if(attribute.Value.Equals(AddInDBApplicationTag)) {
-                    addinManifest.AddinDBApplications.Add(RevitAddinDBApplication.CreateAddinDBApplication(addinElement));
+                    addinManifest.AddinDBApplications.Add(RevitAddinDBApplication.CreateAddinDBApplication(addinElement, addinManifest));
                 } else {
                     throw new NotSupportedException($"The {attribute.Value ?? "null"} addin type is not valid. Addin type should be {AddInCommandTag} or {AddInApplicationTag} or {AddInDBApplicationTag}.");
                 }

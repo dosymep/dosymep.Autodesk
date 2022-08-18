@@ -9,9 +9,11 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         /// Creates revit addin application.
         /// </summary>
         /// <param name="addinElement">Addin element xml node.</param>
+        /// <param name="addinManifest">Root addin manifest.</param>
         /// <returns>Returns revit addin application.</returns>
-        public static RevitAddinApplication CreateAddinApplication(XmlNode addinElement) {
-            return CreateRevitAddinItem<RevitAddinApplication>(addinElement);
+        public static RevitAddinApplication CreateAddinApplication(XmlNode addinElement,
+            RevitAddinManifest addinManifest) {
+            return CreateRevitAddinItem<RevitAddinApplication>(addinElement, addinManifest);
         }
     }
 }
