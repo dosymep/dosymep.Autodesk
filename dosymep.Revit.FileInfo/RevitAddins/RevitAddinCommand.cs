@@ -68,8 +68,8 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             addinCommand.LargeImage = addinElement.GetXmlNodeValue<string>(LargeImageTag);
             addinCommand.TooltipImage = addinElement.GetXmlNodeValue<string>(TooltipImageTag);
             
-            addinCommand.Discipline = addinElement.GetXmlNodeValue<Discipline>(DisciplineTag);
-            addinCommand.VisibilityMode = addinElement.GetXmlNodeValue<VisibilityMode>(VisibilityModeTag);
+            addinCommand.Discipline = addinElement.GetXmlNodeEnumValue<Discipline>(DisciplineTag);
+            addinCommand.VisibilityMode = addinElement.GetXmlNodeEnumValue<VisibilityMode>(VisibilityModeTag);
             addinCommand.LanguageCode = LanguageCode.GetLanguageCode(addinElement.GetXmlNodeValue<string>(LanguageTypeTag));
 
             addinCommand.AvailabilityClassName = addinElement.GetXmlNodeValue<string>(AvailabilityClassNameTag);

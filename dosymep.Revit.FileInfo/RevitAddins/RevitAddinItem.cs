@@ -90,7 +90,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
 
             addinItem.AssemblyPath = addinElement.GetFilePath(AssemblyTag);
             addinItem.FullClassName = addinElement.GetXmlNodeValue<string>(FullClassNameTag);
-            addinItem.SuppressedWarning = addinElement.GetXmlNodeValue<WarningType>(SuppressedWarningTag);
+            addinItem.SuppressedWarning = addinElement.GetXmlNodeEnumValue<WarningType>(SuppressedWarningTag);
 
             addinItem.VendorId = addinElement.GetXmlNodeValue<string>(VendorIdTag);
             addinItem.VendorDescription = addinElement.GetXmlNodeValue<string>(VendorDescriptionTag);
