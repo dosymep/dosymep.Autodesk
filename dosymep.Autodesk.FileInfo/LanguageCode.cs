@@ -184,5 +184,10 @@ namespace dosymep.Autodesk.FileInfo {
                 .Select(item => item.GetValue(null))
                 .OfType<LanguageCode>();
         }
+        
+        /// <inheritdoc />
+        public override string ToString() {
+            return DisplayName;
+        }
     }
 }
