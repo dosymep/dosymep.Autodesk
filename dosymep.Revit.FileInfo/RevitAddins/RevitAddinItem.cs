@@ -86,7 +86,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
 
             addinItem._addinManifest = addinManifest;
             addinItem.Name = addinElement.GetXmlNodeValue<string>(NameTag);
-            addinItem.AddinId = addinElement.GetXmlNodeValue<Guid>(FullClassNameTag);
+            addinItem.AddinId = addinElement.GetXmlNodeValue<Guid>(AddInIdTag);
 
             addinItem.AssemblyPath = addinElement.GetFilePath(AssemblyTag);
             addinItem.FullClassName = addinElement.GetXmlNodeValue<string>(FullClassNameTag);
@@ -104,6 +104,36 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
 
             return addinItem;
         }
+
+        /// <summary>
+        /// Fills xml node.
+        /// </summary>
+        /// <param name="addinItemNode">Root node.</param>
+        public void FillXmlNode(XmlNode addinItemNode) {
+            addinItemNode.CreateAndAppendElement(NameTag, Name);
+            addinItemNode.CreateAndAppendElement(AddInIdTag, AddinId);
+
+            addinItemNode.CreateAndAppendElement(AssemblyTag, AssemblyPath);
+            addinItemNode.CreateAndAppendElement(FullClassNameTag, FullClassName);
+            addinItemNode.CreateAndAppendElement(SuppressedWarningTag, SuppressedWarning);
+
+            addinItemNode.CreateAndAppendElement(VendorIdTag, VendorId);
+            addinItemNode.CreateAndAppendElement(VendorDescriptionTag, VendorDescription);
+
+            addinItemNode.CreateAndAppendElement(ProductImageTag, ProductImage);
+            addinItemNode.CreateAndAppendElement(ProductVersionTag, ProductVersion);
+            addinItemNode.CreateAndAppendElement(ProductDescriptionTag, ProductDescription);
+
+            addinItemNode.CreateAndAppendElement(AllowLoadingIntoExistingSessionTag, AllowLoadingIntoExistingSession);
+
+            FillXmlNodeImpl(addinItemNode);
+        }
+
+        /// <summary>
+        /// Fills xml node.
+        /// </summary>
+        /// <param name="addinItemNode">Current node.</param>
+        protected abstract void FillXmlNodeImpl(XmlNode addinItemNode);
 
         /// <summary>
         /// Application name.

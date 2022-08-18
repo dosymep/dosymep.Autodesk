@@ -111,6 +111,38 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         }
 
         /// <summary>
+        /// Saved revit addin manifest file.
+        /// </summary>
+        /// <param name="fullFileName">Full file name path to save.</param>
+        public void SaveAs(string fullFileName) {
+            if(string.IsNullOrEmpty(fullFileName)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(fullFileName));
+            }
+
+            if(!fullFileName.EndsWith(AddinFileExt, StringComparison.CurrentCultureIgnoreCase)) {
+                throw new ArgumentException("File path is not valid .addin file.", nameof(fullFileName));
+            }
+
+            string directoryName = Path.GetDirectoryName(fullFileName);
+            if(string.IsNullOrEmpty(directoryName)) {
+                throw new ArgumentException("File path is not valid.", nameof(fullFileName));
+            }
+            
+            if(!Directory.Exists(directoryName)) {
+                Directory.CreateDirectory(directoryName);
+            }
+
+            var document = new XmlDocument();
+            XmlNode rootNode = document.CreateAndAppendElement(RevitAddInsTag);
+            
+            foreach(RevitAddinItem addinItem in AddinItems) {
+                addinItem.FillXmlNode(rootNode.CreateAndAppendElement(AddInTag));
+            }
+
+            document.Save(fullFileName);
+        }
+
+        /// <summary>
         /// Creates addin manifest by root path.
         /// </summary>
         /// <param name="rootPath">Root path.</param>
@@ -170,5 +202,13 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             .OfType<RevitAddinItem>()
             .Union(AddinApplications)
             .Union(AddinDBApplications);
+
+
+        /// <summary>
+        /// Saves revit addin manifest file.
+        /// </summary>
+        public void Save() {
+            SaveAs(FullName);
+        }
     }
 }

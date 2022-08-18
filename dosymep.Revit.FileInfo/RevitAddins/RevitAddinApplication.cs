@@ -15,5 +15,8 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             RevitAddinManifest addinManifest) {
             return CreateRevitAddinItem<RevitAddinApplication>(addinElement, addinManifest);
         }
+        
+        /// <inheritdoc />
+        protected override void FillXmlNodeImpl(XmlNode addinItemNode) { }
     }
 }

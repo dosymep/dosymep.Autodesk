@@ -3,6 +3,43 @@ using System.Xml;
 
 namespace dosymep.Revit.FileInfo.RevitAddins {
     internal static class XmlDocumentExtensions {
+        public static XmlNode CreateAndAppendElement(this XmlNode xmlNode, string xmlNodeName) {
+            if(xmlNode == null) {
+                throw new ArgumentNullException(nameof(xmlNode));
+            }
+
+            if(string.IsNullOrEmpty(xmlNodeName)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(xmlNodeName));
+            }
+            
+            XmlDocument document = xmlNode.OwnerDocument;
+            if(document == null) {
+                throw new ArgumentException("Owner document is not set.", nameof(xmlNode));
+            }
+            
+            return xmlNode.AppendChild(document.CreateElement(xmlNodeName));
+        }
+        
+        public static XmlNode CreateAndAppendElement<T>(this XmlNode xmlNode, string xmlNodeName, T xmlValue) {
+            if(xmlNode == null) {
+                throw new ArgumentNullException(nameof(xmlNode));
+            }
+
+            if(string.IsNullOrEmpty(xmlNodeName)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(xmlNodeName));
+            }
+            
+            XmlDocument document = xmlNode.OwnerDocument;
+            if(document == null) {
+                throw new ArgumentException("Owner document is not set.", nameof(xmlNode));
+            }
+
+            XmlNode element = xmlNode.CreateAndAppendElement(xmlNodeName);
+            element.InnerText = xmlValue?.ToString() ?? string.Empty;
+            
+            return element;
+        }
+
         public static T GetXmlNodeValue<T>(this XmlNode xmlNode, string xmlNodeName) {
             if(xmlNode == null) {
                 throw new ArgumentNullException(nameof(xmlNode));

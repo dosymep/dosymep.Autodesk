@@ -22,6 +22,11 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
            
             return addinDBApplication;
         }
+        
+        /// <inheritdoc />
+        protected override void FillXmlNodeImpl(XmlNode addinItemNode) {
+            addinItemNode.CreateAndAppendElement(LoadInRevitWorkerTag, LoadInRevitWorker);
+        }
 
         /// <summary>
         /// Indicates whether or not a RevitWorker process will load this add-in.

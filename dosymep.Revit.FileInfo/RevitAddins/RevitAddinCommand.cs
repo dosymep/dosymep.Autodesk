@@ -76,6 +76,22 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
 
             return addinCommand;
         }
+        
+        /// <inheritdoc />
+        protected override void FillXmlNodeImpl(XmlNode addinItemNode) {
+            addinItemNode.CreateAndAppendElement(TextTag, Text);
+            addinItemNode.CreateAndAppendElement(DescriptionTag, Description);
+            addinItemNode.CreateAndAppendElement(LongDescriptionTag, LongDescription);
+            
+            addinItemNode.CreateAndAppendElement(LargeImageTag, LargeImage);
+            addinItemNode.CreateAndAppendElement(TooltipImageTag, TooltipImage);
+            
+            addinItemNode.CreateAndAppendElement(DisciplineTag, Discipline);
+            addinItemNode.CreateAndAppendElement(VisibilityModeTag, VisibilityMode);
+            addinItemNode.CreateAndAppendElement(LanguageTypeTag, LanguageCode.FullCode);
+            
+            addinItemNode.CreateAndAppendElement(AvailabilityClassNameTag, AvailabilityClassName);
+        }
 
         /// <summary>
         /// The text displayed on the external command button.
