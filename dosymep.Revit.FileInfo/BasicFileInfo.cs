@@ -3,6 +3,8 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 
+using dosymep.Autodesk.FileInfo;
+
 namespace dosymep.Revit.FileInfo {
     /// <summary>
     /// Class provides basic file info.

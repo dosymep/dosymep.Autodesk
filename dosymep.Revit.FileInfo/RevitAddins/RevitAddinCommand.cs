@@ -1,5 +1,7 @@
 ﻿using System.Xml;
 
+using dosymep.Autodesk.FileInfo;
+
 namespace dosymep.Revit.FileInfo.RevitAddins {
     /// <summary>
     /// Represents a Revit external command.

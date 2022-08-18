@@ -21,4 +21,9 @@
       <PackageReference Include="OpenMcdf" Version="2.2.1.9" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\dosymep.Autodesk.FileInfo\dosymep.Autodesk.FileInfo.csproj" />
+      <ProjectReference Include="..\dosymep.Autodesk\dosymep.Autodesk.csproj" />
+    </ItemGroup>
+
 </Project>

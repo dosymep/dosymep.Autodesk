@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace dosymep.Revit.FileInfo {
+namespace dosymep.Autodesk.FileInfo {
     /// <summary>
     /// Autodesk language code.
     /// </summary>
@@ -140,8 +140,8 @@ namespace dosymep.Revit.FileInfo {
         /// <summary>
         /// Creates language code object. 
         /// </summary>
-        /// <param name="code">Revit language code value.</param>
-        /// <param name="fullCode">Revit language full code value.</param>
+        /// <param name="code">Language code value.</param>
+        /// <param name="fullCode">Language full code value.</param>
         /// <param name="cultureInfo">Culture info.</param>
         private LanguageCode(string code, string fullCode, CultureInfo cultureInfo) {
             Code = code;
