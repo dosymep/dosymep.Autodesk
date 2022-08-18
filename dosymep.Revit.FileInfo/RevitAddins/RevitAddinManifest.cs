@@ -11,6 +11,11 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
     /// <remarks> The manifest contains a collection of external commands and external applications listed in the .addin file. </remarks>
     public class RevitAddinManifest {
         /// <summary>
+        /// Revit addin file extension (.addin).
+        /// </summary>
+        public static readonly string AddinFileExt = ".addin";
+        
+        /// <summary>
         /// RevitAddInTag
         /// </summary>
         public static readonly string RevitAddInTag = "RevitAddIn";
@@ -56,7 +61,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(fullFileName));
             }
 
-            if(!fullFileName.EndsWith(".addin", StringComparison.CurrentCultureIgnoreCase)) {
+            if(!fullFileName.EndsWith(AddinFileExt, StringComparison.CurrentCultureIgnoreCase)) {
                 throw new ArgumentException("File path is not valid .addin file.", nameof(fullFileName));
             }
 
@@ -129,7 +134,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
                 throw new ArgumentException("Root path is not exists.", nameof(rootPath));
             }
 
-            return Directory.GetFiles(rootPath, "*.addin", searchOption)
+            return Directory.GetFiles(rootPath, $"*{AddinFileExt}", searchOption)
                 .Select(item => CreateAddinManifest(item));
         }
 
