@@ -56,7 +56,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(fullFileName));
             }
 
-            if(!fullFileName.EndsWith(".addin")) {
+            if(!fullFileName.EndsWith(".addin", StringComparison.CurrentCultureIgnoreCase)) {
                 throw new ArgumentException("File path is not valid .addin file.", nameof(fullFileName));
             }
 
