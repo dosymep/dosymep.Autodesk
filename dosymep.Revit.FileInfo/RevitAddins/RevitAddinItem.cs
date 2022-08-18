@@ -92,6 +92,9 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             addinItem._addinManifest = addinManifest;
             addinItem.Name = addinElement.GetXmlNodeValue<string>(NameTag);
             addinItem.AddinId = addinElement.GetXmlNodeValue<Guid>(AddInIdTag);
+            addinItem.AddinId = addinItem.AddinId == Guid.Empty
+                ? addinElement.GetXmlNodeValue<Guid>(ClientIdTag)
+                : addinItem.AddinId;
 
             addinItem.AssemblyPath = addinElement.GetFilePath(AssemblyTag);
             addinItem.FullClassName = addinElement.GetXmlNodeValue<string>(FullClassNameTag);
