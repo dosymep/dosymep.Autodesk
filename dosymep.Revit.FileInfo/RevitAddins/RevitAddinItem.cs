@@ -272,7 +272,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         
         /// <inheritdoc />
         public override string ToString() {
-            return Name;
+            return FullClassName;
         }
     }
 }
