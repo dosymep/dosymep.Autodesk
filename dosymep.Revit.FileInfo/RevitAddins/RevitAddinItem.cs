@@ -261,5 +261,10 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
 
             return Path.Combine(Path.GetDirectoryName(_addinManifest.FullName), AssemblyPath);
         }
+        
+        /// <inheritdoc />
+        public override string ToString() {
+            return Name;
+        }
     }
 }

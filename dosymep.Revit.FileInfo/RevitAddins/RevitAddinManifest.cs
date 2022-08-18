@@ -205,5 +205,10 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         public void Save() {
             SaveAs(FullName);
         }
+
+        /// <inheritdoc />
+        public override string ToString() {
+            return Name;
+        }
     }
 }
