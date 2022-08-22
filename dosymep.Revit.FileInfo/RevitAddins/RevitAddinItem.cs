@@ -209,7 +209,8 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             return new T() {
                 AddinId = Guid.NewGuid(),
                 AllowLoadingIntoExistingSession = true,
-                Name = type.Name,
+                Name = type.Namespace?.Split('.').FirstOrDefault()
+                       ?? Path.GetFileNameWithoutExtension(assembly.Location),
                 FullClassName = type.FullName,
                 AssemblyPath = assembly.Location,
                 ProductVersion = assembly.GetName().Version.ToString(),
