@@ -1,4 +1,9 @@
-﻿using System.Xml;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Xml;
+
+using Microsoft.SqlServer.Server;
 
 namespace dosymep.Revit.FileInfo.RevitAddins {
     /// <summary>
@@ -22,9 +27,24 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
            
             return addinDBApplication;
         }
+        
+        /// <summary>
+        /// Returns addin DB applications.
+        /// </summary>
+        /// <param name="assembly">Assembly.</param>
+        /// <returns> Returns addin DB applications.</returns>
+        public static IEnumerable<RevitAddinDBApplication> GetAddinDBApplications(Assembly assembly) {
+            return GetAddinItems<RevitAddinDBApplication>(assembly, DBApplicationInterface);
+        }
 
         /// <inheritdoc />
         protected override string TypeName => RevitAddinManifest.AddInDBApplicationTag;
+        
+        /// <inheritdoc />
+        protected override string AssemblyName => AssemblyRevitApi;
+        
+        /// <inheritdoc />
+        protected override string TypeInterfaceName => DBApplicationInterface;
 
         /// <inheritdoc />
         protected override void FillXmlNodeImpl(XmlNode addinItemNode) {

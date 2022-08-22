@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Xml;
 
 namespace dosymep.Revit.FileInfo.RevitAddins {
@@ -163,6 +164,68 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
 
             return Directory.GetFiles(rootPath, $"*{AddinFileExt}", searchOption)
                 .Select(item => CreateAddinManifest(item));
+        }
+
+        /// <summary>
+        /// Creates addin manifest by assembly path.
+        /// </summary>
+        /// <param name="assemblyPath">Assembly path.</param>
+        /// <returns>Returns enums addin manifests.</returns>
+        public static RevitAddinManifest CreateAddinManifestByAssembly(string assemblyPath) {
+            if(string.IsNullOrEmpty(assemblyPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(assemblyPath));
+            }
+
+            if(!assemblyPath.EndsWith(".dll", StringComparison.CurrentCultureIgnoreCase)) {
+                throw new ArgumentException("Assembly path is not valid .addin file.", nameof(assemblyPath));
+            }
+
+            if(!File.Exists(assemblyPath)) {
+                throw new ArgumentException("Assembly is not exists.", nameof(assemblyPath));
+            }
+
+            Assembly assembly = Assembly.ReflectionOnlyLoadFrom(assemblyPath);
+            if(!assembly.GetReferencedAssemblies()
+                   .Any(item =>
+                       item.Name.Equals(RevitAddinItem.AssemblyRevitApi, StringComparison.CurrentCultureIgnoreCase)
+                       || item.Name.Equals(RevitAddinItem.AssemblyRevitApiUi, StringComparison.CurrentCultureIgnoreCase))) {
+                throw new ArgumentException("Assembly is not valid Revit addin.", nameof(assemblyPath));
+            }
+
+            var manifest = new RevitAddinManifest() {FullName = Path.ChangeExtension(assemblyPath, AddinFileExt)};
+            manifest.AddinCommands.AddRange(RevitAddinCommand.GetAddinCommands(assembly));
+            manifest.AddinApplications.AddRange(RevitAddinApplication.GetAddinApplications(assembly));
+            manifest.AddinDBApplications.AddRange(RevitAddinDBApplication.GetAddinDBApplications(assembly));
+
+            return manifest;
+        }
+
+        /// <summary>
+        /// Creates addin manifest by root path.
+        /// </summary>
+        /// <param name="rootPath">Root path.</param>
+        /// <returns>Returns enums addin manifests.</returns>
+        public static IEnumerable<RevitAddinManifest> CreateAddinManifestsByAssemblies(string rootPath) {
+            return CreateAddinManifests(rootPath, SearchOption.TopDirectoryOnly);
+        }
+
+        /// <summary>
+        /// Creates addin manifest by root path.
+        /// </summary>
+        /// <param name="rootPath">Root path.</param>
+        /// <param name="searchOption">Search option in root path.</param>
+        /// <returns>Returns enums addin manifests.</returns>
+        public static IEnumerable<RevitAddinManifest> CreateAddinManifestsByAssemblies(string rootPath, SearchOption searchOption) {
+            if(string.IsNullOrEmpty(rootPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(rootPath));
+            }
+
+            if(!Directory.Exists(rootPath)) {
+                throw new ArgumentException("Root path is not exists.", nameof(rootPath));
+            }
+
+            return Directory.GetFiles(rootPath, $"*{AddinFileExt}", searchOption)
+                .Select(item => CreateAddinManifestByAssembly(item));
         }
 
         /// <summary>

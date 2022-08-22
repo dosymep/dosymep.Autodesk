@@ -1,4 +1,6 @@
-﻿using System.Xml;
+﻿using System.Collections.Generic;
+using System.Reflection;
+using System.Xml;
 
 using dosymep.Autodesk.FileInfo;
 
@@ -77,9 +79,24 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             return addinCommand;
         }
         
+        /// <summary>
+        /// Returns addin DB applications.
+        /// </summary>
+        /// <param name="assembly">Assembly.</param>
+        /// <returns> Returns addin DB applications.</returns>
+        public static IEnumerable<RevitAddinCommand> GetAddinCommands(Assembly assembly) {
+            return GetAddinItems<RevitAddinCommand>(assembly, CommandInterface);
+        }
+        
         /// <inheritdoc />
         protected override string TypeName => RevitAddinManifest.AddInCommandTag;
         
+        /// <inheritdoc />
+        protected override string AssemblyName => AssemblyRevitApiUi;
+        
+        /// <inheritdoc />
+        protected override string TypeInterfaceName => CommandInterface;
+
         /// <inheritdoc />
         protected override void FillXmlNodeImpl(XmlNode addinItemNode) {
             addinItemNode.CreateAndAppendElement(TextTag, Text);

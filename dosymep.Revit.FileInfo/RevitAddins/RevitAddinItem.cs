@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Xml;
 
@@ -9,10 +11,35 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
     /// </summary>
     public abstract class RevitAddinItem {
         /// <summary>
+        /// RevitAPI
+        /// </summary>
+        public static readonly string AssemblyRevitApi = "RevitAPI";
+
+        /// <summary>
+        /// RevitAPIUI
+        /// </summary>
+        public static readonly string AssemblyRevitApiUi = "RevitAPIUI";
+
+        /// <summary>
+        /// Autodesk.Revit.DB.IExternalCommand
+        /// </summary>
+        public static readonly string CommandInterface = "Autodesk.Revit.DB.IExternalCommand";
+
+        /// <summary>
+        /// Autodesk.Revit.DB.IExternalApplication
+        /// </summary>
+        public static readonly string ApplicationInterface = "Autodesk.Revit.DB.IExternalApplication";
+
+        /// <summary>
+        /// Autodesk.Revit.DB.IExternalDBApplication
+        /// </summary>
+        public static readonly string DBApplicationInterface = "Autodesk.Revit.DB.IExternalDBApplication";
+
+        /// <summary>
         /// AddInTypeTag
         /// </summary>
         public static readonly string AddInTypeTag = "Type";
-        
+
         /// <summary>
         /// NameTag
         /// </summary>
@@ -119,7 +146,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         /// <param name="addinItemNode">Root node.</param>
         public void FillXmlNode(XmlNode addinItemNode) {
             addinItemNode.CreateAndAppendAttribute(AddInTypeTag, TypeName);
-            
+
             addinItemNode.CreateAndAppendElement(NameTag, Name);
             addinItemNode.CreateAndAppendElement(AddInIdTag, AddinId);
 
@@ -138,11 +165,71 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
 
             FillXmlNodeImpl(addinItemNode);
         }
-        
+
+        /// <summary>
+        /// Checks type of inherits interface.
+        /// </summary>
+        /// <param name="type">Checked type.</param>
+        /// <param name="interfaceFullName">Interface full name.</param>
+        /// <returns>Returns true - if type inherit interface, otherwise false.</returns>
+        protected static bool IsTypeInheritInterface(Type type, string interfaceFullName) {
+            if(type == null) {
+                throw new ArgumentNullException(nameof(type));
+            }
+
+            if(string.IsNullOrEmpty(interfaceFullName)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(interfaceFullName));
+            }
+
+            string interfaceName = interfaceFullName.Split('.').LastOrDefault();
+            if(string.IsNullOrEmpty(interfaceName)) {
+                throw new InvalidOperationException($"The {interfaceFullName} is not valid.");
+            }
+
+            Type interfaceType = type.GetInterface(interfaceName);
+            return interfaceType.FullName?.Equals(interfaceFullName) == true;
+        }
+
+        /// <summary>
+        /// Returns addin items.
+        /// </summary>
+        /// <param name="assembly">Assembly.</param>
+        /// <param name="interfaceFullName">Interface full name.</param>
+        /// <typeparam name="T">Revit addin type.</typeparam>
+        /// <returns>Returns addin items.</returns>
+        protected static IEnumerable<T> GetAddinItems<T>(Assembly assembly, string interfaceFullName)
+            where T : RevitAddinItem, new() {
+            return assembly.GetTypes()
+                .Where(item => item.IsClass)
+                .Where(item => IsTypeInheritInterface(item, interfaceFullName))
+                .Select(item => CreateAddinItem<T>(assembly, item));
+        }
+
+        private static T CreateAddinItem<T>(Assembly assembly, Type type) where T : RevitAddinItem, new() {
+            return new T() {
+                AddinId = Guid.NewGuid(),
+                AllowLoadingIntoExistingSession = true,
+                Name = type.Name,
+                FullClassName = type.FullName,
+                AssemblyPath = assembly.Location,
+                ProductVersion = assembly.GetName().Version.ToString(),
+            };
+        }
+
         /// <summary>
         /// Returns type name revit addin item. 
         /// </summary>
         protected abstract string TypeName { get; }
+
+        /// <summary>
+        /// Assembly name.
+        /// </summary>
+        protected abstract string AssemblyName { get; }
+
+        /// <summary>
+        /// Type interface name.
+        /// </summary>
+        protected abstract string TypeInterfaceName { get; }
 
         /// <summary>
         /// Fills xml node.
@@ -151,7 +238,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         protected abstract void FillXmlNodeImpl(XmlNode addinItemNode);
 
         /// <summary>
-        /// Application name.
+        /// Addin name.
         /// </summary>
         public string Name { get; set; }
 
@@ -173,7 +260,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         /// <summary>
         /// The full class name for the class providing the entry point into the Add-In.
         /// </summary>
-        /// <remarks> This is the class implementing IExternalCommand or IExternalApplication. </remarks>
+        /// <remarks>This is the class implementing IExternalCommand or IExternalApplication or IExternalDBApplication.</remarks>
         public string FullClassName { get; set; }
 
         /// <summary>
@@ -266,10 +353,10 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             if(string.IsNullOrEmpty(directoryName)) {
                 throw new InvalidOperationException("Manifest file path is not valid.");
             }
-            
+
             return Path.Combine(directoryName, AssemblyPath);
         }
-        
+
         /// <inheritdoc />
         public override string ToString() {
             return FullClassName;
