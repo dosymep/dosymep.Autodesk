@@ -52,7 +52,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         /// <param name="fullFileName">Full file name to .addin file.</param>
         /// <returns>Returns revit addin manifest (.addin file).</returns>
         /// <exception cref="ArgumentException">When fullFileName is null or empty.</exception>
-        public static RevitAddinManifest CreateAddinManifest(string fullFileName) {
+        public static RevitAddinManifest GetAddinManifest(string fullFileName) {
             if(string.IsNullOrEmpty(fullFileName)) {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(fullFileName));
             }
@@ -139,21 +139,21 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         }
 
         /// <summary>
-        /// Creates addin manifest by root path.
+        /// Gets addin manifest by root path.
         /// </summary>
         /// <param name="rootPath">Root path.</param>
         /// <returns>Returns enums addin manifests.</returns>
-        public static IEnumerable<RevitAddinManifest> CreateAddinManifests(string rootPath) {
-            return CreateAddinManifests(rootPath, SearchOption.TopDirectoryOnly);
+        public static IEnumerable<RevitAddinManifest> GetAddinManifests(string rootPath) {
+            return GetAddinManifests(rootPath, SearchOption.TopDirectoryOnly);
         }
 
         /// <summary>
-        /// Creates addin manifest by root path.
+        /// Gets addin manifest by root path.
         /// </summary>
         /// <param name="rootPath">Root path.</param>
         /// <param name="searchOption">Search option in root path.</param>
         /// <returns>Returns enums addin manifests.</returns>
-        public static IEnumerable<RevitAddinManifest> CreateAddinManifests(string rootPath, SearchOption searchOption) {
+        public static IEnumerable<RevitAddinManifest> GetAddinManifests(string rootPath, SearchOption searchOption) {
             if(string.IsNullOrEmpty(rootPath)) {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(rootPath));
             }
@@ -163,7 +163,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             }
 
             return Directory.GetFiles(rootPath, $"*{AddinFileExt}", searchOption)
-                .Select(item => CreateAddinManifest(item));
+                .Select(item => GetAddinManifest(item));
         }
 
         /// <summary>
@@ -171,7 +171,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         /// </summary>
         /// <param name="assemblyPath">Assembly path.</param>
         /// <returns>Returns enums addin manifests.</returns>
-        public static RevitAddinManifest CreateAddinManifestByAssembly(string assemblyPath) {
+        public static RevitAddinManifest CreateAddinManifest(string assemblyPath) {
             if(string.IsNullOrEmpty(assemblyPath)) {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(assemblyPath));
             }
@@ -205,8 +205,8 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         /// </summary>
         /// <param name="rootPath">Root path.</param>
         /// <returns>Returns enums addin manifests.</returns>
-        public static IEnumerable<RevitAddinManifest> CreateAddinManifestsByAssemblies(string rootPath) {
-            return CreateAddinManifests(rootPath, SearchOption.TopDirectoryOnly);
+        public static IEnumerable<RevitAddinManifest> CreateAddinManifests(string rootPath) {
+            return GetAddinManifests(rootPath, SearchOption.TopDirectoryOnly);
         }
 
         /// <summary>
@@ -215,7 +215,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         /// <param name="rootPath">Root path.</param>
         /// <param name="searchOption">Search option in root path.</param>
         /// <returns>Returns enums addin manifests.</returns>
-        public static IEnumerable<RevitAddinManifest> CreateAddinManifestsByAssemblies(string rootPath, SearchOption searchOption) {
+        public static IEnumerable<RevitAddinManifest> CreateAddinManifests(string rootPath, SearchOption searchOption) {
             if(string.IsNullOrEmpty(rootPath)) {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(rootPath));
             }
@@ -225,7 +225,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             }
 
             return Directory.GetFiles(rootPath, $"*{AddinFileExt}", searchOption)
-                .Select(item => CreateAddinManifestByAssembly(item));
+                .Select(item => CreateAddinManifest(item));
         }
 
         /// <summary>

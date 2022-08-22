@@ -23,7 +23,7 @@ namespace dosymep.Revit.FileInfo.Tests {
         [TestCase(@"TestFiles\RevitLookup.addin")]
         [TestCase(@"TestFiles\Autodesk.AddInManager.addin")]
         public void CreateRevitAddinManifestTest(string fullFilePath) {
-            var manifest = RevitAddinManifest.CreateAddinManifest(fullFilePath);
+            var manifest = RevitAddinManifest.GetAddinManifest(fullFilePath);
             Assert.NotNull(manifest);
         }
     }
