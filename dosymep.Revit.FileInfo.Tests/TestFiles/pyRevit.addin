@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+    <AddIn Type = "Application">
+        <Name>PyRevitLoader</Name>
+        <Assembly>C:\Users\DefaultUser\AppData\Roaming\pyRevit-Master\bin\engines\IPY277\pyRevitLoader.dll</Assembly>
+        <AddInId>B39107C3-A1D7-47F4-A5A1-532DDF6EDB5D</AddInId>
+        <FullClassName>PyRevitLoader.PyRevitLoaderApplication</FullClassName>
+        <VendorId>eirannejad</VendorId>
+    </AddIn>
+</RevitAddIns>

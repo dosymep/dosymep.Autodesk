@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>ModPlus</Name>
+    <Assembly>C:\Users\DefaultUser\AppData\Roaming\ModPlus\Extensions\ModPlus_Revit_2020.dll</Assembly>
+    <AddInId>db133aee-ab1b-466d-baab-4d415f2427ae</AddInId>
+    <FullClassName>ModPlus_Revit.ModPlus</FullClassName>
+    <VendorId>IP Pekshev A.A.</VendorId>
+    <VendorDescription>ModPlus, https://modplus.org</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>mprRebarTools</Name>
+    <Assembly>C:\Users\DefaultUser\AppData\Roaming\ModPlus\Functions\Revit\mprRebarTools\mprRebarTools_2020.dll</Assembly>
+    <AddInId>45d860ed-19e9-44a9-8367-a1e7cf485cd8</AddInId>
+    <FullClassName>mprRebarTools.App</FullClassName>
+    <VendorId>IP Pekshev A.A.</VendorId>
+    <VendorDescription>ModPlus, https://modplus.org</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>mprTools</Name>
+    <Assembly>C:\Users\DefaultUser\AppData\Roaming\ModPlus\Functions\Revit\mprTools\mprTools_2020.dll</Assembly>
+    <AddInId>93880b99-ac51-41d9-8395-358a8286dd32</AddInId>
+    <FullClassName>mprTools.Application.ToolsApp</FullClassName>
+    <VendorId>IP Pekshev A.A.</VendorId>
+    <VendorDescription>ModPlus, https://modplus.org</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>mprContextFilter</Name>
+    <Assembly>C:\Users\DefaultUser\AppData\Roaming\ModPlus\Functions\Revit\mprContextFilter\mprContextFilter_2020.dll</Assembly>
+    <AddInId>07974cea-a57e-4c56-b6fb-080b2ad19c6b</AddInId>
+    <FullClassName>mprContextFilter.App</FullClassName>
+    <VendorId>IP Pekshev A.A.</VendorId>
+    <VendorDescription>ModPlus, https://modplus.org</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>mprDimBias</Name>
+    <Assembly>C:\Users\DefaultUser\AppData\Roaming\ModPlus\Functions\Revit\mprDimBias\mprDimBias_2020.dll</Assembly>
+    <AddInId>424d234f-a1b8-4a33-a702-c83589650435</AddInId>
+    <FullClassName>mprDimBias.Application.MprDimBiasApp</FullClassName>
+    <VendorId>IP Pekshev A.A.</VendorId>
+    <VendorDescription>ModPlus, https://modplus.org</VendorDescription>
+  </AddIn>
+</RevitAddIns>
