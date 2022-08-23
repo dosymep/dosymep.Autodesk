@@ -74,7 +74,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             XmlAttribute attribute = document.CreateAttribute(xmlNodeName);
             attribute.Value = xmlValue?.ToString() ?? string.Empty;
             
-            return xmlNode.AppendChild(attribute);
+            return xmlNode.Attributes?.Append(attribute);
         }
 
         public static T GetXmlNodeValue<T>(this XmlNode xmlNode, string xmlNodeName) {
