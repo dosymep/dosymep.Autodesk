@@ -216,7 +216,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
                 Name = type.Namespace?.Split('.').FirstOrDefault()
                        ?? Path.GetFileNameWithoutExtension(assembly.Location),
                 FullClassName = type.FullName,
-                AssemblyPath = assembly.Location,
+                AssemblyPath = Path.GetFileName(assembly.Location),
                 ProductVersion = assembly.GetName().Version.ToString(),
             };
         }
