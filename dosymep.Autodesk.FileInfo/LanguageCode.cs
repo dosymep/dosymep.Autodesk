@@ -112,7 +112,7 @@ namespace dosymep.Autodesk.FileInfo {
         /// <returns>Returns language code by code or full code.</returns>
         public static LanguageCode GetLanguageCode(string languageCode) {
             if(string.IsNullOrEmpty(languageCode)) {
-                throw new ArgumentException("Value cannot be null or empty.", nameof(languageCode));
+                return null;
             }
 
             return GetLanguageCodes()
