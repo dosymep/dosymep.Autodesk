@@ -202,7 +202,9 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         protected static IEnumerable<T> GetAddinItems<T>(Assembly assembly, string interfaceFullName)
             where T : RevitAddinItem, new() {
             return assembly.GetTypes()
+                .Where(item => item.IsPublic)
                 .Where(item => item.IsClass)
+                .Where(item => !item.IsAbstract)
                 .Where(item => IsTypeInheritInterface(item, interfaceFullName))
                 .Select(item => CreateAddinItem<T>(assembly, item));
         }
