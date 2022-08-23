@@ -108,7 +108,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             
             addinItemNode.CreateAndAppendElement(DisciplineTag, Discipline);
             addinItemNode.CreateAndAppendElement(VisibilityModeTag, VisibilityMode);
-            addinItemNode.CreateAndAppendElement(LanguageTypeTag, LanguageCode.FullCode);
+            addinItemNode.CreateAndAppendElement(LanguageTypeTag, LanguageCode?.FullCode);
             
             addinItemNode.CreateAndAppendElement(AvailabilityClassNameTag, AvailabilityClassName);
         }
