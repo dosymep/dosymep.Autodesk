@@ -47,8 +47,12 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
                 throw new ArgumentException("Owner document is not set.", nameof(xmlNode));
             }
 
+            if(EqualityComparer<T>.Default.Equals(xmlValue, default(T))) {
+                return null;
+            }
+
             XmlNode element = xmlNode.CreateAndAppendElement(xmlNodeName);
-            element.InnerText = xmlValue?.ToString() ?? string.Empty;
+            element.InnerText = xmlValue.ToString();
             
             return element;
         }
