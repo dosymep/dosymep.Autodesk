@@ -1,8 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Xml;
 
 namespace dosymep.Revit.FileInfo.RevitAddins {
     internal static class XmlDocumentExtensions {
+        public static XmlNode CreateAndAppendElement(this XmlDocument document, string xmlNodeName) {
+            if(document == null) {
+                throw new ArgumentNullException(nameof(document));
+            }
+
+            if(string.IsNullOrEmpty(xmlNodeName)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(xmlNodeName));
+            }
+            
+            return document.AppendChild(document.CreateElement(xmlNodeName));
+        }
+        
         public static XmlNode CreateAndAppendElement(this XmlNode xmlNode, string xmlNodeName) {
             if(xmlNode == null) {
                 throw new ArgumentNullException(nameof(xmlNode));
