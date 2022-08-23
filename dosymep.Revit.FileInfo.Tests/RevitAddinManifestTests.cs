@@ -75,6 +75,7 @@ namespace dosymep.Revit.FileInfo.Tests {
         public void CreateRevitAddinManifestTests(string fullFilePath) {
             var manifest = RevitAddinManifest.CreateAddinManifest(fullFilePath);
             manifest.Save();
+            File.Delete(manifest.FullName);
         }
 
         [Test]
@@ -86,6 +87,7 @@ namespace dosymep.Revit.FileInfo.Tests {
             var manifests = RevitAddinManifest.CreateAddinManifests(rootDirectory);
             foreach(RevitAddinManifest manifest in manifests) {
                 manifest.Save();
+                File.Delete(manifest.FullName);
             }
         }
     }
