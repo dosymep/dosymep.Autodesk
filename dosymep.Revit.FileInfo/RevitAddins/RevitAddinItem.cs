@@ -23,12 +23,12 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         /// <summary>
         /// Autodesk.Revit.DB.IExternalCommand
         /// </summary>
-        public static readonly string CommandInterface = "Autodesk.Revit.DB.IExternalCommand";
+        public static readonly string CommandInterface = "Autodesk.Revit.UI.IExternalCommand";
 
         /// <summary>
         /// Autodesk.Revit.DB.IExternalApplication
         /// </summary>
-        public static readonly string ApplicationInterface = "Autodesk.Revit.DB.IExternalApplication";
+        public static readonly string ApplicationInterface = "Autodesk.Revit.UI.IExternalApplication";
 
         /// <summary>
         /// Autodesk.Revit.DB.IExternalDBApplication
@@ -187,7 +187,9 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             }
 
             Type interfaceType = type.GetInterface(interfaceName);
-            return interfaceType.FullName?.Equals(interfaceFullName) == true;
+            AssemblyName assemblyName = interfaceType?.Assembly.GetName();
+            return interfaceType?.FullName?.Equals(interfaceFullName) == true
+                   && (assemblyName?.Name.Equals(AssemblyRevitApi) == true || assemblyName?.Name.Equals(AssemblyRevitApiUi) == true);
         }
 
         /// <summary>
