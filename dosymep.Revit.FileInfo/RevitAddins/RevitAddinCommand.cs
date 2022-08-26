@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Xml;
 
+using dosymep.Autodesk;
 using dosymep.Autodesk.FileInfo;
 
 namespace dosymep.Revit.FileInfo.RevitAddins {
@@ -111,6 +112,15 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             addinItemNode.CreateAndAppendElement(LanguageTypeTag, LanguageCode?.FullCode);
             
             addinItemNode.CreateAndAppendElement(AvailabilityClassNameTag, AvailabilityClassName);
+        }
+        
+        /// <inheritdoc />
+        public override T Reduce<T, TVisitable>(ITransformer<T, TVisitable> transformer) {
+            if(transformer is ITransformer<T, RevitAddinCommand> openSharedModelTransform) {
+                return openSharedModelTransform.Transform(this);
+            }
+            
+            return default;
         }
 
         /// <summary>

@@ -3,6 +3,8 @@ using System.Linq;
 using System.Reflection;
 using System.Xml;
 
+using dosymep.Autodesk;
+
 using Microsoft.SqlServer.Server;
 
 namespace dosymep.Revit.FileInfo.RevitAddins {
@@ -49,6 +51,15 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         /// <inheritdoc />
         protected override void FillXmlNodeImpl(XmlNode addinItemNode) {
             addinItemNode.CreateAndAppendElement(LoadInRevitWorkerTag, LoadInRevitWorker);
+        }
+        
+        /// <inheritdoc />
+        public override T Reduce<T, TVisitable>(ITransformer<T, TVisitable> transformer) {
+            if(transformer is ITransformer<T, RevitAddinDBApplication> openSharedModelTransform) {
+                return openSharedModelTransform.Transform(this);
+            }
+            
+            return default;
         }
 
         /// <summary>

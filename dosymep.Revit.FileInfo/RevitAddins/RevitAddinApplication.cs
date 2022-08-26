@@ -2,6 +2,8 @@
 using System.Reflection;
 using System.Xml;
 
+using dosymep.Autodesk;
+
 namespace dosymep.Revit.FileInfo.RevitAddins {
     /// <summary>
     /// Represents a Revit external application.
@@ -38,5 +40,14 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
 
         /// <inheritdoc />
         protected override void FillXmlNodeImpl(XmlNode addinItemNode) { }
+
+        /// <inheritdoc />
+        public override T Reduce<T, TVisitable>(ITransformer<T, TVisitable> transformer) {
+            if(transformer is ITransformer<T, RevitAddinApplication> openSharedModelTransform) {
+                return openSharedModelTransform.Transform(this);
+            }
+            
+            return default;
+        }
     }
 }

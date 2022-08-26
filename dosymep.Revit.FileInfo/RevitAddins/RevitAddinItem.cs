@@ -5,6 +5,8 @@ using System.Linq;
 using System.Reflection;
 using System.Xml;
 
+using dosymep.Autodesk;
+
 namespace dosymep.Revit.FileInfo.RevitAddins {
     /// <summary>
     /// Represents a single Revit Add-In.
@@ -241,6 +243,15 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         /// </summary>
         /// <param name="addinItemNode">Current node.</param>
         protected abstract void FillXmlNodeImpl(XmlNode addinItemNode);
+        
+        /// <summary>
+        /// Transform journal element.
+        /// </summary>
+        /// <param name="transformer">Transformer journal element.</param>
+        /// <typeparam name="T">Transform result.</typeparam>
+        /// <typeparam name="TVisitable">Visitable element.</typeparam>
+        /// <returns>Returns transform result.</returns>
+        public abstract T Reduce<T, TVisitable>(ITransformer<T, TVisitable> transformer) where TVisitable : RevitAddinItem;
 
         /// <summary>
         /// Addin name.
