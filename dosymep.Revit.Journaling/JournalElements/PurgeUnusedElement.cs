@@ -1,4 +1,6 @@
-﻿namespace dosymep.Revit.Journaling.JournalElements {
+﻿using dosymep.Autodesk;
+
+namespace dosymep.Revit.Journaling.JournalElements {
     /// <summary>
     /// Purge unused journal element.
     /// </summary>

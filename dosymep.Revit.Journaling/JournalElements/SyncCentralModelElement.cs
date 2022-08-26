@@ -1,4 +1,6 @@
-﻿namespace dosymep.Revit.Journaling.JournalElements {
+﻿using dosymep.Autodesk;
+
+namespace dosymep.Revit.Journaling.JournalElements {
     /// <summary>
     /// Synchronization central model journal element.
     /// </summary>

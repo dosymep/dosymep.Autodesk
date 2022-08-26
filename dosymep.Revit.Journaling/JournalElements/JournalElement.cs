@@ -1,5 +1,7 @@
 ﻿using System;
 
+using dosymep.Autodesk;
+
 namespace dosymep.Revit.Journaling.JournalElements {
     /// <summary>
     /// Abstract class revit journal element.

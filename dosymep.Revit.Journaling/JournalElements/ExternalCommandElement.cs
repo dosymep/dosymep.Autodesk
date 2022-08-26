@@ -1,4 +1,6 @@
-﻿namespace dosymep.Revit.Journaling.JournalElements {
+﻿using dosymep.Autodesk;
+
+namespace dosymep.Revit.Journaling.JournalElements {
     /// <summary>
     /// External command journal element.
     /// </summary>

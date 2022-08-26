@@ -17,4 +17,8 @@
       <DocumentationFile>bin\Release\dosymep.Revit.Journaling.xml</DocumentationFile>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\dosymep.Autodesk\dosymep.Autodesk.csproj" />
+    </ItemGroup>
+
 </Project>
