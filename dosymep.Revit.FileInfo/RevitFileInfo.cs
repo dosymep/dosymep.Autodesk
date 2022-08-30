@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 
 using dosymep.Revit.FileInfo.BasicFileInfos;
-using dosymep.Revit.FileInfo.TransmissionDataInfos;
+using dosymep.Revit.FileInfo.Transmissions;
 
 namespace dosymep.Revit.FileInfo {
     /// <summary>

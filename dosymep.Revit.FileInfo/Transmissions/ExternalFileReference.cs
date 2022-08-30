@@ -1,4 +1,4 @@
-﻿namespace dosymep.Revit.FileInfo.TransmissionDataInfos {
+﻿namespace dosymep.Revit.FileInfo.Transmissions {
     /// <summary>
     /// External file reference.
     /// </summary>
