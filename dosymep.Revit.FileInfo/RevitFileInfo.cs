@@ -51,7 +51,7 @@ namespace dosymep.Revit.FileInfo {
         public BasicFileInfo BasicFileInfo { get; }
         
         /// <summary>
-        /// Basic file info.
+        /// Transmission data.
         /// </summary>
         public TransmissionData TransmissionData { get; }
 
