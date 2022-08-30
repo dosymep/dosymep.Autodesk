@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 using OpenMcdf;
 
-namespace dosymep.Revit.FileInfo.Transmissions {
+namespace dosymep.Revit.FileInfo.TransmissionDataStream {
     /// <summary>
     /// Transmission data.
     /// </summary>

@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 
 using dosymep.Autodesk.FileInfo;
-using dosymep.Revit.FileInfo.BasicFileInfos;
+using dosymep.Revit.FileInfo.BasicFileStream;
 
 namespace dosymep.Revit.FileInfo.Internal {
     internal static class BinaryReaderExtensions {

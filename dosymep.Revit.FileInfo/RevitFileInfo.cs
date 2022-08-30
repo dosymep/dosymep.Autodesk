@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-using dosymep.Revit.FileInfo.BasicFileInfos;
-using dosymep.Revit.FileInfo.Transmissions;
+using dosymep.Revit.FileInfo.BasicFileStream;
+using dosymep.Revit.FileInfo.TransmissionDataStream;
 
 namespace dosymep.Revit.FileInfo {
     /// <summary>

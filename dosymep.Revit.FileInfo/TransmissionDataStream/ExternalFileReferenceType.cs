@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace dosymep.Revit.FileInfo.Transmissions {
+namespace dosymep.Revit.FileInfo.TransmissionDataStream {
     /// <summary>
     /// Type linked files.
     /// </summary>

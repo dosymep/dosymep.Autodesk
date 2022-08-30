@@ -1,4 +1,4 @@
-﻿namespace dosymep.Revit.FileInfo.BasicFileInfos
+﻿namespace dosymep.Revit.FileInfo.BasicFileStream
 {
     /// <summary>
     /// This is application information.

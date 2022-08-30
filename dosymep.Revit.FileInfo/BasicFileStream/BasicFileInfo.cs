@@ -8,7 +8,7 @@ using dosymep.Revit.FileInfo.Internal;
 
 using OpenMcdf;
 
-namespace dosymep.Revit.FileInfo.BasicFileInfos {
+namespace dosymep.Revit.FileInfo.BasicFileStream {
     /// <summary>
     /// Class provides basic file info.
     /// </summary>

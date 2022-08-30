@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace dosymep.Revit.FileInfo.BasicFileInfos
+namespace dosymep.Revit.FileInfo.BasicFileStream
 {
     /// <summary>
     /// Model identity

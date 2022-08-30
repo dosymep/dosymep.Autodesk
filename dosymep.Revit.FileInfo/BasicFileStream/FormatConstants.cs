@@ -1,4 +1,4 @@
-﻿namespace dosymep.Revit.FileInfo.BasicFileInfos
+﻿namespace dosymep.Revit.FileInfo.BasicFileStream
 {
     internal class FormatConstants {
         public static readonly int Format = 12;
