@@ -4,7 +4,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 
 using dosymep.Autodesk.FileInfo;
-using dosymep.Revit.FileInfo.Internal;
 
 using OpenMcdf;
 

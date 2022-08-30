@@ -3,9 +3,8 @@ using System.IO;
 using System.Text;
 
 using dosymep.Autodesk.FileInfo;
-using dosymep.Revit.FileInfo.BasicFileStream;
 
-namespace dosymep.Revit.FileInfo.Internal {
+namespace dosymep.Revit.FileInfo.BasicFileStream {
     internal static class BinaryReaderExtensions {
         public static ModelVersionInfo ReadCentralVersion(this BinaryReader reader) {
             int versionNumber = reader.ReadInt32();
