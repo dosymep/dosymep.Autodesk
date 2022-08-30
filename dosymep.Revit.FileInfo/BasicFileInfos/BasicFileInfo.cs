@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -11,7 +8,7 @@ using dosymep.Revit.FileInfo.Internal;
 
 using OpenMcdf;
 
-namespace dosymep.Revit.FileInfo {
+namespace dosymep.Revit.FileInfo.BasicFileInfos {
     /// <summary>
     /// Class provides basic file info.
     /// </summary>
@@ -20,38 +17,6 @@ namespace dosymep.Revit.FileInfo {
         /// Basic file info stream name.
         /// </summary>
         public static readonly string BasicFileInfoName = "BasicFileInfo";
-
-        /// <summary>
-        /// Enums revit files extensions.
-        /// </summary>
-        public static readonly IReadOnlyList<string> RevitFilesExtensions = new[] {".rvt", ".rfa"};
-
-        /// <summary>
-        /// Constructs basic file info.
-        /// </summary>
-        /// <param name="modelPath">Model file path.</param>
-        public BasicFileInfo(string modelPath) {
-            if(string.IsNullOrEmpty(modelPath)) {
-                throw new ArgumentException("Value cannot be null or empty.", nameof(modelPath));
-            }
-
-            if(!File.Exists(modelPath)) {
-                throw new ArgumentException("Revit document was not found.", nameof(modelPath));
-            }
-
-            if(!RevitFilesExtensions.Contains(Path.GetExtension(modelPath), StringComparer.CurrentCultureIgnoreCase)) {
-                throw new ArgumentException(
-                    $"Revit document have not valid extension, allowed document extensions \"{string.Join(", ", RevitFilesExtensions)}\".",
-                    nameof(modelPath));
-            }
-
-            ModelPath = modelPath;
-        }
-
-        /// <summary>
-        /// Model file path.
-        /// </summary>
-        public string ModelPath { get; }
 
         /// <summary>
         /// Last save path.
@@ -144,7 +109,7 @@ namespace dosymep.Revit.FileInfo {
         /// <param name="modelPath">Model path.</param>
         /// <returns>Returns basic file information if BasicFileInfo exists.</returns>
         /// <exception cref="ArgumentException"><paramref name="modelPath" /> is <see langword="null" />, <see cref="String.Empty"/> or not exists.</exception>
-        public static BasicFileInfo ReadBasicFileInfo(string modelPath) {
+        internal static BasicFileInfo ReadBasicFileInfo(string modelPath) {
             if(string.IsNullOrEmpty(modelPath)) {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(modelPath));
             }
@@ -158,7 +123,7 @@ namespace dosymep.Revit.FileInfo {
                     byte[] bytes = rawBasicInfoData.GetData();
                     using(var stream = new MemoryStream(bytes)) {
                         using(var reader = new BinaryReader(stream, Encoding.Unicode)) {
-                            return ReadBasicFileInfo(reader, new BasicFileInfo(modelPath));
+                            return ReadBasicFileInfo(reader, new BasicFileInfo());
                         }
                     }
                 }

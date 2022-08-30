@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Security.Cryptography.X509Certificates;
 
-namespace dosymep.Revit.FileInfo {
+namespace dosymep.Revit.FileInfo.BasicFileInfos {
     /// <summary>
     /// This is the central model's version information.
     /// </summary>

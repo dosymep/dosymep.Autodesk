@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Runtime.Remoting.Messaging;
 
-namespace dosymep.Revit.FileInfo
+namespace dosymep.Revit.FileInfo.BasicFileInfos
 {
     /// <summary>
     /// Model identity
