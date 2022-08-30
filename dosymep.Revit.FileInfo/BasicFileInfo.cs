@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 
 using dosymep.Autodesk.FileInfo;
+using dosymep.Revit.FileInfo.Internal;
+
+using OpenMcdf;
 
 namespace dosymep.Revit.FileInfo {
     /// <summary>
@@ -11,9 +17,14 @@ namespace dosymep.Revit.FileInfo {
     /// </summary>
     public class BasicFileInfo {
         /// <summary>
+        /// Basic file info stream name.
+        /// </summary>
+        public static readonly string BasicFileInfoName = "BasicFileInfo";
+
+        /// <summary>
         /// Enums revit files extensions.
         /// </summary>
-        public static string[] RevitFilesExtensions = new[] {".rvt", ".rfa"};
+        public static readonly IReadOnlyList<string> RevitFilesExtensions = new[] {".rvt", ".rfa"};
 
         /// <summary>
         /// Constructs basic file info.
@@ -28,7 +39,7 @@ namespace dosymep.Revit.FileInfo {
                 throw new ArgumentException("Revit document was not found.", nameof(modelPath));
             }
 
-            if(RevitFilesExtensions.Contains(Path.GetExtension(modelPath), StringComparer.CurrentCultureIgnoreCase)) {
+            if(!RevitFilesExtensions.Contains(Path.GetExtension(modelPath), StringComparer.CurrentCultureIgnoreCase)) {
                 throw new ArgumentException(
                     $"Revit document have not valid extension, allowed document extensions \"{string.Join(", ", RevitFilesExtensions)}\".",
                     nameof(modelPath));
@@ -45,111 +56,254 @@ namespace dosymep.Revit.FileInfo {
         /// <summary>
         /// Last save path.
         /// </summary>
-        public string LastSavePath { get; internal set; }
+        public string LastSavePath { get; set; }
 
         /// <summary>
         /// Central model file path.
         /// </summary>
-        public string CentralModelPath { get; internal set; }
-
-        /// <summary>
-        /// File format version.
-        /// </summary>
-        public string FormatVersion { get; internal set; }
+        public string CentralPath { get; set; }
 
         /// <summary>
         /// True if model file is modified.
         /// </summary>
-        public bool IsModified { get; internal set; }
+        public bool IsModified { get; set; }
+
+        /// <summary>
+        /// True if model file is workshared.
+        /// </summary>
+        public bool IsWorkshared { get; set; }
+
+        /// <summary>
+        /// Worksharing type.
+        /// </summary>
+        public WorksharingType WorksharingType { get; set; }
 
         /// <summary>
         /// Is single user cloud model.
         /// </summary>
-        public bool IsSingleUserCloudModel { get; internal set; }
+        public bool IsSingleUserCloudModel { get; set; }
+
+        /// <summary>
+        /// Is revit lite.
+        /// </summary>
+        public bool IsRevitLite { get; set; }
 
         /// <summary>
         /// User name who save model file.
         /// </summary>
-        public bool Username { get; internal set; }
+        public string Username { get; set; }
 
         /// <summary>
         /// Author.
         /// </summary>
-        public string Author { get; internal set; }
-
-        /// <summary>
-        /// Project spark file.
-        /// </summary>
-        public int ProjectSparkFile { get; internal set; }
+        public string Author { get; set; }
 
         /// <summary>
         /// Default open workset.
         /// </summary>
-        public int DefaultOpenWorkset { get; internal set; }
+        public int DefaultOpenWorkset { get; set; }
 
         /// <summary>
-        /// Model identity.
+        /// File version.
         /// </summary>
-        public Guid? ModelIdentity { get; internal set; }
-
-        /// <summary>
-        /// Central model identity.
-        /// </summary>
-        public Guid? CentralModelIdentity { get; internal set; }
+        public int FileVersion { get; set; }
 
         /// <summary>
         /// Locale used when saved model file.
         /// </summary>
-        public LanguageCode ModelLanguage { get; internal set; }
+        public LanguageCode FileLocale { get; set; } = LanguageCode.Unknown;
+
+        /// <summary>
+        /// Model identity.
+        /// </summary>
+        public ModelIdentity Identity { get; set; } = ModelIdentity.Empty;
+
+        /// <summary>
+        /// Central model identity.
+        /// </summary>
+        public ModelIdentity CentralIdentity { get; set; } = ModelIdentity.Empty;
 
         /// <summary>
         /// Application information.
         /// </summary>
-        public ApplicationInfo AppInfo { get; internal set; }
+        public ApplicationInfo AppInfo { get; set; } = new ApplicationInfo();
 
         /// <summary>
         /// Current model file version.
         /// </summary>
-        public ModelVersionInfo CurrentModelVersion { get; internal set; }
+        public ModelVersionInfo CurrentVersion { get; set; } = ModelVersionInfo.Empty;
 
         /// <summary>
         /// Central model file version.
         /// </summary>
-        public ModelVersionInfo CentralModelVersion { get; internal set; }
-    }
-
-    /// <summary>
-    /// This is application information.
-    /// </summary>
-    public class ApplicationInfo {
-        /// <summary>
-        /// Application build version.
-        /// </summary>
-        public string Build { get; internal set; }
+        public ModelVersionInfo CentralVersion { get; set; } = ModelVersionInfo.Empty;
 
         /// <summary>
-        /// True if revit is x64.
+        /// Reads basic file information.
         /// </summary>
-        public bool Is64Bit { get; internal set; } = true;
+        /// <param name="modelPath">Model path.</param>
+        /// <returns>Returns basic file information if BasicFileInfo exists.</returns>
+        /// <exception cref="ArgumentException"><paramref name="modelPath" /> is <see langword="null" />, <see cref="String.Empty"/> or not exists.</exception>
+        public static BasicFileInfo ReadBasicFileInfo(string modelPath) {
+            if(string.IsNullOrEmpty(modelPath)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(modelPath));
+            }
 
-        /// <summary>
-        /// The client application.
-        /// </summary>
-        public string ClientAppName { get; internal set; } = "RevitApplication";
-    }
+            if(!File.Exists(modelPath)) {
+                throw new ArgumentException($"The {modelPath} is not exists.", nameof(modelPath));
+            }
 
-    /// <summary>
-    /// This is the central model's version information.
-    /// </summary>
-    public class ModelVersionInfo {
-        /// <summary>
-        /// This is the central model's episode GUID corresponding to the last reload latest done for this model.
-        /// </summary>
-        public Guid? Id { get; internal set; }
+            using(CompoundFile cf = new CompoundFile(modelPath)) {
+                if(cf.RootStorage.TryGetStream(BasicFileInfoName, out CFStream rawBasicInfoData)) {
+                    byte[] bytes = rawBasicInfoData.GetData();
+                    using(var stream = new MemoryStream(bytes)) {
+                        using(var reader = new BinaryReader(stream, Encoding.Unicode)) {
+                            return ReadBasicFileInfo(reader, new BasicFileInfo(modelPath));
+                        }
+                    }
+                }
+            }
 
-        /// <summary>
-        /// This is the central model's version number corresponding to the last reload latest done for this model.
-        /// </summary>
-        public int VersionNumber { get; internal set; }
+            return null;
+        }
+
+        private static BasicFileInfo ReadBasicFileInfo(BinaryReader reader, BasicFileInfo basicFileInfo) {
+            basicFileInfo.FileVersion = reader.ReadInt32();
+            basicFileInfo.IsWorkshared = reader.ReadBoolean();
+            basicFileInfo.WorksharingType = basicFileInfo.IsWorkshared
+                ? reader.ReadWorksharingType()
+                : WorksharingType.NotEnabled;
+
+            basicFileInfo.Username = reader.ReadValueString();
+            basicFileInfo.CentralPath = reader.ReadValueString();
+
+            if(basicFileInfo.FileVersion >= FormatConstants.Format) {
+                basicFileInfo.AppInfo.Format = reader.ReadValueString();
+                basicFileInfo.AppInfo.Build = reader.ReadValueString();
+            } else {
+                basicFileInfo.AppInfo.Build = reader.ReadValueString();
+                basicFileInfo.AppInfo.Format = Regex.Match(basicFileInfo.AppInfo.Build, @"20\d\d").Value;
+            }
+
+            if(basicFileInfo.FileVersion >= FormatConstants.LastSavePath) {
+                basicFileInfo.LastSavePath = reader.ReadValueString();
+            }
+
+            if(basicFileInfo.FileVersion >= FormatConstants.DefaultOpenWorkset) {
+                basicFileInfo.DefaultOpenWorkset = reader.ReadInt32();
+            }
+
+            if(basicFileInfo.FileVersion >= FormatConstants.IsRevitLite) {
+                basicFileInfo.IsRevitLite = reader.ReadBoolean();
+            }
+
+            if(basicFileInfo.FileVersion >= FormatConstants.CentralIdentity) {
+                basicFileInfo.CentralIdentity = reader.ReadIdentity();
+            }
+
+            if(basicFileInfo.FileVersion >= FormatConstants.FileLocale) {
+                basicFileInfo.FileLocale = reader.ReadLanguageCode();
+            }
+
+            if(basicFileInfo.FileVersion >= FormatConstants.IsModified) {
+                basicFileInfo.IsModified = reader.ReadBoolean();
+            }
+
+            if(basicFileInfo.FileVersion >= FormatConstants.CentralVersion) {
+                basicFileInfo.CentralVersion = reader.ReadCentralVersion();
+            }
+
+            if(basicFileInfo.FileVersion >= FormatConstants.CurrentVersion) {
+                basicFileInfo.CurrentVersion = reader.ReadCurrentVersion();
+            }
+
+            if(basicFileInfo.FileVersion >= FormatConstants.Identity) {
+                basicFileInfo.Identity = reader.ReadIdentity();
+            }
+
+            if(basicFileInfo.FileVersion >= FormatConstants.IsSingleUserCloudModel) {
+                basicFileInfo.IsSingleUserCloudModel = reader.ReadBoolean();
+            }
+
+            if(basicFileInfo.FileVersion >= FormatConstants.Author) {
+                basicFileInfo.Author = reader.ReadValueString();
+            }
+
+            if(basicFileInfo.FileVersion >= FormatConstants.ClientAppName) {
+                basicFileInfo.AppInfo.ClientAppName = reader.ReadValueString();
+            }
+
+            return basicFileInfo;
+        }
+
+        /// <inheritdoc />
+        public override string ToString() {
+            var builder = new StringBuilder();
+            builder.AppendLineFormat("Worksharing", WorksharingType);
+            builder.AppendLineFormat("Username", Username);
+            builder.AppendLineFormat("Central Model Path", CentralPath);
+
+            if(FileVersion >= FormatConstants.Format) {
+                builder.AppendLineFormat("Format", AppInfo.Format);
+                builder.AppendLineFormat("Build", AppInfo.Build);
+            } else {
+                builder.AppendLineFormat("Revit Build", AppInfo.Build);
+            }
+
+            if(FileVersion >= FormatConstants.LastSavePath) {
+                builder.AppendLineFormat("Last Save Path", LastSavePath);
+            }
+
+            if(FileVersion >= FormatConstants.DefaultOpenWorkset) {
+                builder.AppendLineFormat("Open Workset Default", DefaultOpenWorkset);
+            }
+
+            if(FileVersion >= FormatConstants.IsRevitLite) {
+                builder.AppendLineFormat("Revit LT File", IsRevitLite);
+            }
+
+            if(FileVersion >= FormatConstants.CentralIdentity) {
+                builder.AppendLineFormat("Central Model Identity", CentralIdentity);
+            }
+
+            if(FileVersion >= FormatConstants.FileLocale) {
+                builder.AppendLineFormat("Locale When Saved", FileLocale.Code);
+            }
+
+            if(FileVersion >= FormatConstants.IsModified) {
+                builder.AppendLineFormat("All Local Changes Saved To Central", IsModified);
+            }
+
+            if(FileVersion >= FormatConstants.CentralVersion) {
+                builder.AppendLineFormat("Central model's version number corresponding to the last reload latest",
+                    CentralVersion.VersionNumber);
+                builder.AppendLineFormat("Central model's episode GUID corresponding to the last reload latest",
+                    CentralVersion.Id);
+            }
+
+            if(FileVersion >= FormatConstants.CurrentVersion) {
+                builder.AppendLine();
+                builder.Append(
+                    $"The unique document version identifier is {CurrentVersion.Id} for {CurrentVersion.VersionNumber} saves");
+            }
+
+            if(FileVersion >= FormatConstants.Identity) {
+                builder.AppendLineFormat("Model Identity", Identity);
+            }
+
+            if(FileVersion >= FormatConstants.IsSingleUserCloudModel) {
+                builder.AppendLineFormat("Model is singleUserCloudModel", IsSingleUserCloudModel);
+            }
+
+            if(FileVersion >= FormatConstants.Author) {
+                builder.AppendLineFormat("Author", Author);
+            }
+
+            if(FileVersion >= FormatConstants.ClientAppName) {
+                builder.AppendLineFormat("ClientAppName", AppInfo.ClientAppName);
+            }
+
+            return builder.ToString();
+        }
     }
 }
