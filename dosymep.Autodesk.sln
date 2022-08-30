@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.Navisworks.FileInfo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.Revit.FileInfo.Tests", "dosymep.Revit.FileInfo.Tests\dosymep.Revit.FileInfo.Tests.csproj", "{2C43AE58-8CD2-4E3D-B8F4-51743C92B297}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7C0C3D0C-5812-4AAD-A4FB-F59CDB27EA45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,5 +61,10 @@ Global
 		{2C43AE58-8CD2-4E3D-B8F4-51743C92B297}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C43AE58-8CD2-4E3D-B8F4-51743C92B297}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C43AE58-8CD2-4E3D-B8F4-51743C92B297}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2C43AE58-8CD2-4E3D-B8F4-51743C92B297} = {7C0C3D0C-5812-4AAD-A4FB-F59CDB27EA45}
+		{5298FEBE-CC93-4CE9-B17E-1DB1CE74CDE1} = {7C0C3D0C-5812-4AAD-A4FB-F59CDB27EA45}
+		{5160A029-F6FC-4B37-A654-135F2BAF2F18} = {7C0C3D0C-5812-4AAD-A4FB-F59CDB27EA45}
 	EndGlobalSection
 EndGlobal
