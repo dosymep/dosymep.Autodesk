@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 
 namespace dosymep.Revit.FileInfo.RevitAddins {
@@ -12,10 +13,10 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             if(string.IsNullOrEmpty(xmlNodeName)) {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(xmlNodeName));
             }
-            
+
             return document.AppendChild(document.CreateElement(xmlNodeName));
         }
-        
+
         public static XmlNode CreateAndAppendElement(this XmlNode xmlNode, string xmlNodeName) {
             if(xmlNode == null) {
                 throw new ArgumentNullException(nameof(xmlNode));
@@ -24,15 +25,15 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             if(string.IsNullOrEmpty(xmlNodeName)) {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(xmlNodeName));
             }
-            
+
             XmlDocument document = xmlNode.OwnerDocument;
             if(document == null) {
                 throw new ArgumentException("Owner document is not set.", nameof(xmlNode));
             }
-            
+
             return xmlNode.AppendChild(document.CreateElement(xmlNodeName));
         }
-        
+
         public static XmlNode CreateAndAppendElement<T>(this XmlNode xmlNode, string xmlNodeName, T xmlValue) {
             if(xmlNode == null) {
                 throw new ArgumentNullException(nameof(xmlNode));
@@ -41,7 +42,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             if(string.IsNullOrEmpty(xmlNodeName)) {
                 throw new ArgumentException("Value cannot be null or empty.", nameof(xmlNodeName));
             }
-            
+
             XmlDocument document = xmlNode.OwnerDocument;
             if(document == null) {
                 throw new ArgumentException("Owner document is not set.", nameof(xmlNode));
@@ -53,7 +54,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
 
             XmlNode element = xmlNode.CreateAndAppendElement(xmlNodeName);
             element.InnerText = xmlValue.ToString();
-            
+
             return element;
         }
 
@@ -73,8 +74,30 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
 
             XmlAttribute attribute = document.CreateAttribute(xmlNodeName);
             attribute.Value = xmlValue?.ToString() ?? string.Empty;
-            
+
             return xmlNode.Attributes?.Append(attribute);
+        }
+
+        public static XmlNode CreateAndAppendElement(this XmlNode xmlNode, string xmlNodeName,
+            IDictionary<string, string> value) {
+            if(xmlNode == null) {
+                throw new ArgumentNullException(nameof(xmlNode));
+            }
+
+            if(string.IsNullOrEmpty(xmlNodeName)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(xmlNodeName));
+            }
+
+            if(value == null || value.Count == 0) {
+                return null;
+            }
+
+            XmlNode journalData = xmlNode.CreateAndAppendElement(xmlNodeName);
+            foreach(KeyValuePair<string, string> kvp in value.Where(item => !string.IsNullOrEmpty(item.Value))) {
+                journalData.CreateAndAppendElement(kvp.Key, kvp.Value);
+            }
+
+            return journalData;
         }
 
         public static T GetXmlNodeValue<T>(this XmlNode xmlNode, string xmlNodeName) {
@@ -112,6 +135,21 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
 
             string enumValue = xmlNode.GetXmlNodeValue<string>(xmlNodeName);
             return Enum.TryParse(enumValue, out T result) ? result : default;
+        }
+
+        public static IDictionary<string, string> GetXmlNodeDictValue(this XmlNode xmlNode, string xmlNodeName) {
+            if(xmlNode == null) {
+                throw new ArgumentNullException(nameof(xmlNode));
+            }
+
+            if(string.IsNullOrEmpty(xmlNodeName)) {
+                throw new ArgumentException("Value cannot be null or empty.", nameof(xmlNodeName));
+            }
+
+            XmlNode journalData = xmlNode.SelectSingleNode(xmlNodeName);
+            return journalData?.ChildNodes
+                .OfType<XmlNode>()
+                .ToDictionary(item => item.Name, item => item.Value);
         }
 
         public static string GetFilePath(this XmlNode xmlNode, string xmlNodeName) {

@@ -101,6 +101,11 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         /// AllowLoadingIntoExistingSessionTag
         /// </summary>
         public static readonly string AllowLoadingIntoExistingSessionTag = "AllowLoadingIntoExistingSession";
+        
+        /// <summary>
+        /// JournalDataTag
+        /// </summary>
+        public static readonly string JournalDataTag = "JournalData";
 
         /// <summary>
         /// Root addin manifest.
@@ -139,6 +144,8 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             addinItem.AllowLoadingIntoExistingSession =
                 addinElement.GetXmlNodeValue<bool>(AllowLoadingIntoExistingSessionTag);
 
+            addinItem.JournalData = addinElement.GetXmlNodeDictValue(JournalDataTag);
+
             return addinItem;
         }
 
@@ -164,6 +171,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             addinItemNode.CreateAndAppendElement(ProductDescriptionTag, ProductDescription);
 
             addinItemNode.CreateAndAppendElement(AllowLoadingIntoExistingSessionTag, AllowLoadingIntoExistingSession);
+            addinItemNode.CreateAndAppendElement(JournalDataTag, JournalData);
 
             FillXmlNodeImpl(addinItemNode);
         }
@@ -320,6 +328,11 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         /// The flag of loading permission.
         /// </summary>
         public bool AllowLoadingIntoExistingSession { get; set; }
+        
+        /// <summary>
+        /// Journal data.
+        /// </summary>
+        public IDictionary<string, string> JournalData { get; set; }
 
         /// <summary>
         /// Loading revit addin item assembly in Current Domain.
