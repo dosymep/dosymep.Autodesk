@@ -146,6 +146,7 @@ Jrn.CheckBox ""Modal , Synchronize with Central , Dialog_Revit_PartitionsSaveToC
         /// </summary>
         public static readonly string ExecuteExternalCommand =
             @"' Execute external command 
+Jrn.RibbonEvent ""TabActivated:Add-Ins""
 Jrn.RibbonEvent ""Execute external command:{0}:{1}""";
 
         /// <summary>
