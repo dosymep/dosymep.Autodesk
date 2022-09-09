@@ -21,7 +21,10 @@
       <None Update="TestsData\source_journal.vb">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
-      <None Update="TestsFiles\source_journal.vb">
+      <None Update="TestsFiles\source_journal.2022.vb">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="TestsFiles\source_journal.2021.vb">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
     </ItemGroup>

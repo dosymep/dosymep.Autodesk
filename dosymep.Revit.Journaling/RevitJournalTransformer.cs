@@ -17,6 +17,16 @@ namespace dosymep.Revit.Journaling {
         ITransformer<string, SyncCentralModelElement>,
         ITransformer<string, PurgeUnusedElement>,
         ITransformer<string, ExternalCommandElement> {
+        private readonly int _revitVersion;
+
+        /// <summary>
+        /// Creates revit journal transformer.
+        /// </summary>
+        /// <param name="revitVersion">Revit version.</param>
+        public RevitJournalTransformer(int revitVersion) {
+            _revitVersion = revitVersion;
+        }
+
         /// <summary>
         /// Consistently transforms journal elements.
         /// </summary>
@@ -25,7 +35,7 @@ namespace dosymep.Revit.Journaling {
         public string Transform(IEnumerable<JournalElement> journalElements) {
             return Transform(DateTimeOffset.Now, journalElements);
         }
-        
+
         /// <summary>
         /// Consistently transforms journal elements.
         /// </summary>
@@ -107,24 +117,28 @@ namespace dosymep.Revit.Journaling {
             var builder = new StringBuilder();
 
             if(visitable.Compact) {
-                builder.AppendLine(RevitJournalTemplates.FileSyncCompactFile);
+                builder.AppendLine(GetVersionString(RevitJournalTemplatesOld.FileSyncCompactFile,
+                    RevitJournalTemplates.FileSyncCompactFile));
             }
 
             if(visitable.BorrowedElements) {
-                builder.AppendLine(RevitJournalTemplates.FileSyncBorrowedElements);
+                builder.AppendLine(GetVersionString(RevitJournalTemplatesOld.FileSyncBorrowedElements,
+                    RevitJournalTemplates.FileSyncBorrowedElements));
             }
 
             if(visitable.UserCreatedWorksets) {
-                builder.AppendLine(RevitJournalTemplates.FileSyncUserСreatedWorksets);
+                builder.AppendLine(GetVersionString(RevitJournalTemplatesOld.FileSyncUserСreatedWorksets,
+                    RevitJournalTemplates.FileSyncUserСreatedWorksets));
             }
 
             if(visitable.SaveLocalFile) {
-                builder.AppendLine(RevitJournalTemplates.FileSyncSaveLocalFile);
+                builder.AppendLine(GetVersionString(RevitJournalTemplatesOld.FileSyncSaveLocalFile,
+                    RevitJournalTemplates.FileSyncSaveLocalFile));
             }
 
-            return string.Format(RevitJournalTemplates.FileSync,
-                builder.ToString().Trim(),
-                visitable.Comment);
+            var fileSync = GetVersionString(RevitJournalTemplatesOld.FileSync,
+                RevitJournalTemplates.FileSync);
+            return string.Format(fileSync, builder.ToString().Trim(), visitable.Comment);
         }
 
         /// <summary>
@@ -144,6 +158,10 @@ namespace dosymep.Revit.Journaling {
         /// <returns>Returns transformation object.</returns>
         public string Transform(ExternalCommandElement visitable) {
             throw new NotImplementedException();
+        }
+
+        private string GetVersionString(string oldValue, string newValue) {
+            return _revitVersion < 2022 ? oldValue : newValue;
         }
     }
 }
