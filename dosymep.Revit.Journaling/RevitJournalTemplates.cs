@@ -155,5 +155,12 @@ Jrn.RibbonEvent ""Execute external command:{0}:{1}""";
         public static readonly string ExternalCommandJournalData =
             @"' External command JournalData
 Jrn.Data ""APIStringStringMapJournalData"" _";
+
+        /// <summary>
+        /// Dynamo command execute template.
+        /// </summary>
+        public static readonly string DynamoCommmandExcecute =
+            @"Jrn.RibbonEvent ""TabActivated:Manage""
+Jrn.Command ""Ribbon"" , ""Launch Dynamo, ID_VISUAL_PROGRAMMING_DYNAMO""";
     }
 }

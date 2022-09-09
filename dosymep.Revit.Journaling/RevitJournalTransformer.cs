@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace dosymep.Revit.Journaling {
         ITransformer<string, OpenCentralModelElement>,
         ITransformer<string, SyncCentralModelElement>,
         ITransformer<string, PurgeUnusedElement>,
+        ITransformer<string, DynamoCommandElement>,
         ITransformer<string, ExternalCommandElement> {
         private readonly int _revitVersion;
 
@@ -150,6 +152,20 @@ namespace dosymep.Revit.Journaling {
             return string.Join(Environment.NewLine,
                 Enumerable.Range(0, visitable.TryCount).Select(_ => RevitJournalTemplates.PurgeUnused));
         }
+        
+        /// <summary>
+        /// External command transformer.
+        /// </summary>
+        /// <param name="visitable">Visitable object.</param>
+        /// <returns>Returns transformation object.</returns>
+        public string Transform(DynamoCommandElement visitable) {
+            var builder = new StringBuilder();
+
+            builder.Append(RevitJournalTemplates.DynamoCommmandExcecute);
+            WriteJournalData(builder, visitable.JournalData);
+
+            return builder.ToString();
+        }
 
         /// <summary>
         /// External command transformer.
@@ -162,18 +178,21 @@ namespace dosymep.Revit.Journaling {
             builder.AppendFormat(RevitJournalTemplates.ExecuteExternalCommand,
                 visitable.RevitAddinItem.AddinId,
                 visitable.RevitAddinItem.FullClassName);
+            WriteJournalData(builder, visitable.JournalData);
 
-            if(visitable.JournalData.Count > 0) {
+            return builder.ToString();
+        }
+
+        private static void WriteJournalData(StringBuilder builder, IDictionary<string, string> journalData) {
+            if(journalData.Count > 0) {
                 builder.AppendLine();
                 builder.AppendLine(RevitJournalTemplates.ExternalCommandJournalData);
-                builder.AppendFormat("    , {0} _", visitable.JournalData.Count);
+                builder.AppendFormat("    , {0} _", journalData.Count);
                 builder.AppendLine();
                 builder.Append("    , ");
                 builder.Append(string.Join(Environment.NewLine + "    , ",
-                    visitable.JournalData.Select(item => $"\"{item.Key}\", \"{item.Value}\" _")));
+                    journalData.Select(item => $"\"{item.Key}\", \"{item.Value}\" _")));
             }
-
-            return builder.ToString();
         }
 
         private string GetVersionString(string oldValue, string newValue) {

@@ -56,6 +56,17 @@ Jrn.Edit "Modal , Synchronize with Central , Dialog_Revit_PartitionsSaveToMaster
 ' Assign synchronize with central dialog
 Jrn.PushButton "Modal , Synchronize with Central , Dialog_Revit_PartitionsSaveToMaster", _
         "OK, IDOK"
+Jrn.RibbonEvent "TabActivated:Manage"
+Jrn.Command "Ribbon" , "Launch Dynamo, ID_VISUAL_PROGRAMMING_DYNAMO"
+' External command JournalData
+Jrn.Data "APIStringStringMapJournalData" _
+    , 6 _
+    , "dynShowUI", "False" _
+    , "dynAutomation", "True" _
+    , "dynPathExecute", "False" _
+    , "dynModelShutDown", "True" _
+    , "dynPath", "@C:\script_dynamo.dyn" _
+    , "dynModelNodesInfo", "[{data: data}]" _
 ' Execute external command 
 Jrn.RibbonEvent "TabActivated:Add-Ins"
 Jrn.RibbonEvent "Execute external command:9725d9bf-ca8c-4ee8-b8b0-c8257b5eb6f2:dosymep.RevitExternalCommand"

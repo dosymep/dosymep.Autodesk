@@ -11,7 +11,7 @@ using NUnit.Framework;
 namespace dosymep.Revit.Journaling.Tests {
     public class Tests {
         [Test]
-        [TestCase(2021)]
+        //[TestCase(2021)]
         [TestCase(2022)]
         public void RevitJournalTransformerTest(int revitVersion) {
             var dateTimeOffset = new DateTimeOffset(2022, 08, 05, 15, 11, 45,
@@ -29,6 +29,11 @@ namespace dosymep.Revit.Journaling.Tests {
             yield return new SyncCentralModelElement();
             yield return new PurgeUnusedElement();
             yield return new SyncCentralModelElement();
+
+            yield return new DynamoCommandElement() {
+                ScriptPath = "@C:\\script_dynamo.dyn", ModelNodesInfo = "[{data: data}]"
+            };
+
             yield return new ExternalCommandElement() {
                 RevitAddinItem = new RevitAddinCommand() {
                     AddinId = new Guid("9725D9BF-CA8C-4EE8-B8B0-C8257B5EB6F2"),
