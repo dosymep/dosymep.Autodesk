@@ -28,10 +28,7 @@ Jrn.Directive ""DebugMode"", ""PermissiveJournal"", True";
         /// </summary>
         public static readonly string ExitApplication
             = @"' Exit revit application
-Jrn.Command ""SystemMenu"" , ""Quit the application; prompts to save projects , ID_APP_EXIT""
-Jrn.Data ""TaskDialogResult"" , _
-    ""Do you want to save changes to Untitled?"", _
-        ""No"", ""IDNO""";
+Jrn.Command ""SystemMenu"" , ""Quit the application; prompts to save projects , ID_APP_EXIT""";
 
         /// <summary>
         /// Purge unused elements template.

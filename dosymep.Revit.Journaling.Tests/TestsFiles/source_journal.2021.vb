@@ -78,6 +78,3 @@ Jrn.Data "APIStringStringMapJournalData" _
     , "key3", "value3" _
 ' Exit revit application
 Jrn.Command "SystemMenu" , "Quit the application; prompts to save projects , ID_APP_EXIT"
-Jrn.Data "TaskDialogResult" , _
-    "Do you want to save changes to Untitled?", _
-        "No", "IDNO"
