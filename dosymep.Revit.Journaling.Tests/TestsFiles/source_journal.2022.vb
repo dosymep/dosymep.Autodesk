@@ -57,6 +57,7 @@ Jrn.Edit "Modal , Synchronize with Central , Dialog_Revit_PartitionsSaveToCentra
 Jrn.PushButton "Modal , Synchronize with Central , Dialog_Revit_PartitionsSaveToCentral", _
         "OK, IDOK"
 ' Execute external command 
+Jrn.RibbonEvent "TabActivated:Add-Ins"
 Jrn.RibbonEvent "Execute external command:9725d9bf-ca8c-4ee8-b8b0-c8257b5eb6f2:dosymep.RevitExternalCommand"
 ' External command JournalData
 Jrn.Data "APIStringStringMapJournalData" _
