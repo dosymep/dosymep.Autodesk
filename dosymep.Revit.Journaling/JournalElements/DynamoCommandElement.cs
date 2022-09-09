@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using dosymep.Autodesk;
+
+using Newtonsoft.Json;
 
 namespace dosymep.Revit.Journaling.JournalElements {
     /// <summary>
@@ -20,9 +23,9 @@ namespace dosymep.Revit.Journaling.JournalElements {
         public string ScriptPath { get; set; }
 
         /// <summary>
-        /// A json text contains nodes info.
+        /// Dynamo model info.
         /// </summary>
-        public string ModelNodesInfo { get; set; }
+        public List<DynamoNodeInfo> NodesInfo { get; set; }
 
         /// <summary>
         /// External command journal data.
@@ -33,7 +36,7 @@ namespace dosymep.Revit.Journaling.JournalElements {
             {"dynPathExecute", "False"},
             {"dynModelShutDown", "True"},
             {"dynPath", ScriptPath},
-            {"dynModelNodesInfo", ModelNodesInfo},
+            {"dynModelNodesInfo", JsonConvert.SerializeObject(NodesInfo)},
         };
 
         /// <inheritdoc />
@@ -44,5 +47,25 @@ namespace dosymep.Revit.Journaling.JournalElements {
 
             return default;
         }
+    }
+
+    /// <summary>
+    /// Dynamo model node info.
+    /// </summary>
+    public class DynamoNodeInfo {
+        /// <summary>
+        /// Id.
+        /// </summary>
+        public Guid Id { get;set;}
+        
+        /// <summary>
+        /// Name.
+        /// </summary>
+        public string Name { get; set; }
+        
+        /// <summary>
+        /// Value.
+        /// </summary>
+        public string Value { get; set; }
     }
 }

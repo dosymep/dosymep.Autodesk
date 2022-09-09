@@ -66,7 +66,7 @@ Jrn.Data "APIStringStringMapJournalData" _
     , "dynPathExecute", "False" _
     , "dynModelShutDown", "True" _
     , "dynPath", "@C:\script_dynamo.dyn" _
-    , "dynModelNodesInfo", "[{data: data}]" _
+    , "dynModelNodesInfo", "[{"Id":"00000000-0000-0000-0000-000000000000","Name":"Name","Value":"Value"}]" _
 ' Execute external command 
 Jrn.RibbonEvent "TabActivated:Add-Ins"
 Jrn.RibbonEvent "Execute external command:9725d9bf-ca8c-4ee8-b8b0-c8257b5eb6f2:dosymep.RevitExternalCommand"

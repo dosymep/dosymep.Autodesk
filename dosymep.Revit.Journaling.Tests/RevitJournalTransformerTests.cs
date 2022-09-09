@@ -31,7 +31,10 @@ namespace dosymep.Revit.Journaling.Tests {
             yield return new SyncCentralModelElement();
 
             yield return new DynamoCommandElement() {
-                ScriptPath = "@C:\\script_dynamo.dyn", ModelNodesInfo = "[{data: data}]"
+                ScriptPath = "@C:\\script_dynamo.dyn",
+                NodesInfo = new List<DynamoNodeInfo>() {
+                    new DynamoNodeInfo() {Id = Guid.Empty, Name = "Name", Value = "Value"}
+                }
             };
 
             yield return new ExternalCommandElement() {
