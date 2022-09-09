@@ -8,8 +8,8 @@
         /// </summary>
         /// <param name="{0}">Date journal initialization.</param>
         public static readonly string Init
-            = @"' Revit Journal by dosymep 
-' 0:< 'C {0};
+            = @"' Revit {0} Journal by dosymep 
+' 0:< 'C {1};
 Dim Jrn
 Set Jrn = CrsJournalScript";
 
@@ -140,5 +140,19 @@ Jrn.CheckBox ""Modal , Synchronize with Central , Dialog_Revit_PartitionsSaveToC
             = @"' Saving local file when sync
 Jrn.CheckBox ""Modal , Synchronize with Central , Dialog_Revit_PartitionsSaveToCentral"", _
         ""Save Local File before and after synchronizing with central, Control_Revit_SavePartitionsToLocal"", True";
+
+        /// <summary>
+        /// Execute external command template.
+        /// </summary>
+        public static readonly string ExecuteExternalCommand =
+            @"' Execute external command 
+Jrn.RibbonEvent ""Execute external command:{0}:{1}""";
+
+        /// <summary>
+        /// Execute external command journal data template.
+        /// </summary>
+        public static readonly string ExternalCommandJournalData =
+            @"' External command JournalData
+Jrn.Data ""APIStringStringMapJournalData"" _";
     }
 }

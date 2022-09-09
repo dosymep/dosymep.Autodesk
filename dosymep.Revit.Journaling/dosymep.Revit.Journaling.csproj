@@ -19,6 +19,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\dosymep.Autodesk\dosymep.Autodesk.csproj" />
+      <ProjectReference Include="..\dosymep.Revit.FileInfo\dosymep.Revit.FileInfo.csproj" />
     </ItemGroup>
 
 </Project>

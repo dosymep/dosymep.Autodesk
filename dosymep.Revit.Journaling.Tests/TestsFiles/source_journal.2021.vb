@@ -1,4 +1,4 @@
-' Revit Journal by dosymep 
+' Revit 2021 Journal by dosymep 
 ' 0:< 'C 05.08.2022 15:11:45 +03:00;
 Dim Jrn
 Set Jrn = CrsJournalScript
@@ -56,6 +56,14 @@ Jrn.Edit "Modal , Synchronize with Central , Dialog_Revit_PartitionsSaveToMaster
 ' Assign synchronize with central dialog
 Jrn.PushButton "Modal , Synchronize with Central , Dialog_Revit_PartitionsSaveToMaster", _
         "OK, IDOK"
+' Execute external command 
+Jrn.RibbonEvent "Execute external command:9725d9bf-ca8c-4ee8-b8b0-c8257b5eb6f2:dosymep.RevitExternalCommand"
+' External command JournalData
+Jrn.Data "APIStringStringMapJournalData" _
+    , 3 _
+    , "key1", "value1" _
+    , "key2", "value2" _
+    , "key3", "value3" _
 ' Exit revit application
 Jrn.Command "SystemMenu" , "Quit the application; prompts to save projects , ID_APP_EXIT"
 Jrn.Data "TaskDialogResult" , _

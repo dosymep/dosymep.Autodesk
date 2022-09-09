@@ -1,4 +1,8 @@
-﻿using dosymep.Autodesk;
+﻿using System.Collections;
+using System.Collections.Generic;
+
+using dosymep.Autodesk;
+using dosymep.Revit.FileInfo.RevitAddins;
 
 namespace dosymep.Revit.Journaling.JournalElements {
     /// <summary>
@@ -12,6 +16,16 @@ namespace dosymep.Revit.Journaling.JournalElements {
             : base("Execute external command.") {
         }
         
+        /// <summary>
+        /// External command.
+        /// </summary>
+        public RevitAddinItem RevitAddinItem { get; set; }
+        
+        /// <summary>
+        /// External command journal data.
+        /// </summary>
+        public IDictionary<string, string> JournalData { get; set; }
+
         /// <inheritdoc />
         public override T Reduce<T, TVisitable>(ITransformer<T, TVisitable> transformer) {
             if(transformer is ITransformer<T, ExternalCommandElement> openSharedModelTransform) {

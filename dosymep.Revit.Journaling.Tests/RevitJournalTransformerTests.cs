@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 
+using dosymep.Revit.FileInfo.RevitAddins;
 using dosymep.Revit.Journaling.JournalElements;
 
 using NUnit.Framework;
@@ -28,6 +29,15 @@ namespace dosymep.Revit.Journaling.Tests {
             yield return new SyncCentralModelElement();
             yield return new PurgeUnusedElement();
             yield return new SyncCentralModelElement();
+            yield return new ExternalCommandElement() {
+                RevitAddinItem = new RevitAddinCommand() {
+                    AddinId = new Guid("9725D9BF-CA8C-4EE8-B8B0-C8257B5EB6F2"),
+                    FullClassName = "dosymep.RevitExternalCommand"
+                },
+                JournalData = new Dictionary<string, string>() {
+                    {"key1", "value1"}, {"key2", "value2"}, {"key3", "value3"}
+                }
+            };
         }
     }
 }

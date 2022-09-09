@@ -63,7 +63,7 @@ namespace dosymep.Revit.Journaling {
         /// <returns>Returns a string representation of the Revit Journal.</returns>
         public string Transform(DateTimeOffset dateTimeOffset, IEnumerable<JournalElement> journalElements) {
             var builder = new StringBuilder()
-                .AppendLine(string.Format(RevitJournalTemplates.Init, dateTimeOffset))
+                .AppendLine(string.Format(RevitJournalTemplates.Init, _revitVersion, dateTimeOffset))
                 .AppendLine(RevitJournalTemplates.InitDebug)
                 .AppendLine(string.Join(Environment.NewLine,
                     journalElements.Select(item => item.Reduce<string, JournalElement>(this))
@@ -157,7 +157,23 @@ namespace dosymep.Revit.Journaling {
         /// <param name="visitable">Visitable object.</param>
         /// <returns>Returns transformation object.</returns>
         public string Transform(ExternalCommandElement visitable) {
-            throw new NotImplementedException();
+            var builder = new StringBuilder();
+
+            builder.AppendFormat(RevitJournalTemplates.ExecuteExternalCommand,
+                visitable.RevitAddinItem.AddinId,
+                visitable.RevitAddinItem.FullClassName);
+
+            if(visitable.JournalData.Count > 0) {
+                builder.AppendLine();
+                builder.AppendLine(RevitJournalTemplates.ExternalCommandJournalData);
+                builder.AppendFormat("    , {0} _", visitable.JournalData.Count);
+                builder.AppendLine();
+                builder.Append("    , ");
+                builder.Append(string.Join(Environment.NewLine + "    , ",
+                    visitable.JournalData.Select(item => $"\"{item.Key}\", \"{item.Value}\" _")));
+            }
+
+            return builder.ToString();
         }
 
         private string GetVersionString(string oldValue, string newValue) {
