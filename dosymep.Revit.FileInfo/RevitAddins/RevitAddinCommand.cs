@@ -33,7 +33,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         /// <summary>
         /// TooltipImageTag
         /// </summary>
-        public static readonly string TooltipImageTag = "LongDescription";
+        public static readonly string TooltipImageTag = "TooltipImage";
         
         /// <summary>
         /// DisciplineTag
