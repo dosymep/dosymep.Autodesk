@@ -10,11 +10,11 @@
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-        <DocumentationFile>bin\Debug\dosymep.Autodesk.FileInfo.xml</DocumentationFile>
+        <DocumentationFile>bin\Debug\dosymep.AutodeskApps.FileInfo.xml</DocumentationFile>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <DocumentationFile>bin\Release\dosymep.Autodesk.FileInfo.xml</DocumentationFile>
+        <DocumentationFile>bin\Release\dosymep.AutodeskApps.FileInfo.xml</DocumentationFile>
     </PropertyGroup>
 
 </Project>
