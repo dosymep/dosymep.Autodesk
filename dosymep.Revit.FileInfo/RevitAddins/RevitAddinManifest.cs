@@ -69,8 +69,10 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
             document.Load(fullFileName);
             
             XmlElement documentElement = document.DocumentElement;
-            if(documentElement == null || !(documentElement.Name.Equals(RevitAddInTag) || documentElement.Name.Equals(RevitAddInsTag))) {
-                throw new ArgumentException($"The \"{documentElement?.Name ?? "null"}\" root tag is not valid. Tag should be {RevitAddInTag} or {RevitAddInsTag}", nameof(fullFileName));
+            if(documentElement == null 
+               || !(documentElement.Name?.Equals(RevitAddInTag) == true 
+                    || documentElement.Name?.Equals(RevitAddInsTag) == true)) {
+                throw new ArgumentException($"The \"{documentElement?.Name ?? "null"}\" root tag is not valid. Tag should be {RevitAddInTag} or {RevitAddInsTag}.", nameof(fullFileName));
             }
 
             XmlNode[] addinElements = documentElement.ChildNodes.OfType<XmlNode>()
@@ -99,7 +101,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
                 } else if(attribute.Value.Equals(AddInDBApplicationTag)) {
                     addinManifest.AddinDBApplications.Add(RevitAddinDBApplication.CreateAddinDBApplication(addinElement, addinManifest));
                 } else {
-                    throw new NotSupportedException($"The {attribute.Value ?? "null"} addin type is not valid. Addin type should be {AddInCommandTag} or {AddInApplicationTag} or {AddInDBApplicationTag}.");
+                    throw new NotSupportedException($"The {attribute.Value} addin type is not valid. Addin type should be {AddInCommandTag} or {AddInApplicationTag} or {AddInDBApplicationTag}.");
                 }
             }
 
