@@ -1,5 +1,5 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.Autodesk", "dosymep.Autodesk\dosymep.Autodesk.csproj", "{E6A179A7-14C0-47E5-805D-7A093B7807BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.AutodeskApps", "dosymep.AutodeskApps\dosymep.AutodeskApps.csproj", "{E6A179A7-14C0-47E5-805D-7A093B7807BE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.Revit.FileInfo", "dosymep.Revit.FileInfo\dosymep.Revit.FileInfo.csproj", "{9087495A-9626-4DD4-B2BB-CDB3FF2FA5F6}"
 EndProject
@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.Revit.ServerClient.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.Revit.Journaling.Tests", "dosymep.Revit.Journaling.Tests\dosymep.Revit.Journaling.Tests.csproj", "{5298FEBE-CC93-4CE9-B17E-1DB1CE74CDE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.Autodesk.FileInfo", "dosymep.Autodesk.FileInfo\dosymep.Autodesk.FileInfo.csproj", "{5E9539D2-1E4E-43BC-B334-E055AF0BEEDE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.AutodeskApps.FileInfo", "dosymep.AutodeskApps.FileInfo\dosymep.AutodeskApps.FileInfo.csproj", "{5E9539D2-1E4E-43BC-B334-E055AF0BEEDE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dosymep.Navisworks.FileInfo", "dosymep.Navisworks.FileInfo\dosymep.Navisworks.FileInfo.csproj", "{8E52274F-1E5E-4BF7-B134-D83D6FB1E019}"
 EndProject

@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace dosymep.Autodesk.FileInfo {
+namespace dosymep.AutodeskApps.FileInfo {
     /// <summary>
     /// Autodesk language code.
     /// </summary>

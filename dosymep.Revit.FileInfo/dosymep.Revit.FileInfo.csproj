@@ -22,8 +22,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\dosymep.Autodesk.FileInfo\dosymep.Autodesk.FileInfo.csproj" />
-      <ProjectReference Include="..\dosymep.Autodesk\dosymep.Autodesk.csproj" />
+      <ProjectReference Include="..\dosymep.AutodeskApps.FileInfo\dosymep.AutodeskApps.FileInfo.csproj" />
+      <ProjectReference Include="..\dosymep.AutodeskApps\dosymep.AutodeskApps.csproj" />
     </ItemGroup>
 
 </Project>

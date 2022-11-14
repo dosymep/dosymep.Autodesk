@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
-using dosymep.Autodesk.FileInfo;
+using dosymep.AutodeskApps.FileInfo;
 
 using OpenMcdf;
 

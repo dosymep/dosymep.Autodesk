@@ -2,8 +2,8 @@
 using System.Reflection;
 using System.Xml;
 
-using dosymep.Autodesk;
-using dosymep.Autodesk.FileInfo;
+using dosymep.AutodeskApps;
+using dosymep.AutodeskApps.FileInfo;
 
 namespace dosymep.Revit.FileInfo.RevitAddins {
     /// <summary>
