@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace dosymep.Revit.FileInfo.BasicFileStream
-{
+namespace dosymep.Revit.FileInfo.BasicFileStream {
     /// <summary>
     /// Model identity
     /// </summary>
-    public class ModelIdentity {
+    public class ModelIdentity : IEquatable<ModelIdentity> {
         private readonly Guid _guid;
 
         /// <summary>
@@ -25,5 +24,64 @@ namespace dosymep.Revit.FileInfo.BasicFileStream
         public override string ToString() {
             return _guid.ToString();
         }
+
+        #region IEquatable<ModelIdentity>
+
+        /// <inheritdoc />
+        public bool Equals(ModelIdentity other) {
+            if(ReferenceEquals(null, other)) {
+                return false;
+            }
+
+            if(ReferenceEquals(this, other)) {
+                return true;
+            }
+
+            return _guid.Equals(other._guid);
+        }
+
+        /// <inheritdoc />
+        public override bool Equals(object obj) {
+            if(ReferenceEquals(null, obj)) {
+                return false;
+            }
+
+            if(ReferenceEquals(this, obj)) {
+                return true;
+            }
+
+            if(obj.GetType() != this.GetType()) {
+                return false;
+            }
+
+            return Equals((ModelIdentity) obj);
+        }
+
+        /// <inheritdoc />
+        public override int GetHashCode() {
+            return _guid.GetHashCode();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static bool operator ==(ModelIdentity left, ModelIdentity right) {
+            return Equals(left, right);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static bool operator !=(ModelIdentity left, ModelIdentity right) {
+            return !Equals(left, right);
+        }
+
+        #endregion
     }
 }

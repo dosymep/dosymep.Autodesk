@@ -8,7 +8,7 @@ namespace dosymep.AutodeskApps.FileInfo {
     /// <summary>
     /// Autodesk language code.
     /// </summary>
-    public class LanguageCode {
+    public class LanguageCode : IEquatable<LanguageCode> {
         /// <summary>
         /// English - United States
         /// </summary>
@@ -184,10 +184,73 @@ namespace dosymep.AutodeskApps.FileInfo {
                 .Select(item => item.GetValue(null))
                 .OfType<LanguageCode>();
         }
-        
+
         /// <inheritdoc />
         public override string ToString() {
             return DisplayName;
         }
+
+        #region IEquatable<LanguageCode>
+
+        /// <inheritdoc />
+        public bool Equals(LanguageCode other) {
+            if(ReferenceEquals(null, other)) {
+                return false;
+            }
+
+            if(ReferenceEquals(this, other)) {
+                return true;
+            }
+
+            return string.Equals(Code, other.Code, StringComparison.CurrentCulture)
+                   && string.Equals(FullCode, other.FullCode, StringComparison.CurrentCulture);
+        }
+
+        /// <inheritdoc />
+        public override bool Equals(object obj) {
+            if(ReferenceEquals(null, obj)) {
+                return false;
+            }
+
+            if(ReferenceEquals(this, obj)) {
+                return true;
+            }
+
+            if(obj.GetType() != this.GetType()) {
+                return false;
+            }
+
+            return Equals((LanguageCode) obj);
+        }
+
+        /// <inheritdoc />
+        public override int GetHashCode() {
+            unchecked {
+                return (StringComparer.CurrentCulture.GetHashCode(Code) * 397)
+                       ^ StringComparer.CurrentCulture.GetHashCode(FullCode);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static bool operator ==(LanguageCode left, LanguageCode right) {
+            return Equals(left, right);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static bool operator !=(LanguageCode left, LanguageCode right) {
+            return !Equals(left, right);
+        }
+
+        #endregion
     }
 }
