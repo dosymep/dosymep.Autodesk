@@ -23,7 +23,8 @@ namespace dosymep.Revit.ServerClient.Internal {
         public string FileExtension => ".json";
 
         public string Serialize<T>(T @object) {
-            if(@object == null) {
+            if(typeof(T).IsClass // https://pvs-studio.com/ru/docs/warnings/v3111/
+               && object.Equals(@object, default(T))) {
                 throw new ArgumentNullException(nameof(@object));
             }
 

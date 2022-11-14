@@ -1,4 +1,6 @@
-﻿namespace dosymep.Revit.FileInfo.RevitAddins {
+﻿using System;
+
+namespace dosymep.Revit.FileInfo.RevitAddins {
     /// <summary>
     /// Describes the conditions under which a particular external command will be visible in the Revit UI.
     /// </summary>
@@ -8,6 +10,7 @@
     ///     <item> When the active view is in perspective mode, or when the view is a Walkthrough, Drawings Lists, View Lists, Note Blocks, View Lists, etc. </item>
     /// </list>
     /// </remarks>
+    [Flags]
     public enum Discipline {
         /// <summary>
         /// The command is available in all possible disciplines.

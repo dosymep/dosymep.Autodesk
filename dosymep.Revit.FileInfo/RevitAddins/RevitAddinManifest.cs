@@ -208,7 +208,7 @@ namespace dosymep.Revit.FileInfo.RevitAddins {
         /// <param name="rootPath">Root path.</param>
         /// <returns>Returns enums addin manifests.</returns>
         public static IEnumerable<RevitAddinManifest> CreateAddinManifests(string rootPath) {
-            return GetAddinManifests(rootPath, SearchOption.TopDirectoryOnly);
+            return CreateAddinManifests(rootPath, SearchOption.TopDirectoryOnly);
         }
 
         /// <summary>
