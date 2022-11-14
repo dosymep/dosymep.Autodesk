@@ -1,5 +1,8 @@
 ﻿using System;
 
+using dosymep.AutodeskApps.FileInfo;
+using dosymep.Revit.FileInfo.BasicFileStream;
+
 using NUnit.Framework;
 
 namespace dosymep.Revit.FileInfo.Tests {
@@ -15,10 +18,40 @@ namespace dosymep.Revit.FileInfo.Tests {
         }
 
         [Test]
-        [TestCase(@"D:\OneDrive\OneDrive - A101 DEVELOPMENT\Рабочий стол\020_НАГ_ЭОМ_К10_отсоединено.rvt")]
+        [TestCase(@"TestFiles\RVT\test_file.rvt")]
         public void ReadFileTest(string fullFilePath) {
-          var revitFileInfo =  new RevitFileInfo(fullFilePath);
-          Assert.NotNull(revitFileInfo);
+            var revitFileInfo = new RevitFileInfo(fullFilePath);
+            Assert.AreEqual(revitFileInfo.ModelPath, @"TestFiles\RVT\test_file.rvt");
+            Assert.AreEqual(revitFileInfo.BasicFileInfo.CentralPath, @"D:\Projects\Autodesk\dosymep.Autodesk\dosymep.Revit.FileInfo.Tests\TestFiles\RVT\test_file.rvt");
+            Assert.AreEqual(revitFileInfo.BasicFileInfo.LastSavePath, @"D:\Projects\Autodesk\dosymep.Autodesk\dosymep.Revit.FileInfo.Tests\TestFiles\RVT\test_file.rvt");
+            
+            
+            Assert.AreEqual(revitFileInfo.BasicFileInfo.IsModified, true);
+            Assert.AreEqual(revitFileInfo.BasicFileInfo.IsRevitLite, false);
+            Assert.AreEqual(revitFileInfo.BasicFileInfo.IsWorkshared, true);
+            Assert.AreEqual(revitFileInfo.BasicFileInfo.IsSingleUserCloudModel, false);
+            
+            Assert.AreEqual(revitFileInfo.BasicFileInfo.Username, null);
+            Assert.AreEqual(revitFileInfo.BasicFileInfo.FileVersion, 14);
+            Assert.AreEqual(revitFileInfo.BasicFileInfo.DefaultOpenWorkset, 0);
+            Assert.AreEqual(revitFileInfo.BasicFileInfo.FileLocale, LanguageCode.ENU);
+            
+            
+            Assert.AreEqual(revitFileInfo.BasicFileInfo.CentralVersion.Id, new Guid("e264af0c-75e2-4067-9e1c-d6c5517e21c7"));
+            Assert.AreEqual(revitFileInfo.BasicFileInfo.CentralVersion.VersionNumber, 1);
+            
+            Assert.AreEqual(revitFileInfo.BasicFileInfo.CurrentVersion.Id, new Guid("e264af0c-75e2-4067-9e1c-d6c5517e21c7"));
+            Assert.AreEqual(revitFileInfo.BasicFileInfo.CurrentVersion.VersionNumber, 1);
+            
+            // Assert.AreEqual(revitFileInfo.BasicFileInfo.Identity, new Guid("face0000-1223-3344-4455-555666666333"));
+            // Assert.AreEqual(revitFileInfo.BasicFileInfo.CentralIdentity, new Guid("face0000-1223-3344-4455-555666666333"));
+            
+            Assert.AreEqual(revitFileInfo.TransmissionData.UserData, "");
+            Assert.AreEqual(revitFileInfo.TransmissionData.Version, 5);
+            Assert.AreEqual(revitFileInfo.TransmissionData.IsTransmitted, false);
+            Assert.AreEqual(revitFileInfo.TransmissionData.ExternalFileReferences.Count, 2);
+
+            Assert.NotNull(revitFileInfo);
         }
     }
 }
