@@ -145,7 +145,7 @@ namespace dosymep.Revit.FileInfo.BasicFileStream {
                 basicFileInfo.AppInfo.Format = reader.ReadValueString();
                 basicFileInfo.AppInfo.Build = reader.ReadValueString();
             } else {
-                basicFileInfo.AppInfo.Build = reader.ReadValueString();
+                basicFileInfo.AppInfo.Build = reader.ReadValueString() ?? "2014";
                 basicFileInfo.AppInfo.Format = Regex.Match(basicFileInfo.AppInfo.Build, @"20\d\d").Value;
             }
 
