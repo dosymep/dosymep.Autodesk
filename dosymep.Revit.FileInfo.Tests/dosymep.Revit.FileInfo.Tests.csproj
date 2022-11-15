@@ -90,10 +90,9 @@
       <None Update="TestFiles\RVT\test_file.rvt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="TestFiles\RVT" />
+      <None Update="TestFiles\RVT\test_file2.rvt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>
