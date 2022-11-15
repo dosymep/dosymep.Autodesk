@@ -134,8 +134,10 @@ namespace dosymep.Revit.FileInfo.BasicFileStream {
         private static BasicFileInfo ReadBasicFileInfo(BinaryReader reader, BasicFileInfo basicFileInfo) {
             basicFileInfo.FileVersion = reader.ReadInt32();
             basicFileInfo.IsWorkshared = reader.ReadBoolean();
+
+            var worksharingType = reader.ReadWorksharingType();
             basicFileInfo.WorksharingType = basicFileInfo.IsWorkshared
-                ? reader.ReadWorksharingType()
+                ? worksharingType
                 : WorksharingType.NotEnabled;
 
             basicFileInfo.Username = reader.ReadValueString();
