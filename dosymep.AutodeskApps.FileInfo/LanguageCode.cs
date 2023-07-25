@@ -112,14 +112,19 @@ namespace dosymep.AutodeskApps.FileInfo {
         /// <returns>Returns language code by code or full code.</returns>
         public static LanguageCode GetLanguageCode(string languageCode) {
             if(string.IsNullOrEmpty(languageCode)) {
-                return null;
+                return Unknown;
+            }
+
+            // some revit libs generate RU instead of RUS in metadata
+            if(languageCode.Equals("RU", StringComparison.CurrentCultureIgnoreCase)) {
+                return RUS;
             }
 
             return GetLanguageCodes()
                        .FirstOrDefault(item =>
                            languageCode.Equals(item.Code, StringComparison.CurrentCultureIgnoreCase)
                            || languageCode.Equals(item.FullCode, StringComparison.CurrentCultureIgnoreCase))
-                   ?? throw new NotSupportedException($"The {languageCode} is not supported.");
+                   ?? Unknown;
         }
 
         /// <summary>
