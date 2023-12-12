@@ -23,9 +23,9 @@ namespace dosymep.Revit.Journaling.JournalElements {
         public bool WithAudit { get; set; } = true;
         
         /// <summary>
-        /// If true keep workset.
+        /// If true keep custom workset, else when open all worksets.
         /// </summary>
-        public bool KeepWorkset { get; set; } = true;
+        public bool KeepWorkset { get; set; } = false;
         
         /// <summary>
         /// If true create local file.

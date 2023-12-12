@@ -58,7 +58,7 @@ Jrn.Data ""TaskDialogResult"",  _
 Jrn.Command ""Ribbon"" , ""Open an existing project , ID_REVIT_FILE_OPEN""
 {0}
 Jrn.Data ""File Name"" , ""IDOK"", ""{1}""
-Jrn.Data ""WorksetConfig"" , ""Custom"", {2}
+Jrn.Data ""WorksetConfig"" , ""{2}"", {3}
 Jrn.PushButton ""Modal , Opening Worksets , Dialog_Revit_Partitions"", ""OK, IDOK""";
 
         /// <summary>

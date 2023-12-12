@@ -107,6 +107,7 @@ namespace dosymep.Revit.Journaling {
             return string.Format(RevitJournalTemplates.CentralOpen,
                 builder.ToString().Trim(),
                 visitable.ModelPath,
+                visitable.KeepWorkset ? "Custom" : "All",
                 visitable.KeepWorkset ? "1" : "0");
         }
 
