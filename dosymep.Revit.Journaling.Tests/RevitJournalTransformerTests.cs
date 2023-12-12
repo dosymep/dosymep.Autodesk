@@ -11,7 +11,7 @@ using NUnit.Framework;
 namespace dosymep.Revit.Journaling.Tests {
     public class Tests {
         [Test]
-        //[TestCase(2021)]
+        [TestCase(2021)]
         [TestCase(2022)]
         public void RevitJournalTransformerTest(int revitVersion) {
             var dateTimeOffset = new DateTimeOffset(2022, 08, 05, 15, 11, 45,

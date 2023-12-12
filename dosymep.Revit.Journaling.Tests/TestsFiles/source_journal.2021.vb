@@ -9,16 +9,9 @@ Jrn.Directive "DebugMode", "PermissiveJournal", True
 Jrn.Command "Ribbon" , "Open an existing project , ID_REVIT_FILE_OPEN"
 ' Central open with audit
 Jrn.Data "FileOpenSubDialog", "AuditCheckBox", "True"
-Jrn.Data "TaskDialogResult", _
-    "This operation can take a long time. Recommended use includes periodic maintenance of large files and preparation for upgrading to a new release. Do you want to continue?", _
-        "Yes", "IDYES"
 Jrn.Data "File Name" , "IDOK", "revit_central_model_path.rvt"
 Jrn.Data "WorksetConfig" , "Custom", 1
 Jrn.PushButton "Modal , Opening Worksets , Dialog_Revit_Partitions", "OK, IDOK"
-Jrn.Data "TaskDialogResult", _
-    "Detaching this model will create an independent model. You will be unable to synchronize your changes with the original central model." & vbLf & "What do you want to do?", _
-        "Detach and preserve worksets", "1001"
-Jrn.Directive "DocSymbol" , "[]"
 ' Synchronization central model
 Jrn.Command "Ribbon" , "Save the active project back to the Central Model , ID_FILE_SAVE_TO_MASTER"
 ' Compact central model 
