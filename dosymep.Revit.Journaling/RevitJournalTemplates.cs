@@ -59,11 +59,7 @@ Jrn.Command ""Ribbon"" , ""Open an existing project , ID_REVIT_FILE_OPEN""
 {0}
 Jrn.Data ""File Name"" , ""IDOK"", ""{1}""
 Jrn.Data ""WorksetConfig"" , ""Custom"", {2}
-Jrn.PushButton ""Modal , Opening Worksets , Dialog_Revit_Partitions"", ""OK, IDOK""
-Jrn.Data ""TaskDialogResult"", _
-    ""Detaching this model will create an independent model. You will be unable to synchronize your changes with the original central model."" & vbLf & ""What do you want to do?"", _
-        ""Detach and preserve worksets"", ""1001""
-Jrn.Directive ""DocSymbol"" , ""[]""";
+Jrn.PushButton ""Modal , Opening Worksets , Dialog_Revit_Partitions"", ""OK, IDOK""";
 
         /// <summary>
         /// Create local file template.
@@ -84,10 +80,7 @@ Jrn.Data ""FileOpenSubDialog"", ""DetachCheckBox"", ""True""";
         /// </summary>
         public static readonly string CentralOpenAuditCheckBox
             = @"' Central open with audit
-Jrn.Data ""FileOpenSubDialog"", ""AuditCheckBox"", ""True""
-Jrn.Data ""TaskDialogResult"", _
-    ""This operation can take a long time. Recommended use includes periodic maintenance of large files and preparation for upgrading to a new release. Do you want to continue?"", _
-        ""Yes"", ""IDYES""";
+Jrn.Data ""FileOpenSubDialog"", ""AuditCheckBox"", ""True""";
 
         /// <summary>
         /// Synchronization central model template.
@@ -156,7 +149,7 @@ Jrn.Data ""APIStringStringMapJournalData"" _";
         /// <summary>
         /// Dynamo command execute template.
         /// </summary>
-        public static readonly string DynamoCommmandExcecute =
+        public static readonly string DynamoCommandExecute =
             @"Jrn.RibbonEvent ""TabActivated:Manage""
 Jrn.Command ""Ribbon"" , ""Launch Dynamo, ID_VISUAL_PROGRAMMING_DYNAMO""";
     }

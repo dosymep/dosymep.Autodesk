@@ -161,7 +161,7 @@ namespace dosymep.Revit.Journaling {
         public string Transform(DynamoCommandElement visitable) {
             var builder = new StringBuilder();
 
-            builder.Append(RevitJournalTemplates.DynamoCommmandExcecute);
+            builder.Append(RevitJournalTemplates.DynamoCommandExecute);
             WriteJournalData(builder, visitable.JournalData);
 
             return builder.ToString();
