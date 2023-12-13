@@ -25,7 +25,7 @@ namespace dosymep.Revit.Journaling.Tests {
         }
 
         private IEnumerable<JournalElement> GetJournalElements(string modelPath) {
-            yield return new OpenCentralModelElement() {ModelPath = modelPath};
+            yield return new OpenCentralModelElement() {ModelPath = modelPath, WorksetOption = WorksetsOption.Custom};
             yield return new SyncCentralModelElement();
             yield return new PurgeUnusedElement();
             yield return new SyncCentralModelElement();

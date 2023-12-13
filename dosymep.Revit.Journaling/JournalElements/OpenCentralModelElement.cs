@@ -21,16 +21,16 @@ namespace dosymep.Revit.Journaling.JournalElements {
         /// If true open central model with audit.
         /// </summary>
         public bool WithAudit { get; set; } = true;
-        
-        /// <summary>
-        /// If true keep custom workset, else when open all worksets.
-        /// </summary>
-        public bool KeepWorkset { get; set; } = false;
-        
+
         /// <summary>
         /// If true create local file.
         /// </summary>
         public bool CreateLocal { get; set; } = false;
+        
+        /// <summary>
+        /// Worksets options.
+        /// </summary>
+        public WorksetsOption WorksetOption { get; set; } = WorksetsOption.All;
         
         /// <summary>
         /// Model path.

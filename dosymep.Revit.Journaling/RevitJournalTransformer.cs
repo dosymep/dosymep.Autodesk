@@ -92,6 +92,8 @@ namespace dosymep.Revit.Journaling {
         public string Transform(OpenCentralModelElement visitable) {
             var builder = new StringBuilder();
 
+            builder.AppendLine(RevitJournalTemplates.CentralOpen);
+
             if(visitable.Detach) {
                 builder.AppendLine(RevitJournalTemplates.CentralOpenDetachCheckBox);
             }
@@ -104,11 +106,18 @@ namespace dosymep.Revit.Journaling {
                 builder.AppendLine(RevitJournalTemplates.CentralOpenAuditCheckBox);
             }
 
-            return string.Format(RevitJournalTemplates.CentralOpen,
-                builder.ToString().Trim(),
-                visitable.ModelPath,
-                visitable.KeepWorkset ? "Custom" : "All",
-                visitable.KeepWorkset ? "1" : "0");
+            builder.AppendFormat(RevitJournalTemplates.CentralModelName, visitable.ModelPath);
+            
+            builder.AppendLine();
+            if(visitable.WorksetOption == WorksetsOption.Custom) {
+                builder.AppendFormat(RevitJournalTemplates.CentralWorksetConfig, visitable.WorksetOption, "1");
+                builder.AppendLine();
+                builder.Append(RevitJournalTemplates.CentralAcceptCustomWorksets);
+            } else {
+                builder.AppendFormat(RevitJournalTemplates.CentralWorksetConfig, visitable.WorksetOption, "1");
+            }
+
+            return builder.ToString();
         }
 
         /// <summary>
@@ -118,6 +127,9 @@ namespace dosymep.Revit.Journaling {
         /// <returns>Returns transformation object.</returns>
         public string Transform(SyncCentralModelElement visitable) {
             var builder = new StringBuilder();
+
+            builder.AppendLine(GetVersionString(RevitJournalTemplatesOld.FileSync,
+                RevitJournalTemplates.FileSync));
 
             if(visitable.Compact) {
                 builder.AppendLine(GetVersionString(RevitJournalTemplatesOld.FileSyncCompactFile,
@@ -139,9 +151,13 @@ namespace dosymep.Revit.Journaling {
                     RevitJournalTemplates.FileSyncSaveLocalFile));
             }
 
-            var fileSync = GetVersionString(RevitJournalTemplatesOld.FileSync,
-                RevitJournalTemplates.FileSync);
-            return string.Format(fileSync, builder.ToString().Trim(), visitable.Comment);
+            builder.AppendLine(string.Format(GetVersionString(RevitJournalTemplatesOld.FileSyncComment,
+                RevitJournalTemplates.FileSyncComment), visitable.Comment));
+
+            builder.Append(GetVersionString(RevitJournalTemplatesOld.FileSyncAccept,
+                RevitJournalTemplates.FileSyncAccept));
+            
+            return builder.ToString();
         }
 
         /// <summary>
@@ -153,7 +169,7 @@ namespace dosymep.Revit.Journaling {
             return string.Join(Environment.NewLine,
                 Enumerable.Range(0, visitable.TryCount).Select(_ => RevitJournalTemplates.PurgeUnused));
         }
-        
+
         /// <summary>
         /// External command transformer.
         /// </summary>
