@@ -217,7 +217,8 @@ namespace dosymep.Revit.Journaling {
                 visitable.RegenerateThumbnail ? 1 : 0,
                 visitable.CompactFile ? 1 : 0,
                 visitable.WorksetOption);
-           
+
+            builder.AppendLine();
             builder.AppendFormat(RevitJournalTemplates.SaveAsFileNameOption, visitable.ModelPath);
             
             return builder.ToString();

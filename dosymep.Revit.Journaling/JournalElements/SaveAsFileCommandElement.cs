@@ -25,12 +25,12 @@ namespace dosymep.Revit.Journaling.JournalElements {
         /// <summary>
         /// Regenerate thumbnail if view/sheet is not up-to date.
         /// </summary>
-        public bool RegenerateThumbnail { get; set; } = false;
+        public bool RegenerateThumbnail { get; set; } = true;
         
         /// <summary>
         /// Compact file.
         /// </summary>
-        public bool CompactFile { get; set; } = false;
+        public bool CompactFile { get; set; }
         
         /// <summary>
         /// New model path location.

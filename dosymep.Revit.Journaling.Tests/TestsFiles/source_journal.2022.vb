@@ -98,5 +98,14 @@ Jrn.Data "APIStringStringMapJournalData" _
     , "key2", "value2" _
     , "key3", "value3" _
 
+' Save as file command
+Jrn.Command "Ribbon", "Save the active project with a new name , ID_REVIT_FILE_SAVE_AS"
+
+' Save as file options
+Jrn.Data  "SaveOptionsData", 20, 42, 1, 1, "Custom"
+
+' Save as file name option
+Jrn.Data "File Name", "IDOK" , "revit_central_model_path.rvt"
+
 ' Exit revit application
 Jrn.Command "SystemMenu" , "Quit the application; prompts to save projects , ID_APP_EXIT"
