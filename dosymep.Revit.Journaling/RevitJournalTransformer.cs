@@ -18,7 +18,8 @@ namespace dosymep.Revit.Journaling {
         ITransformer<string, SyncCentralModelElement>,
         ITransformer<string, PurgeUnusedElement>,
         ITransformer<string, DynamoCommandElement>,
-        ITransformer<string, ExternalCommandElement> {
+        ITransformer<string, ExternalCommandElement>,
+        ITransformer<string, SaveAsFileCommandElement> {
         private readonly int _revitVersion;
 
         /// <summary>
@@ -197,6 +198,28 @@ namespace dosymep.Revit.Journaling {
                 visitable.RevitAddinItem.FullClassName);
             WriteJournalData(builder, visitable.JournalData);
 
+            return builder.ToString();
+        }
+        
+        /// <summary>
+        /// Save as command transformer.
+        /// </summary>
+        /// <param name="visitable">Visitable object.</param>
+        /// <returns>Returns transformation object.</returns>
+        public string Transform(SaveAsFileCommandElement visitable) {
+            var builder = new StringBuilder();
+
+            builder.AppendLine(RevitJournalTemplates.SaveAsFile);
+            
+            builder.AppendFormat(RevitJournalTemplates.SaveAsFileOptions,
+                visitable.MaxBackupCount,
+                visitable.ThumbnailViewId,
+                visitable.RegenerateThumbnail ? 1 : 0,
+                visitable.CompactFile ? 1 : 0,
+                visitable.WorksetOption);
+           
+            builder.AppendFormat(RevitJournalTemplates.SaveAsFileNameOption, visitable.ModelPath);
+            
             return builder.ToString();
         }
 
