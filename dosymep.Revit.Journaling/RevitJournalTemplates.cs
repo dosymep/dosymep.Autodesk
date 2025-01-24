@@ -148,6 +148,7 @@ Jrn.Data ""BecomeMultiUser"", {0}";
         /// </summary>
         public static readonly string SaveAsReplaceCentralFile
             = @"
+' Apply replace central file
 Jrn.Data  ""TaskDialogResult"", _
         ""{0} already exists. What do you want to do?"", ""Replace the original central model"", ""1002""";
         
@@ -156,6 +157,7 @@ Jrn.Data  ""TaskDialogResult"", _
         /// </summary>
         public static readonly string SaveAsReplaceWorksharingFile
             = @"
+' Apply replace worksharing
 Jrn.Data ""TaskDialogResult"", _
         ""The file {0} already exists.  If you replace it, you will lose all of its backup versions. Do you want to replace the existing file?"", _
         ""Yes"", ""IDYES"" ";
