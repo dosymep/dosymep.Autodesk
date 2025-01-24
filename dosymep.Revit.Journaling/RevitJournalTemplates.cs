@@ -132,7 +132,7 @@ Jrn.Data ""File Name"", ""IDOK"" , ""{0}""";
         /// </summary>
         public static readonly string SaveAsMakeThisFileCentalModel
             = @"
-' Enable worksharing
+' Make this a Central Model after save
 Jrn.Data ""BecomeCentralProject"", {0}";
         
         /// <summary>

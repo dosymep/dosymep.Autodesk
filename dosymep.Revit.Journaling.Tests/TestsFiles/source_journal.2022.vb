@@ -107,7 +107,7 @@ Jrn.Data  "SaveOptionsData", 20, 42, 0, 1, "Custom"
 ' Save as file name option
 Jrn.Data "File Name", "IDOK" , "revit_central_model_path.rvt"
 
-' Enable worksharing
+' Make this a Central Model after save
 Jrn.Data "BecomeCentralProject", 1
 
 ' Enable worksharing
@@ -127,7 +127,7 @@ Jrn.Data  "SaveOptionsData", 20, 42, 0, 1, "Custom"
 ' Save as file name option
 Jrn.Data "File Name", "IDOK" , "RSN://revit_central_model_path.rvt"
 
-' Enable worksharing
+' Make this a Central Model after save
 Jrn.Data "BecomeCentralProject", 1
 
 ' Enable worksharing
