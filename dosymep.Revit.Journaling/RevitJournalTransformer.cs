@@ -109,16 +109,18 @@ namespace dosymep.Revit.Journaling {
             }
 
             builder.AppendFormat(RevitJournalTemplates.CentralModelName, visitable.ModelPath);
-            
-            builder.AppendLine();
-            if(visitable.WorksetOption == WorksetsOption.Custom) {
-                builder.AppendFormat(RevitJournalTemplates.CentralWorksetConfig, visitable.WorksetOption, "1");
-                builder.AppendLine();
-                builder.Append(RevitJournalTemplates.CentralAcceptCustomWorksets);
-            } else {
-                builder.AppendFormat(RevitJournalTemplates.CentralWorksetConfig, visitable.WorksetOption, "1");
-            }
 
+            if(visitable.IsWorksharedModel) {
+                builder.AppendLine();
+                if(visitable.WorksetOption == WorksetsOption.Custom) {
+                    builder.AppendFormat(RevitJournalTemplates.CentralWorksetConfig, visitable.WorksetOption, "1");
+                    builder.AppendLine();
+                    builder.Append(RevitJournalTemplates.CentralAcceptCustomWorksets);
+                } else {
+                    builder.AppendFormat(RevitJournalTemplates.CentralWorksetConfig, visitable.WorksetOption, "1");
+                }
+            }
+            
             return builder.ToString();
         }
 

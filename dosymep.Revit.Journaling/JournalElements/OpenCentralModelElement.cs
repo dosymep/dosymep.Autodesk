@@ -13,6 +13,11 @@ namespace dosymep.Revit.Journaling.JournalElements {
         }
 
         /// <summary>
+        /// Shows that a model with working sets is being opened default true.
+        /// </summary>
+        public bool IsWorksharedModel { get; set; } = true;
+
+        /// <summary>
         /// If true detaching central model.
         /// </summary>
         public bool Detach { get; set; } = false;
