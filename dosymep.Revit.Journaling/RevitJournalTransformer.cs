@@ -223,10 +223,10 @@ namespace dosymep.Revit.Journaling {
             builder.AppendFormat(RevitJournalTemplates.SaveAsFileNameOption, visitable.ModelPath);
 
             builder.AppendLine();
-            builder.AppendFormat(RevitJournalTemplates.SaveAsEnableWorksharing, visitable.EnableWorksharing ? 1 : 0);
+            builder.AppendFormat(RevitJournalTemplates.SaveAsMakeThisFileCentalModel, visitable.MakeThisFileCentalModel ? 1 : 0);
             
             builder.AppendLine();
-            builder.AppendFormat(RevitJournalTemplates.SaveAsMakeThisFileCentalModel, visitable.MakeThisFileCentalModel ? 1 : 0);
+            builder.AppendFormat(RevitJournalTemplates.SaveAsEnableWorksharing, visitable.EnableWorksharing ? 1 : 0);
 
             if(visitable.ReplaceExistingFile) {
                 if(IsRsnFile(visitable.ModelPath)) {
