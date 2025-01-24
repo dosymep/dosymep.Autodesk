@@ -249,7 +249,7 @@ namespace dosymep.Revit.Journaling {
         /// <param name="modelPath">Model path.</param>
         /// <returns>true if path is RSN path, otherwise fals.</returns>
         protected static bool IsRsnFile(string modelPath) {
-            return modelPath.StartsWith(@"RSN:\\", StringComparison.InvariantCultureIgnoreCase);
+            return modelPath.StartsWith("RSN:", StringComparison.InvariantCultureIgnoreCase);
         }
 
         private static void WriteJournalData(StringBuilder builder, IDictionary<string, string> journalData) {
