@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -18,7 +19,8 @@ namespace dosymep.Revit.Journaling {
         ITransformer<string, SyncCentralModelElement>,
         ITransformer<string, PurgeUnusedElement>,
         ITransformer<string, DynamoCommandElement>,
-        ITransformer<string, ExternalCommandElement> {
+        ITransformer<string, ExternalCommandElement>,
+        ITransformer<string, SaveAsFileCommandElement> {
         private readonly int _revitVersion;
 
         /// <summary>
@@ -107,16 +109,18 @@ namespace dosymep.Revit.Journaling {
             }
 
             builder.AppendFormat(RevitJournalTemplates.CentralModelName, visitable.ModelPath);
-            
-            builder.AppendLine();
-            if(visitable.WorksetOption == WorksetsOption.Custom) {
-                builder.AppendFormat(RevitJournalTemplates.CentralWorksetConfig, visitable.WorksetOption, "1");
-                builder.AppendLine();
-                builder.Append(RevitJournalTemplates.CentralAcceptCustomWorksets);
-            } else {
-                builder.AppendFormat(RevitJournalTemplates.CentralWorksetConfig, visitable.WorksetOption, "1");
-            }
 
+            if(visitable.IsWorksharedModel) {
+                builder.AppendLine();
+                if(visitable.WorksetOption == WorksetsOption.Custom) {
+                    builder.AppendFormat(RevitJournalTemplates.CentralWorksetConfig, visitable.WorksetOption, "1");
+                    builder.AppendLine();
+                    builder.Append(RevitJournalTemplates.CentralAcceptCustomWorksets);
+                } else {
+                    builder.AppendFormat(RevitJournalTemplates.CentralWorksetConfig, visitable.WorksetOption, "1");
+                }
+            }
+            
             return builder.ToString();
         }
 
@@ -198,6 +202,56 @@ namespace dosymep.Revit.Journaling {
             WriteJournalData(builder, visitable.JournalData);
 
             return builder.ToString();
+        }
+        
+        /// <summary>
+        /// Save as command transformer.
+        /// </summary>
+        /// <param name="visitable">Visitable object.</param>
+        /// <returns>Returns transformation object.</returns>
+        public string Transform(SaveAsFileCommandElement visitable) {
+            var builder = new StringBuilder();
+
+            builder.AppendLine(RevitJournalTemplates.SaveAsFile);
+            
+            builder.AppendFormat(RevitJournalTemplates.SaveAsFileOptions,
+                visitable.MaxBackupCount,
+                visitable.ThumbnailViewId,
+                visitable.RegenerateThumbnail ? 1 : 0,
+                visitable.CompactFile ? 1 : 0,
+                visitable.WorksetOption);
+
+            builder.AppendLine();
+            builder.AppendFormat(RevitJournalTemplates.SaveAsFileNameOption, visitable.ModelPath);
+
+            builder.AppendLine();
+            builder.AppendFormat(RevitJournalTemplates.SaveAsMakeThisFileCentalModel, visitable.MakeThisFileCentalModel ? 1 : 0);
+            
+            builder.AppendLine();
+            builder.AppendFormat(RevitJournalTemplates.SaveAsEnableWorksharing, visitable.EnableWorksharing ? 1 : 0);
+
+            if(visitable.ReplaceExistingFile) {
+                if(IsRsnFile(visitable.ModelPath)) {
+                    builder.AppendLine();
+                    builder.AppendFormat(
+                        RevitJournalTemplates.SaveAsReplaceCentralFile, Path.GetFileName(visitable.ModelPath));
+                } else {
+                    builder.AppendLine();
+                    builder.AppendFormat(
+                        RevitJournalTemplates.SaveAsReplaceWorksharingFile, Path.GetFileName(visitable.ModelPath));
+                }
+            }
+
+            return builder.ToString();
+        }
+
+        /// <summary>
+        /// Determines whether the path is RSN path.
+        /// </summary>
+        /// <param name="modelPath">Model path.</param>
+        /// <returns>true if path is RSN path, otherwise fals.</returns>
+        protected static bool IsRsnFile(string modelPath) {
+            return modelPath.StartsWith("RSN:", StringComparison.InvariantCultureIgnoreCase);
         }
 
         private static void WriteJournalData(StringBuilder builder, IDictionary<string, string> journalData) {

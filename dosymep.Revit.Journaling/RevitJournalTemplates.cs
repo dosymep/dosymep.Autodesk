@@ -104,6 +104,65 @@ Jrn.Data ""FileOpenSubDialog"", ""DetachCheckBox"", ""True""";
 Jrn.Data ""FileOpenSubDialog"", ""AuditCheckBox"", ""True""";
 
         /// <summary>
+        /// Save as file command template.
+        /// </summary>
+        public static readonly string SaveAsFile
+            = @"
+' Save as file command
+Jrn.Command ""Ribbon"", ""Save the active project with a new name , ID_REVIT_FILE_SAVE_AS""";
+
+        /// <summary>
+        /// Save as file options template.
+        /// </summary>
+        public static readonly string SaveAsFileOptions
+            = @"
+' Save as file options
+Jrn.Data  ""SaveOptionsData"", {0}, {1}, {2}, {3}, ""{4}""";
+
+        /// <summary>
+        /// Save as file name option.
+        /// </summary>
+        public static readonly string SaveAsFileNameOption
+            = @"
+' Save as file name option
+Jrn.Data ""File Name"", ""IDOK"" , ""{0}""";
+
+        /// <summary>
+        /// Save as make this a Central Model after save template
+        /// </summary>
+        public static readonly string SaveAsMakeThisFileCentalModel
+            = @"
+' Make this a Central Model after save
+Jrn.Data ""BecomeCentralProject"", {0}";
+        
+        /// <summary>
+        /// Save as enable worksharing template
+        /// </summary>
+        public static readonly string SaveAsEnableWorksharing
+            = @"
+' Enable worksharing
+Jrn.Data ""BecomeMultiUser"", {0}";
+
+        /// <summary>
+        /// Replace central file template (replace on revit server)
+        /// </summary>
+        public static readonly string SaveAsReplaceCentralFile
+            = @"
+' Apply replace central file
+Jrn.Data  ""TaskDialogResult"", _
+        ""{0} already exists. What do you want to do?"", ""Replace the original central model"", ""1002""";
+        
+        /// <summary>
+        /// Replace workshring file template (replace on file system)
+        /// </summary>
+        public static readonly string SaveAsReplaceWorksharingFile
+            = @"
+' Apply replace worksharing
+Jrn.Data ""TaskDialogResult"", _
+        ""The file {0} already exists.  If you replace it, you will lose all of its backup versions. Do you want to replace the existing file?"", _
+        ""Yes"", ""IDYES""";
+        
+        /// <summary>
         /// Synchronization central model template.
         /// </summary>
         public static readonly string FileSync

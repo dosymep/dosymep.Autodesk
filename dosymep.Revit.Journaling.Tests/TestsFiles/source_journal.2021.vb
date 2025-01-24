@@ -98,5 +98,44 @@ Jrn.Data "APIStringStringMapJournalData" _
     , "key2", "value2" _
     , "key3", "value3" _
 
+' Save as file command
+Jrn.Command "Ribbon", "Save the active project with a new name , ID_REVIT_FILE_SAVE_AS"
+
+' Save as file options
+Jrn.Data  "SaveOptionsData", 20, 42, 0, 1, "Custom"
+
+' Save as file name option
+Jrn.Data "File Name", "IDOK" , "revit_central_model_path.rvt"
+
+' Make this a Central Model after save
+Jrn.Data "BecomeCentralProject", 1
+
+' Enable worksharing
+Jrn.Data "BecomeMultiUser", 1
+
+' Apply replace worksharing
+Jrn.Data "TaskDialogResult", _
+        "The file revit_central_model_path.rvt already exists.  If you replace it, you will lose all of its backup versions. Do you want to replace the existing file?", _
+        "Yes", "IDYES"
+
+' Save as file command
+Jrn.Command "Ribbon", "Save the active project with a new name , ID_REVIT_FILE_SAVE_AS"
+
+' Save as file options
+Jrn.Data  "SaveOptionsData", 20, 42, 0, 1, "Custom"
+
+' Save as file name option
+Jrn.Data "File Name", "IDOK" , "RSN://revit_central_model_path.rvt"
+
+' Make this a Central Model after save
+Jrn.Data "BecomeCentralProject", 1
+
+' Enable worksharing
+Jrn.Data "BecomeMultiUser", 1
+
+' Apply replace central file
+Jrn.Data  "TaskDialogResult", _
+        "revit_central_model_path.rvt already exists. What do you want to do?", "Replace the original central model", "1002"
+
 ' Exit revit application
 Jrn.Command "SystemMenu" , "Quit the application; prompts to save projects , ID_APP_EXIT"

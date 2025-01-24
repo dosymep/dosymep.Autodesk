@@ -46,6 +46,28 @@ namespace dosymep.Revit.Journaling.Tests {
                     {"key1", "value1"}, {"key2", "value2"}, {"key3", "value3"}
                 }
             };
+            
+            yield return new SaveAsFileCommandElement() {
+                ModelPath = modelPath,
+                CompactFile = true, 
+                MaxBackupCount = 20,
+                ThumbnailViewId = 42,
+                WorksetOption = WorksetsOption.Custom,
+                ReplaceExistingFile = true,
+                EnableWorksharing = true,
+                MakeThisFileCentalModel = true
+            };
+            
+            yield return new SaveAsFileCommandElement() {
+                ModelPath = $"RSN://{modelPath}",
+                CompactFile = true, 
+                MaxBackupCount = 20,
+                ThumbnailViewId = 42,
+                WorksetOption = WorksetsOption.Custom,
+                ReplaceExistingFile = true,
+                EnableWorksharing = true,
+                MakeThisFileCentalModel = true
+            };
         }
     }
 }
