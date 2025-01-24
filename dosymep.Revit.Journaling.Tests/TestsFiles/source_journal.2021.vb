@@ -102,16 +102,16 @@ Jrn.Data "APIStringStringMapJournalData" _
 Jrn.Command "Ribbon", "Save the active project with a new name , ID_REVIT_FILE_SAVE_AS"
 
 ' Save as file options
-Jrn.Data  "SaveOptionsData", 20, 42, 1, 1, "Custom"
+Jrn.Data  "SaveOptionsData", 20, 42, 0, 1, "Custom"
 
 ' Save as file name option
 Jrn.Data "File Name", "IDOK" , "revit_central_model_path.rvt"
 
 ' Enable worksharing
-Jrn.Data "BecomeMultiUser", 1
+Jrn.Data "BecomeCentralProject", 1
 
 ' Enable worksharing
-Jrn.Data "BecomeCentralProject", 1
+Jrn.Data "BecomeMultiUser", 1
 
 ' Apply replace worksharing
 Jrn.Data "TaskDialogResult", _
@@ -122,16 +122,16 @@ Jrn.Data "TaskDialogResult", _
 Jrn.Command "Ribbon", "Save the active project with a new name , ID_REVIT_FILE_SAVE_AS"
 
 ' Save as file options
-Jrn.Data  "SaveOptionsData", 20, 42, 1, 1, "Custom"
+Jrn.Data  "SaveOptionsData", 20, 42, 0, 1, "Custom"
 
 ' Save as file name option
 Jrn.Data "File Name", "IDOK" , "RSN://revit_central_model_path.rvt"
 
 ' Enable worksharing
-Jrn.Data "BecomeMultiUser", 1
+Jrn.Data "BecomeCentralProject", 1
 
 ' Enable worksharing
-Jrn.Data "BecomeCentralProject", 1
+Jrn.Data "BecomeMultiUser", 1
 
 ' Apply replace central file
 Jrn.Data  "TaskDialogResult", _
