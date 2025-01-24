@@ -52,7 +52,21 @@ namespace dosymep.Revit.Journaling.Tests {
                 CompactFile = true, 
                 MaxBackupCount = 20,
                 ThumbnailViewId = 42,
-                WorksetOption = WorksetsOption.Custom
+                WorksetOption = WorksetsOption.Custom,
+                ReplaceExistingFile = true,
+                EnableWorksharing = true,
+                MakeThisFileCentalModel = true
+            };
+            
+            yield return new SaveAsFileCommandElement() {
+                ModelPath = $"RSN://{modelPath}",
+                CompactFile = true, 
+                MaxBackupCount = 20,
+                ThumbnailViewId = 42,
+                WorksetOption = WorksetsOption.Custom,
+                ReplaceExistingFile = true,
+                EnableWorksharing = true,
+                MakeThisFileCentalModel = true
             };
         }
     }

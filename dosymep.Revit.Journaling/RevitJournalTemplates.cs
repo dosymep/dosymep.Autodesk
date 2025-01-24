@@ -160,7 +160,7 @@ Jrn.Data  ""TaskDialogResult"", _
 ' Apply replace worksharing
 Jrn.Data ""TaskDialogResult"", _
         ""The file {0} already exists.  If you replace it, you will lose all of its backup versions. Do you want to replace the existing file?"", _
-        ""Yes"", ""IDYES"" ";
+        ""Yes"", ""IDYES""";
         
         /// <summary>
         /// Synchronization central model template.
