@@ -33,6 +33,21 @@ namespace dosymep.Revit.Journaling.JournalElements {
         public bool CompactFile { get; set; }
         
         /// <summary>
+        /// Replace existing file.
+        /// </summary>
+        public bool ReplaceExistingFile { get; set; }
+
+        /// <summary>
+        /// Enable workshared model from not workshared.
+        /// </summary>
+        public bool EnableWorksharing { get; set; }
+        
+        /// <summary>
+        /// Make this a Central Model after save.
+        /// </summary>
+        public bool MakeThisFileCentalModel { get; set; }
+        
+        /// <summary>
         /// New model path location.
         /// </summary>
         public string ModelPath { get; set; }

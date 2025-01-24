@@ -126,6 +126,39 @@ Jrn.Data  ""SaveOptionsData"", {0}, {1}, {2}, {3}, ""{4}""";
             = @"
 ' Save as file name option
 Jrn.Data ""File Name"", ""IDOK"" , ""{0}""";
+
+        /// <summary>
+        /// Save as make this a Central Model after save template
+        /// </summary>
+        public static readonly string SaveAsMakeThisFileCentalModel
+            = @"
+' Enable worksharing
+Jrn.Data ""BecomeCentralProject"", {0}";
+        
+        /// <summary>
+        /// Save as enable worksharing template
+        /// </summary>
+        public static readonly string SaveAsEnableWorksharing
+            = @"
+' Enable worksharing
+Jrn.Data ""BecomeMultiUser"", {0}";
+
+        /// <summary>
+        /// Replace central file template (replace on revit server)
+        /// </summary>
+        public static readonly string SaveAsReplaceCentralFile
+            = @"
+Jrn.Data  ""TaskDialogResult"", _
+        ""{0} already exists. What do you want to do?"", ""Replace the original central model"", ""1002""";
+        
+        /// <summary>
+        /// Replace workshring file template (replace on file system)
+        /// </summary>
+        public static readonly string SaveAsReplaceWorksharingFile
+            = @"
+Jrn.Data ""TaskDialogResult"", _
+        ""The file {0} already exists.  If you replace it, you will lose all of its backup versions. Do you want to replace the existing file?"", _
+        ""Yes"", ""IDYES"" ";
         
         /// <summary>
         /// Synchronization central model template.
