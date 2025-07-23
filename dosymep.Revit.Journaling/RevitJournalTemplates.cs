@@ -32,6 +32,16 @@ Jrn.Directive ""DebugMode"", ""PerformAutomaticActionInErrorDialog"", True";
 Jrn.Command ""SystemMenu"" , ""Quit the application; prompts to save projects , ID_APP_EXIT""";
 
         /// <summary>
+        /// Template automatically selects the "Do not save the project" option.
+        /// </summary>
+        public static readonly string PromptDoNotSaveFileWhenExit
+            = @"
+' Prompt does not save the file when exit
+Jrn.Data  ""TaskDialogResult"", _
+    ""You have made changes to model that have not been saved. What do you want to do?"",  _
+        ""Do not save the project"", ""IDNO"" ";
+
+        /// <summary>
         /// Purge unused elements template.
         /// </summary>
         public static readonly string PurgeUnused
@@ -134,7 +144,7 @@ Jrn.Data ""File Name"", ""IDOK"" , ""{0}""";
             = @"
 ' Make this a Central Model after save
 Jrn.Data ""BecomeCentralProject"", {0}";
-        
+
         /// <summary>
         /// Save as enable worksharing template
         /// </summary>
@@ -151,7 +161,7 @@ Jrn.Data ""BecomeMultiUser"", {0}";
 ' Apply replace central file
 Jrn.Data  ""TaskDialogResult"", _
         ""{0} already exists. What do you want to do?"", ""Replace the original central model"", ""1002""";
-        
+
         /// <summary>
         /// Replace workshring file template (replace on file system)
         /// </summary>
@@ -161,7 +171,7 @@ Jrn.Data  ""TaskDialogResult"", _
 Jrn.Data ""TaskDialogResult"", _
         ""The file {0} already exists.  If you replace it, you will lose all of its backup versions. Do you want to replace the existing file?"", _
         ""Yes"", ""IDYES""";
-        
+
         /// <summary>
         /// Synchronization central model template.
         /// </summary>
