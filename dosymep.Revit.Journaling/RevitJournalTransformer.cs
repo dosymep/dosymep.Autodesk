@@ -122,6 +122,10 @@ namespace dosymep.Revit.Journaling {
                 }
             }
             
+            builder.AppendLine();
+            builder.AppendFormat(
+                RevitJournalTemplates.PromptUpdaterContinueWorkingWithFile, Path.GetFileName(visitable.ModelPath));
+            
             return builder.ToString();
         }
 

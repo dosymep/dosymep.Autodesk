@@ -39,7 +39,7 @@ Jrn.Command ""SystemMenu"" , ""Quit the application; prompts to save projects , 
 ' Prompt does not save the file when exit
 Jrn.Data  ""TaskDialogResult"", _
     ""You have made changes to model that have not been saved. What do you want to do?"",  _
-        ""Do not save the project"", ""IDNO"" ";
+        ""Do not save the project"", ""IDNO""";
 
         /// <summary>
         /// Purge unused elements template.
@@ -59,6 +59,26 @@ Jrn.PushButton ""Modal , Purge unused , Dialog_Revit_PurgeUnusedTree"", ""OK, ID
 Jrn.Data ""TaskDialogResult"",  _
     ""Revit could not find or read 1 references. What do you want to do?"",  _
         ""Ignore and continue opening the project"", ""1002""";
+
+        /// <summary>
+        /// Continue working with the file.
+        /// </summary>
+        public static readonly string PromptUpdaterContinueWorkingWithFile
+            = @"
+' Continue working with the file
+Jrn.Data ""TaskDialogResult"", _
+    ""The file {0} was modified by the third-party updater RevitJournals Plugin : JournalUpdate which is not currently installed."" & vbLf & """" & vbLf & ""If you continue to edit the file, data maintained by RevitJournals Plugin : JournalUpdate will not be updated properly. This may create problems when {0}  is later opened when RevitJournals Plugin : JournalUpdate is present."",  _
+        ""Continue working with the file."", ""1001""";
+
+        /// <summary>
+        /// Do not warn about this updater again and continue working with the file.
+        /// </summary>
+        public static readonly string PromptUpdaterDoNotWarnAgain
+            = @"
+' Do not warn about this updater again and continue working with the file
+Jrn.Data ""TaskDialogResult"", _
+    ""The file {0} was modified by the third-party updater RevitJournals Plugin : JournalUpdate which is not currently installed."" & vbLf & """" & vbLf & ""If you continue to edit the file, data maintained by RevitJournals Plugin : JournalUpdate will not be updated properly. This may create problems when {0}  is later opened when RevitJournals Plugin : JournalUpdate is present."",  _
+        ""Do not warn about this updater again and continue working with the file."", ""1002""";
 
         /// <summary>
         /// Open central model template.
