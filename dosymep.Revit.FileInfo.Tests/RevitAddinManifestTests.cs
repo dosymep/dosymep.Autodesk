@@ -50,8 +50,7 @@ namespace dosymep.Revit.FileInfo.Tests {
             var assemblyName = new AssemblyName(args.Name);
             return AssemblyPaths
                 .Select(item => Path.Combine(item, assemblyName.Name + ".dll"))
-                .Where(item => File.Exists(item))
-                .FirstOrDefault();
+                .FirstOrDefault(item => File.Exists(item));
         }
 
         [Test]
@@ -60,8 +59,8 @@ namespace dosymep.Revit.FileInfo.Tests {
         [TestCase(@"TestFiles\RevitLookup.addin")]
         [TestCase(@"TestFiles\Autodesk.AddInManager.addin")]
         public void GetRevitAddinManifestTest(string fullFilePath) {
-            var manifest = RevitAddinManifest.GetAddinManifest(fullFilePath);
-            Assert.NotNull(manifest);
+            RevitAddinManifest manifest = RevitAddinManifest.GetAddinManifest(fullFilePath);
+            Assert.That(manifest, Is.Not.Null);
         }
 
         [Test]
@@ -73,7 +72,7 @@ namespace dosymep.Revit.FileInfo.Tests {
         [TestCase(@"TestFiles\Assemblies\AddInManager\Autodesk.AddInManager.Command.dll")]
         [TestCase(@"TestFiles\Assemblies\pyRevit-Master\bin\engines\IPY277\pyRevitLoader.dll")]
         public void CreateRevitAddinManifestTests(string fullFilePath) {
-            var manifest = RevitAddinManifest.CreateAddinManifest(fullFilePath);
+            RevitAddinManifest manifest = RevitAddinManifest.CreateAddinManifest(fullFilePath);
             manifest.Save();
             File.Delete(manifest.FullName);
         }

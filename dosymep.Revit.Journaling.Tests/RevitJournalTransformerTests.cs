@@ -14,14 +14,14 @@ namespace dosymep.Revit.Journaling.Tests {
         [TestCase(2021)]
         [TestCase(2022)]
         public void RevitJournalTransformerTest(int revitVersion) {
-            var dateTimeOffset = new DateTimeOffset(2022, 08, 05, 15, 11, 45,
+            DateTimeOffset dateTimeOffset = new DateTimeOffset(2022, 08, 05, 15, 11, 45,
                 TimeSpan.FromHours(3));
 
             string revitJournalContent = new RevitJournalTransformer(revitVersion)
                 .Transform(dateTimeOffset, GetJournalElements("revit_central_model_path.rvt"));
 
             string sourceJournalContent = File.ReadAllText($@"TestsFiles\source_journal.{revitVersion}.vb");
-            Assert.AreEqual(sourceJournalContent, revitJournalContent);
+            Assert.That(revitJournalContent, Is.EqualTo(sourceJournalContent));
         }
 
         private IEnumerable<JournalElement> GetJournalElements(string modelPath) {

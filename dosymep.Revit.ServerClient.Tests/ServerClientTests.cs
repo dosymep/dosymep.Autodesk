@@ -13,29 +13,29 @@ namespace dosymep.Revit.ServerClient.Tests {
     public class ServerClientTests {
         private IServerClient _serverClient;
 
-        private static readonly string _serverName = "10.2.0.144";
-        private static readonly string _serverVersion = "2022";
+        private const string ServerName = "revit-test";
+        private const string ServerVersion = "2022";
 
-        private static readonly object[] _relativePathCases = new object[] {
-            new object[] {$@"Folder1\Folder2", new FolderContents(@"Folder1"), new FolderData("Folder2")},
-            new object[] {$@"Folder1\Model1", new FolderContents(@"Folder1"), new ModelData("Model1")},
+        private static readonly object[] _relativePathCases = {
+            new object[] {@"Folder1\Folder2", new FolderContents(@"Folder1"), new FolderData("Folder2")},
+            new object[] {@"Folder1\Model1", new FolderContents(@"Folder1"), new ModelData("Model1")},
             new object[] {
-                $@"Folder1\Folder2\Folder3", new FolderContents(@"Folder1\Folder2"), new FolderData("Folder3")
+                @"Folder1\Folder2\Folder3", new FolderContents(@"Folder1\Folder2"), new FolderData("Folder3")
             },
-            new object[] {$@"Folder1\Folder2\Model1", new FolderContents(@"Folder1\Folder2"), new ModelData("Model1")}
+            new object[] {@"Folder1\Folder2\Model1", new FolderContents(@"Folder1\Folder2"), new ModelData("Model1")}
         };
 
-        private static readonly object[] _visibleModelPathCases = new object[] {
+        private static readonly object[] _visibleModelPathCases = {
             new object[] {
-                $@"RSN://{_serverName}\Folder1\Model1", new FolderContents(@"Folder1"), new ModelData("Model1")
+                $@"RSN://{ServerName}\Folder1\Model1", new FolderContents("Folder1"), new ModelData("Model1")
             }
         };
 
         [SetUp]
         public void Setup() {
             _serverClient = new ServerClientBuilder()
-                .SetServerName(_serverName)
-                .SetServerVersion(_serverVersion)
+                .SetServerName(ServerName)
+                .SetServerVersion(ServerVersion)
                 .Build();
         }
 
@@ -49,15 +49,17 @@ namespace dosymep.Revit.ServerClient.Tests {
         public async Task ServerPropertiesTest() {
             ServerProperties serverProperties = await _serverClient.GetServerPropertiesAsync();
 
-            Assert.AreEqual(serverProperties.MachineName, "REVIT-TEST");
-            Assert.AreEqual(serverProperties.MaximumModelNameLength, 40);
-            Assert.AreEqual(serverProperties.MaximumFolderPathLength, 98);
+            Assert.Multiple(() => {
+                Assert.That(serverProperties.MachineName, Is.EqualTo(ServerName));
+                Assert.That(serverProperties.MaximumModelNameLength, Is.EqualTo(40));
+                Assert.That(serverProperties.MaximumFolderPathLength, Is.EqualTo(98));
 
-            Assert.AreEqual(serverProperties.Servers, new[] {"10.2.0.144"});
-            Assert.AreEqual(serverProperties.ServerRoles,
-                new[] {ServerRole.Host, ServerRole.Accelerator, ServerRole.Admin});
+                Assert.That(new[] { ServerName }, Is.EqualTo(serverProperties.Servers));
+                Assert.That(new[] { ServerRole.Host, ServerRole.Accelerator, ServerRole.Admin },
+                    Is.EqualTo(serverProperties.ServerRoles));
 
-            Assert.AreEqual(serverProperties.AccessLevelTypes, null);
+                Assert.That(serverProperties.AccessLevelTypes, Is.Null);
+            });
         }
 
         [Test]
@@ -65,9 +67,11 @@ namespace dosymep.Revit.ServerClient.Tests {
         public async Task FolderContentsTest(string folderPath) {
             FolderContents folderContents = await _serverClient.GetFolderContentsAsync(folderPath);
 
-            Assert.AreEqual(folderContents.Path, folderPath);
-            Assert.AreEqual(folderContents.Models.Count, 0);
-            Assert.AreEqual(folderContents.Folders.Count, 4);
+            Assert.Multiple(() => {
+                Assert.That(folderPath, Is.EqualTo(folderContents.Path));
+                Assert.That(folderContents.Models, Is.Empty);
+                Assert.That(folderContents.Folders, Has.Count.EqualTo(4));
+            });
         }
 
         [Test]
@@ -75,9 +79,11 @@ namespace dosymep.Revit.ServerClient.Tests {
         public async Task FolderInfoTest(string folderPath) {
             FolderInfoData folderInfoData = await _serverClient.GetFolderInfoAsync(folderPath);
 
-            Assert.AreEqual(folderInfoData.Path, folderPath);
-            Assert.AreEqual(folderInfoData.Exists, true);
-            Assert.AreEqual(folderInfoData.IsFolder, true);
+            Assert.Multiple(() => {
+                Assert.That(folderPath, Is.EqualTo(folderInfoData.Path));
+                Assert.That(folderInfoData.Exists, Is.EqualTo(true));
+                Assert.That(folderInfoData.IsFolder, Is.EqualTo(true));
+            });
         }
 
         [Test]
@@ -85,7 +91,7 @@ namespace dosymep.Revit.ServerClient.Tests {
         public async Task ModelHistoryTest(string modelPath) {
             ModelHistoryData modelHistoryData = await _serverClient.GetModelHistoryAsync(modelPath);
 
-            Assert.AreEqual(modelHistoryData.Path, modelPath);
+            Assert.That(modelPath, Is.EqualTo(modelHistoryData.Path));
         }
 
         [Test]
@@ -93,8 +99,8 @@ namespace dosymep.Revit.ServerClient.Tests {
         public async Task ModelInfoTest(string modelPath) {
             ModelInfoData modelInfoData = await _serverClient.GetModelInfoAsync(modelPath);
 
-            Assert.AreEqual(modelInfoData.Path, modelPath);
-            Assert.AreEqual(modelInfoData.ModelGuid, new Guid("4ed0d224-aef6-422c-9525-49a8bbe432d1"));
+            Assert.That(modelPath, Is.EqualTo(modelInfoData.Path));
+            Assert.That(new Guid("4ed0d224-aef6-422c-9525-49a8bbe432d1"), Is.EqualTo(modelInfoData.ModelGuid));
         }
 
         [Test]
@@ -103,8 +109,10 @@ namespace dosymep.Revit.ServerClient.Tests {
             using(Stream modelThumbnail = await _serverClient.GetModelThumbnailAsync(modelPath, width, height)) {
                 BitmapSource bitmap = BitmapFrame.Create(modelThumbnail);
 
-                Assert.AreEqual((int) bitmap.Width, width);
-                Assert.AreEqual((int) bitmap.Height, height);
+                Assert.Multiple(() => {
+                    Assert.That(width, Is.EqualTo((int) bitmap.Width));
+                    Assert.That(height, Is.EqualTo((int) bitmap.Height));
+                });
             }
         }
 
@@ -113,21 +121,21 @@ namespace dosymep.Revit.ServerClient.Tests {
         public async Task ProjectInfoTest(string modelPath) {
             ProjectInfo projectInfo = await _serverClient.GetProjectInfoAsync(modelPath);
 
-            Assert.AreNotEqual(projectInfo, null);
+            Assert.That(projectInfo, Is.Not.Null);
         }
 
         [Test]
         public async Task RootFolderContentsTest() {
             FolderContents folderContents = await _serverClient.GetRootFolderContentsAsync();
-            Assert.AreNotEqual(folderContents, null);
-            Assert.Greater(folderContents.Folders.Count, 0);
+            Assert.That(folderContents, Is.Not.Null);
+            Assert.That(folderContents.Folders, Is.Not.Empty);
         }
 
         [Test]
         [TestCase()]
         public async Task RecursiveFolderContentsTest() {
             List<FolderContents> folderContents = await _serverClient.GetRecursiveFolderContentsAsync();
-            Assert.Greater(folderContents.Count, 0);
+            Assert.That(folderContents, Is.Not.Empty);
         }
 
         [Test]
@@ -135,7 +143,7 @@ namespace dosymep.Revit.ServerClient.Tests {
         [TestCase("UnitTests")]
         public async Task RecursiveFolderContentsTest(string folderPath) {
             List<FolderContents> folderContents = await _serverClient.GetRecursiveFolderContentsAsync(folderPath);
-            Assert.Greater(folderContents.Count, 0);
+            Assert.That(folderContents, Is.Not.Empty);
         }
 
         [Test]
@@ -143,7 +151,7 @@ namespace dosymep.Revit.ServerClient.Tests {
         [TestCase(@"UnitTests\NewFolder")]
         public async Task CreateNewFolderTest(string folderPath) {
             await _serverClient.CreateNewFolderAsync(folderPath);
-            Assert.IsTrue(await ExistsFolder(folderPath));
+            Assert.That(await ExistsFolder(folderPath), Is.True);
         }
 
         [Test]
@@ -151,7 +159,7 @@ namespace dosymep.Revit.ServerClient.Tests {
         [TestCase(@"UnitTests\NewFolder", @"UnitTests\RenamedFolder", @"RenamedFolder")]
         public async Task RenameObjectTest(string folderPath, string newFolderPath, string renamedFolderName) {
             await _serverClient.RenameObjectAsync(folderPath, renamedFolderName);
-            Assert.IsTrue(await ExistsFolder(newFolderPath));
+            Assert.That(await ExistsFolder(newFolderPath), Is.True);
         }
 
         [Test]
@@ -165,17 +173,17 @@ namespace dosymep.Revit.ServerClient.Tests {
         [Test]
         [TestCaseSource(nameof(_relativePathCases))]
         public void GetRelativePathCasesTest(string result, FolderContents folderContents, ObjectData objectData) {
-            Assert.AreEqual(folderContents.GetRelativeModelPath(objectData), result);
+            Assert.That(result, Is.EqualTo(folderContents.GetRelativeModelPath(objectData)));
         }
 
         [Test]
         [TestCaseSource(nameof(_visibleModelPathCases))]
         public void GetVisibleModelPathTest(string result, FolderContents folderContents, ModelData objectData) {
             string visibleModelPath = _serverClient.GetVisibleModelPath(folderContents, objectData);
-            Assert.AreEqual(visibleModelPath, result);
+            Assert.That(result, Is.EqualTo(visibleModelPath));
         }
 
-        public async Task<bool> ExistsFolder(string folderPath) {
+        private async Task<bool> ExistsFolder(string folderPath) {
             FolderInfoData folderInfo = await _serverClient.GetFolderInfoAsync(folderPath);
             return folderInfo.Exists;
         }
