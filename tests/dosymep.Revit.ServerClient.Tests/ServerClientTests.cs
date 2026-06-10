@@ -11,16 +11,16 @@ public class ServerClientTests {
     private const string ServerName = "revit-test";
     private const string ServerVersion = "2022";
 
-    private static readonly object[] _relativePathCases = {
-        new object[] {@"Folder1\Folder2", new FolderContents(@"Folder1"), new FolderData("Folder2")},
-        new object[] {@"Folder1\Model1", new FolderContents(@"Folder1"), new ModelData("Model1")},
+    private static readonly object[] _relativePathCases = [
+        new object[] {@"Folder1\Folder2", new FolderContents("Folder1"), new FolderData("Folder2")},
+        new object[] {@"Folder1\Model1", new FolderContents("Folder1"), new ModelData("Model1")},
         new object[] {@"Folder1\Folder2\Folder3", new FolderContents(@"Folder1\Folder2"), new FolderData("Folder3")},
         new object[] {@"Folder1\Folder2\Model1", new FolderContents(@"Folder1\Folder2"), new ModelData("Model1")}
-    };
+    ];
 
-    private static readonly object[] _visibleModelPathCases = {
+    private static readonly object[] _visibleModelPathCases = [
         new object[] {$@"RSN://{ServerName}\Folder1\Model1", new FolderContents("Folder1"), new ModelData("Model1")}
-    };
+    ];
 
     private IServerClient _serverClient;
 
@@ -149,7 +149,7 @@ public class ServerClientTests {
 
     [Test]
     [Order(1)]
-    [TestCase(@"UnitTests\NewFolder", @"UnitTests\RenamedFolder", @"RenamedFolder")]
+    [TestCase(@"UnitTests\NewFolder", @"UnitTests\RenamedFolder", "RenamedFolder")]
     public async Task RenameObjectTest(string folderPath, string newFolderPath, string renamedFolderName) {
         await _serverClient.RenameObjectAsync(folderPath, renamedFolderName);
         Assert.That(await ExistsFolder(newFolderPath), Is.True);

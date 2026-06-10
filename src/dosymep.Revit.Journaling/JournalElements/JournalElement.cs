@@ -10,7 +10,7 @@ public abstract class JournalElement {
     ///     Constructs journal element.
     /// </summary>
     /// <param name="name">Journal element name.</param>
-    public JournalElement(string name) {
+    protected JournalElement(string name) {
         Name = name;
     }
 

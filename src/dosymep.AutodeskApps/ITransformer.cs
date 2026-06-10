@@ -11,7 +11,7 @@ public interface ITransformer {
 /// </summary>
 /// <typeparam name="T">Transform type result.</typeparam>
 /// <typeparam name="TVisitable">Visitable type element.</typeparam>
-public interface ITransformer<T, in TVisitable> {
+public interface ITransformer<out T, in TVisitable> {
     /// <summary>
     ///     Transform method.
     /// </summary>

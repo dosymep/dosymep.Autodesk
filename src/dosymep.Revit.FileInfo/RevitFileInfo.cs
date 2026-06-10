@@ -10,7 +10,7 @@ public class RevitFileInfo {
     /// <summary>
     ///     Enums revit files extensions.
     /// </summary>
-    public static readonly IReadOnlyList<string> RevitFilesExtensions = new[] {".rvt", ".rfa", ".rte"};
+    public static readonly IReadOnlyList<string> RevitFilesExtensions = [".rvt", ".rfa", ".rte"];
 
     /// <summary>
     ///     Creates revit file info.

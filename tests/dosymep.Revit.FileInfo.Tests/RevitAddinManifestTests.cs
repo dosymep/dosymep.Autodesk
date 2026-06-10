@@ -7,7 +7,7 @@ using NUnit.Framework;
 namespace dosymep.Revit.FileInfo.Tests;
 
 public class RevitAddinManifestTests {
-    public static readonly string[] AssemblyPaths = new[] {
+    public static readonly string[] AssemblyPaths = [
         @"C:\Program Files\Autodesk\Revit 2020", @"C:\Program Files\Autodesk\Revit 2020\SDA\bin",
         $@"C:\Users\{Environment.UserName}\AppData\Roaming\pyRevit\Extensions\BIM4Everyone.lib",
         $@"C:\Users\{Environment.UserName}\AppData\Roaming\pyRevit\Extensions\BIM4Everyone.lib\devexpress_libs\libs",
@@ -15,7 +15,7 @@ public class RevitAddinManifestTests {
         $@"C:\Users\{Environment.UserName}\AppData\Roaming\pyRevit\Extensions\BIM4Everyone.lib\dosymep_libs\libs\2020",
         $@"C:\Users\{Environment.UserName}\AppData\Roaming\pyRevit-Master\bin",
         $@"C:\Users\{Environment.UserName}\AppData\Roaming\pyRevit-Master\bin\engines\IPY277"
-    };
+    ];
 
     [SetUp]
     public void Setup() {
@@ -29,12 +29,12 @@ public class RevitAddinManifestTests {
         AppDomain.CurrentDomain.ReflectionOnlyAssemblyResolve -= CurrentDomain_ReflectionOnlyAssemblyResolve;
     }
 
-    private Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args) {
+    private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args) {
         string assemblyPath = GetAssemblyPath(args);
         return File.Exists(assemblyPath) ? Assembly.LoadFrom(assemblyPath) : null;
     }
 
-    private Assembly CurrentDomain_ReflectionOnlyAssemblyResolve(object sender, ResolveEventArgs args) {
+    private static Assembly CurrentDomain_ReflectionOnlyAssemblyResolve(object sender, ResolveEventArgs args) {
         string assemblyPath = GetAssemblyPath(args);
         return File.Exists(assemblyPath)
             ? Assembly.ReflectionOnlyLoadFrom(assemblyPath)

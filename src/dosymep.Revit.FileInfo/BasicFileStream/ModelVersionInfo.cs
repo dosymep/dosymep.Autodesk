@@ -7,7 +7,7 @@ public class ModelVersionInfo {
     /// <summary>
     ///     Empty version info.
     /// </summary>
-    public static readonly ModelVersionInfo Empty = new(default, default);
+    public static readonly ModelVersionInfo Empty = new(Guid.Empty, 0);
 
     /// <summary>
     ///     Creates model version info.

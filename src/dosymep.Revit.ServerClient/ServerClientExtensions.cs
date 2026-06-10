@@ -61,7 +61,7 @@ public static class ServerClientExtensions {
             // RS is not deterministic because
             // it can return folder paths
             // that throw a 404 not found exception
-            return new List<FolderContents>();
+            return [];
         }
     }
 

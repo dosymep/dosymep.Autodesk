@@ -20,7 +20,7 @@ public class Tests {
         Assert.That(revitJournalContent, Is.EqualTo(sourceJournalContent));
     }
 
-    private IEnumerable<JournalElement> GetJournalElements(string modelPath) {
+    private static IEnumerable<JournalElement> GetJournalElements(string modelPath) {
         yield return new OpenCentralModelElement {ModelPath = modelPath, WorksetOption = WorksetsOption.Custom};
         yield return new SyncCentralModelElement();
         yield return new PurgeUnusedElement();
@@ -28,7 +28,7 @@ public class Tests {
 
         yield return new DynamoCommandElement {
             ScriptPath = "@C:\\script_dynamo.dyn",
-            NodesInfo = new List<DynamoNodeInfo> {new() {Id = Guid.Empty, Name = "Name", Value = "Value"}}
+            NodesInfo = [new() {Id = Guid.Empty, Name = "Name", Value = "Value"}]
         };
 
         yield return new ExternalCommandElement {
