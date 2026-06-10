@@ -6,7 +6,7 @@
         /// <summary>
         /// Initialization template Revit.
         /// </summary>
-        /// <param name="{0}">Date journal initialization.</param>
+        /// {0} Date journal initialization.
         public static readonly string Init
             = @"' Revit {0} Journal by dosymep 
 ' 0:< 'C {1};

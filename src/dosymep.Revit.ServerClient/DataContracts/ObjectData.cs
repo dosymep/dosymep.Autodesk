@@ -81,10 +81,26 @@ namespace dosymep.Revit.ServerClient.DataContracts {
             return (Name != null ? StringComparer.CurrentCultureIgnoreCase.GetHashCode(Name) : 0);
         }
 
+        /// <summary>
+        /// Determines whether two specified <see cref="ObjectData"/> instances are equal.
+        /// </summary>
+        /// <param name="left">The first <see cref="ObjectData"/> to compare.</param>
+        /// <param name="right">The second <see cref="ObjectData"/> to compare.</param>
+        /// <returns>
+        /// True if the two <see cref="ObjectData"/> instances are considered equal; otherwise, false.
+        /// </returns>
         public static bool operator ==(ObjectData left, ObjectData right) {
             return Equals(left, right);
         }
 
+        /// <summary>
+        /// Determines whether two specified <see cref="ObjectData"/> instances are not equal.
+        /// </summary>
+        /// <param name="left">The first <see cref="ObjectData"/> to compare.</param>
+        /// <param name="right">The second <see cref="ObjectData"/> to compare.</param>
+        /// <returns>
+        /// True if the two <see cref="ObjectData"/> instances are not considered equal; otherwise, false.
+        /// </returns>
         public static bool operator !=(ObjectData left, ObjectData right) {
             return !Equals(left, right);
         }
