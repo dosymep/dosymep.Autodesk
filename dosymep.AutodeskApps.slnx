@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/Tests/">
+    <Project Path="dosymep.Revit.FileInfo.Tests/dosymep.Revit.FileInfo.Tests.csproj" />
+    <Project Path="dosymep.Revit.Journaling.Tests/dosymep.Revit.Journaling.Tests.csproj" />
+    <Project Path="dosymep.Revit.ServerClient.Tests/dosymep.Revit.ServerClient.Tests.csproj" />
+  </Folder>
+  <Project Path="dosymep.AutodeskApps.FileInfo/dosymep.AutodeskApps.FileInfo.csproj" />
+  <Project Path="dosymep.AutodeskApps/dosymep.AutodeskApps.csproj" />
+  <Project Path="dosymep.Navisworks.FileInfo/dosymep.Navisworks.FileInfo.csproj" />
+  <Project Path="dosymep.Revit.FileInfo/dosymep.Revit.FileInfo.csproj" />
+  <Project Path="dosymep.Revit.Journaling/dosymep.Revit.Journaling.csproj" />
+  <Project Path="dosymep.Revit.ServerClient/dosymep.Revit.ServerClient.csproj" />
+</Solution>
