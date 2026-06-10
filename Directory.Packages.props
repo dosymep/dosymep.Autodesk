@@ -14,4 +14,8 @@
         <PackageVersion Include="NUnit3TestAdapter" Version="6.2.0"/>
         <PackageVersion Include="coverlet.collector" Version="10.0.1"/>
     </ItemGroup>
+    <ItemGroup>
+        <PackageVersion Include="Nuke.Common" Version="10.1.0" />
+        <PackageVersion Include="Nuke.Components" Version="10.1.0"/>
+    </ItemGroup>
 </Project>
