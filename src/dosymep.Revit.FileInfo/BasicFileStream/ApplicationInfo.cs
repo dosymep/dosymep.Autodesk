@@ -1,22 +1,21 @@
-﻿namespace dosymep.Revit.FileInfo.BasicFileStream
-{
+﻿namespace dosymep.Revit.FileInfo.BasicFileStream;
+
+/// <summary>
+///     This is application information.
+/// </summary>
+public class ApplicationInfo {
     /// <summary>
-    /// This is application information.
+    ///     Application build version.
     /// </summary>
-    public class ApplicationInfo {
-        /// <summary>
-        /// Application build version.
-        /// </summary>
-        public string Build { get; set; }
+    public string Build { get; set; }
 
-        /// <summary>
-        /// File format version.
-        /// </summary>
-        public string Format { get; set; }
+    /// <summary>
+    ///     File format version.
+    /// </summary>
+    public string Format { get; set; }
 
-        /// <summary>
-        /// The client application.
-        /// </summary>
-        public string ClientAppName { get; set; } = "RevitApplication";
-    }
+    /// <summary>
+    ///     The client application.
+    /// </summary>
+    public string ClientAppName { get; set; } = "RevitApplication";
 }

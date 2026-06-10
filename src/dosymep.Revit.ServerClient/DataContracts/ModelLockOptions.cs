@@ -1,16 +1,16 @@
-﻿namespace dosymep.Revit.ServerClient.DataContracts {
+﻿namespace dosymep.Revit.ServerClient.DataContracts;
+
+/// <summary>
+///     The model lock options.
+/// </summary>
+public enum ModelLockOptions {
     /// <summary>
-    /// The model lock options.
+    ///     Read
     /// </summary>
-    public enum ModelLockOptions {
-        /// <summary>
-        /// Read
-        /// </summary>
-        Read,
-        
-        /// <summary>
-        /// Write
-        /// </summary>
-        Write,
-    }
+    Read,
+
+    /// <summary>
+    ///     Write
+    /// </summary>
+    Write
 }

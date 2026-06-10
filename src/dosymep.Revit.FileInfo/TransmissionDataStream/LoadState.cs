@@ -1,24 +1,23 @@
 ﻿using System.Xml.Serialization;
 
-namespace dosymep.Revit.FileInfo.TransmissionDataStream {
+namespace dosymep.Revit.FileInfo.TransmissionDataStream;
+
+/// <summary>
+///     Linked file load states.
+/// </summary>
+public enum LoadState {
     /// <summary>
-    /// Linked file load states.
+    ///     Loaded.
     /// </summary>
-    public enum LoadState {
-        /// <summary>
-        /// Loaded.
-        /// </summary>
-        Loaded,
+    Loaded,
 
-        /// <summary>
-        /// Unloaded.
-        /// </summary>
-        Unloaded,
+    /// <summary>
+    ///     Unloaded.
+    /// </summary>
+    Unloaded,
 
-        /// <summary>
-        /// Not found.
-        /// </summary>
-        [XmlEnum(Name = "Not Found")]
-        NotFound
-    }
+    /// <summary>
+    ///     Not found.
+    /// </summary>
+    [XmlEnum(Name = "Not Found")] NotFound
 }

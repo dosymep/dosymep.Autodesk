@@ -3,12 +3,12 @@
         <Platforms>x64</Platforms>
         <OutputType>Library</OutputType>
     </PropertyGroup>
-    
+
     <PropertyGroup>
         <!--> OpenMcdf <-->
         <NoWarn>NU1902</NoWarn>
     </PropertyGroup>
-    
+
     <PropertyGroup>
         <Nullable>disable</Nullable>
         <LangVersion>latest</LangVersion>

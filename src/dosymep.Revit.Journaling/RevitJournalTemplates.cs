@@ -1,282 +1,279 @@
-﻿namespace dosymep.Revit.Journaling {
+﻿namespace dosymep.Revit.Journaling;
+
+/// <summary>
+///     Revit journal templates.
+/// </summary>
+internal class RevitJournalTemplates {
     /// <summary>
-    /// Revit journal templates.
+    ///     Initialization template Revit.
     /// </summary>
-    internal class RevitJournalTemplates {
-        /// <summary>
-        /// Initialization template Revit.
-        /// </summary>
-        /// {0} Date journal initialization.
-        public static readonly string Init
-            = @"' Revit {0} Journal by dosymep 
+    /// {0} Date journal initialization.
+    public static readonly string Init
+        = @"' Revit {0} Journal by dosymep 
 ' 0:< 'C {1};
 
 Dim Jrn
 Set Jrn = CrsJournalScript";
 
-        /// <summary>
-        /// Initialization debug mode template.
-        /// </summary>
-        public static readonly string InitDebug
-            = @"
+    /// <summary>
+    ///     Initialization debug mode template.
+    /// </summary>
+    public static readonly string InitDebug
+        = @"
 ' Initialization debug mode
 Jrn.Directive ""DebugMode"", ""PermissiveJournal"", True
 Jrn.Directive ""DebugMode"", ""PerformAutomaticActionInErrorDialog"", True";
 
-        /// <summary>
-        /// Exit revit application template.
-        /// </summary>
-        public static readonly string ExitApplication
-            = @"
+    /// <summary>
+    ///     Exit revit application template.
+    /// </summary>
+    public static readonly string ExitApplication
+        = @"
 ' Exit revit application
 Jrn.Command ""SystemMenu"" , ""Quit the application; prompts to save projects , ID_APP_EXIT""";
 
-        /// <summary>
-        /// Template automatically selects the "Do not save the project" option.
-        /// </summary>
-        public static readonly string PromptDoNotSaveFileWhenExit
-            = @"
+    /// <summary>
+    ///     Template automatically selects the "Do not save the project" option.
+    /// </summary>
+    public static readonly string PromptDoNotSaveFileWhenExit
+        = @"
 ' Prompt does not save the file when exit
 Jrn.Data  ""TaskDialogResult"", _
     ""You have made changes to model that have not been saved. What do you want to do?"",  _
         ""Do not save the project"", ""IDNO""";
 
-        /// <summary>
-        /// Purge unused elements template.
-        /// </summary>
-        public static readonly string PurgeUnused
-            = @"
+    /// <summary>
+    ///     Purge unused elements template.
+    /// </summary>
+    public static readonly string PurgeUnused
+        = @"
 ' Purge unused elements
 Jrn.Command ""Ribbon"" , ""Purge(delete) unused families and types, ID_PURGE_UNUSED""
 Jrn.PushButton ""Modal , Purge unused , Dialog_Revit_PurgeUnusedTree"", ""OK, IDOK""";
 
-        /// <summary>
-        /// Ignore missing links template.
-        /// </summary>
-        public static readonly string IgnoreMissingLinks
-            = @"
+    /// <summary>
+    ///     Ignore missing links template.
+    /// </summary>
+    public static readonly string IgnoreMissingLinks
+        = @"
 ' Ignore missing links
 Jrn.Data ""TaskDialogResult"",  _
     ""Revit could not find or read 1 references. What do you want to do?"",  _
         ""Ignore and continue opening the project"", ""1002""";
 
-        /// <summary>
-        /// Continue working with the file.
-        /// </summary>
-        public static readonly string PromptUpdaterContinueWorkingWithFile
-            = @"
+    /// <summary>
+    ///     Continue working with the file.
+    /// </summary>
+    public static readonly string PromptUpdaterContinueWorkingWithFile
+        = @"
 ' Continue working with the file
 Jrn.Data ""TaskDialogResult"", _
     ""The file {0} was modified by the third-party updater RevitJournals Plugin : JournalUpdate which is not currently installed."" & vbLf & """" & vbLf & ""If you continue to edit the file, data maintained by RevitJournals Plugin : JournalUpdate will not be updated properly. This may create problems when {0}  is later opened when RevitJournals Plugin : JournalUpdate is present."",  _
         ""Continue working with the file."", ""1001""";
 
-        /// <summary>
-        /// Do not warn about this updater again and continue working with the file.
-        /// </summary>
-        public static readonly string PromptUpdaterDoNotWarnAgain
-            = @"
+    /// <summary>
+    ///     Do not warn about this updater again and continue working with the file.
+    /// </summary>
+    public static readonly string PromptUpdaterDoNotWarnAgain
+        = @"
 ' Do not warn about this updater again and continue working with the file
 Jrn.Data ""TaskDialogResult"", _
     ""The file {0} was modified by the third-party updater RevitJournals Plugin : JournalUpdate which is not currently installed."" & vbLf & """" & vbLf & ""If you continue to edit the file, data maintained by RevitJournals Plugin : JournalUpdate will not be updated properly. This may create problems when {0}  is later opened when RevitJournals Plugin : JournalUpdate is present."",  _
         ""Do not warn about this updater again and continue working with the file."", ""1002""";
 
-        /// <summary>
-        /// Open central model template.
-        /// </summary>
-        public static readonly string CentralOpen
-            = @"
+    /// <summary>
+    ///     Open central model template.
+    /// </summary>
+    public static readonly string CentralOpen
+        = @"
 ' Open central model
 Jrn.Command ""Ribbon"" , ""Open an existing project , ID_REVIT_FILE_OPEN""";
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly string CentralModelName = @"
+    /// <summary>
+    /// </summary>
+    public static readonly string CentralModelName = @"
 ' Set Central file name
 Jrn.Data ""File Name"" , ""IDOK"", ""{0}""";
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly string CentralWorksetConfig = @"
+    /// <summary>
+    /// </summary>
+    public static readonly string CentralWorksetConfig = @"
 ' Set workset config
 Jrn.Data ""WorksetConfig"" , ""{0}"", {1}";
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly string CentralAcceptCustomWorksets = @"
+    /// <summary>
+    /// </summary>
+    public static readonly string CentralAcceptCustomWorksets = @"
 ' Confirm open worksets dialog 
 Jrn.PushButton ""Modal , Opening Worksets , Dialog_Revit_Partitions"", ""OK, IDOK""";
 
-        /// <summary>
-        /// Create local file template.
-        /// </summary>
-        public static readonly string CentralOpenAsLocalCheckBox
-            = @"
+    /// <summary>
+    ///     Create local file template.
+    /// </summary>
+    public static readonly string CentralOpenAsLocalCheckBox
+        = @"
 ' Central open as local file template
 Jrn.Data ""FileOpenSubDialog"", ""OpenAsLocalCheckBox"", ""True""";
 
-        /// <summary>
-        /// Central open with detach.
-        /// </summary>
-        public static readonly string CentralOpenDetachCheckBox
-            = @"
+    /// <summary>
+    ///     Central open with detach.
+    /// </summary>
+    public static readonly string CentralOpenDetachCheckBox
+        = @"
 ' Central open with detach
 Jrn.Data ""FileOpenSubDialog"", ""DetachCheckBox"", ""True""";
 
-        /// <summary>
-        /// Central open with audit template.
-        /// </summary>
-        public static readonly string CentralOpenAuditCheckBox
-            = @"
+    /// <summary>
+    ///     Central open with audit template.
+    /// </summary>
+    public static readonly string CentralOpenAuditCheckBox
+        = @"
 ' Central open with audit
 Jrn.Data ""FileOpenSubDialog"", ""AuditCheckBox"", ""True""";
 
-        /// <summary>
-        /// Save as file command template.
-        /// </summary>
-        public static readonly string SaveAsFile
-            = @"
+    /// <summary>
+    ///     Save as file command template.
+    /// </summary>
+    public static readonly string SaveAsFile
+        = @"
 ' Save as file command
 Jrn.Command ""Ribbon"", ""Save the active project with a new name , ID_REVIT_FILE_SAVE_AS""";
 
-        /// <summary>
-        /// Save as file options template.
-        /// </summary>
-        public static readonly string SaveAsFileOptions
-            = @"
+    /// <summary>
+    ///     Save as file options template.
+    /// </summary>
+    public static readonly string SaveAsFileOptions
+        = @"
 ' Save as file options
 Jrn.Data  ""SaveOptionsData"", {0}, {1}, {2}, {3}, ""{4}""";
 
-        /// <summary>
-        /// Save as file name option.
-        /// </summary>
-        public static readonly string SaveAsFileNameOption
-            = @"
+    /// <summary>
+    ///     Save as file name option.
+    /// </summary>
+    public static readonly string SaveAsFileNameOption
+        = @"
 ' Save as file name option
 Jrn.Data ""File Name"", ""IDOK"" , ""{0}""";
 
-        /// <summary>
-        /// Save as make this a Central Model after save template
-        /// </summary>
-        public static readonly string SaveAsMakeThisFileCentalModel
-            = @"
+    /// <summary>
+    ///     Save as make this a Central Model after save template
+    /// </summary>
+    public static readonly string SaveAsMakeThisFileCentalModel
+        = @"
 ' Make this a Central Model after save
 Jrn.Data ""BecomeCentralProject"", {0}";
 
-        /// <summary>
-        /// Save as enable worksharing template
-        /// </summary>
-        public static readonly string SaveAsEnableWorksharing
-            = @"
+    /// <summary>
+    ///     Save as enable worksharing template
+    /// </summary>
+    public static readonly string SaveAsEnableWorksharing
+        = @"
 ' Enable worksharing
 Jrn.Data ""BecomeMultiUser"", {0}";
 
-        /// <summary>
-        /// Replace central file template (replace on revit server)
-        /// </summary>
-        public static readonly string SaveAsReplaceCentralFile
-            = @"
+    /// <summary>
+    ///     Replace central file template (replace on revit server)
+    /// </summary>
+    public static readonly string SaveAsReplaceCentralFile
+        = @"
 ' Apply replace central file
 Jrn.Data  ""TaskDialogResult"", _
         ""{0} already exists. What do you want to do?"", ""Replace the original central model"", ""1002""";
 
-        /// <summary>
-        /// Replace workshring file template (replace on file system)
-        /// </summary>
-        public static readonly string SaveAsReplaceWorksharingFile
-            = @"
+    /// <summary>
+    ///     Replace workshring file template (replace on file system)
+    /// </summary>
+    public static readonly string SaveAsReplaceWorksharingFile
+        = @"
 ' Apply replace worksharing
 Jrn.Data ""TaskDialogResult"", _
         ""The file {0} already exists.  If you replace it, you will lose all of its backup versions. Do you want to replace the existing file?"", _
         ""Yes"", ""IDYES""";
 
-        /// <summary>
-        /// Synchronization central model template.
-        /// </summary>
-        public static readonly string FileSync
-            = @"
+    /// <summary>
+    ///     Synchronization central model template.
+    /// </summary>
+    public static readonly string FileSync
+        = @"
 ' Synchronization central model
 Jrn.Command ""Ribbon"" , ""Save the active project back to the Central Model , ID_FILE_SAVE_TO_CENTRAL""";
 
-        /// <summary>
-        /// Sync comment.
-        /// </summary>
-        public static readonly string FileSyncComment = @"
+    /// <summary>
+    ///     Sync comment.
+    /// </summary>
+    public static readonly string FileSyncComment = @"
 ' Comments
 Jrn.Edit ""Modal , Synchronize with Central , Dialog_Revit_PartitionsSaveToCentral"", _
         ""Control_Revit_Comment"", ""ReplaceContents"" , ""{0}""";
 
-        /// <summary>
-        /// Accept sync.
-        /// </summary>
-        public static readonly string FileSyncAccept = @"
+    /// <summary>
+    ///     Accept sync.
+    /// </summary>
+    public static readonly string FileSyncAccept = @"
 ' Assign synchronize with central dialog
 Jrn.PushButton ""Modal , Synchronize with Central , Dialog_Revit_PartitionsSaveToCentral"", _
         ""OK, IDOK""";
 
 
-        /// <summary>
-        /// Compact central model template.
-        /// </summary>
-        public static readonly string FileSyncCompactFile
-            = @"
+    /// <summary>
+    ///     Compact central model template.
+    /// </summary>
+    public static readonly string FileSyncCompactFile
+        = @"
 ' Compact central model 
 Jrn.CheckBox ""Modal , Synchronize with Central , Dialog_Revit_PartitionsSaveToCentral"", _
         ""Compact Central Model (slow), Control_Revit_ForceCompactCentralModel"", True";
 
-        /// <summary>
-        /// Release borrowed elements template.
-        /// </summary>
-        public static readonly string FileSyncBorrowedElements
-            = @"
+    /// <summary>
+    ///     Release borrowed elements template.
+    /// </summary>
+    public static readonly string FileSyncBorrowedElements
+        = @"
 ' Release borrowed elements
 Jrn.CheckBox ""Modal , Synchronize with Central , Dialog_Revit_PartitionsSaveToCentral"", _
         ""Borrowed Elements, Control_Revit_ReturnBorrowedElements"", True";
 
-        /// <summary>
-        /// Release borrowed worksets template.
-        /// </summary>
-        public static readonly string FileSyncUserСreatedWorksets
-            = @"
+    /// <summary>
+    ///     Release borrowed worksets template.
+    /// </summary>
+    public static readonly string FileSyncUserСreatedWorksets
+        = @"
 ' Release borrowed worksets
 Jrn.CheckBox ""Modal , Synchronize with Central , Dialog_Revit_PartitionsSaveToCentral"", _
         ""User-created Worksets, Control_Revit_RelinqUserCreatedPartitions"", True";
 
-        /// <summary>
-        /// Saving local file when sync template.
-        /// </summary>
-        public static readonly string FileSyncSaveLocalFile
-            = @"
+    /// <summary>
+    ///     Saving local file when sync template.
+    /// </summary>
+    public static readonly string FileSyncSaveLocalFile
+        = @"
 ' Saving local file when sync
 Jrn.CheckBox ""Modal , Synchronize with Central , Dialog_Revit_PartitionsSaveToCentral"", _
         ""Save Local File before and after synchronizing with central, Control_Revit_SavePartitionsToLocal"", True";
 
-        /// <summary>
-        /// Execute external command template.
-        /// </summary>
-        public static readonly string ExecuteExternalCommand =
-            @"
+    /// <summary>
+    ///     Execute external command template.
+    /// </summary>
+    public static readonly string ExecuteExternalCommand =
+        @"
 ' Execute external command 
 Jrn.RibbonEvent ""TabActivated:Add-Ins""
 Jrn.RibbonEvent ""Execute external command:{0}:{1}""";
 
-        /// <summary>
-        /// Execute external command journal data template.
-        /// </summary>
-        public static readonly string ExternalCommandJournalData =
-            @"
+    /// <summary>
+    ///     Execute external command journal data template.
+    /// </summary>
+    public static readonly string ExternalCommandJournalData =
+        @"
 ' External command JournalData
 Jrn.Data ""APIStringStringMapJournalData"" _";
 
-        /// <summary>
-        /// Dynamo command execute template.
-        /// </summary>
-        public static readonly string DynamoCommandExecute =
-            @"
+    /// <summary>
+    ///     Dynamo command execute template.
+    /// </summary>
+    public static readonly string DynamoCommandExecute =
+        @"
 ' Launch dynamo
 Jrn.RibbonEvent ""TabActivated:Manage""
 Jrn.Command ""Ribbon"" , ""Launch Dynamo, ID_VISUAL_PROGRAMMING_DYNAMO""";
-    }
 }

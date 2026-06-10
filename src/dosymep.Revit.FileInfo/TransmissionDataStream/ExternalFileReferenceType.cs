@@ -1,43 +1,39 @@
 ﻿using System.Xml.Serialization;
 
-namespace dosymep.Revit.FileInfo.TransmissionDataStream {
+namespace dosymep.Revit.FileInfo.TransmissionDataStream;
+
+/// <summary>
+///     Type linked files.
+/// </summary>
+public enum ExternalFileReferenceType {
     /// <summary>
-    /// Type linked files.
+    ///     Decal.
     /// </summary>
-    public enum ExternalFileReferenceType {
-        /// <summary>
-        /// Decal.
-        /// </summary>
-        Decal,
+    Decal,
 
-        /// <summary>
-        /// CAD Link.
-        /// </summary>
-        [XmlEnum(Name = "CAD Link")]
-        CADLink,
+    /// <summary>
+    ///     CAD Link.
+    /// </summary>
+    [XmlEnum(Name = "CAD Link")] CADLink,
 
-        /// <summary>
-        /// Revit Link.
-        /// </summary>
-        [XmlEnum(Name = "Revit Link")]
-        RevitLink,
+    /// <summary>
+    ///     Revit Link.
+    /// </summary>
+    [XmlEnum(Name = "Revit Link")] RevitLink,
 
-        /// <summary>
-        /// Keynote Table.
-        /// </summary>
-        [XmlEnum(Name = "Keynote Table")]
-        KeynoteTable,
+    /// <summary>
+    ///     Keynote Table.
+    /// </summary>
+    [XmlEnum(Name = "Keynote Table")] KeynoteTable,
 
-        /// <summary>
-        /// Assembly Code Table
-        /// </summary>
-        [XmlEnum(Name = "Assembly Code Table")]
-        AssemblyCodeTable,
+    /// <summary>
+    ///     Assembly Code Table
+    /// </summary>
+    [XmlEnum(Name = "Assembly Code Table")]
+    AssemblyCodeTable,
 
-        /// <summary>
-        /// DWF Markup
-        /// </summary>
-        [XmlEnum(Name = "DWF Markup")]
-        DWFMarkup
-    }
+    /// <summary>
+    ///     DWF Markup
+    /// </summary>
+    [XmlEnum(Name = "DWF Markup")] DWFMarkup
 }

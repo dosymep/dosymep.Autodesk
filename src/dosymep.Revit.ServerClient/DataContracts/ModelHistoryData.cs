@@ -1,24 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
 
-using Newtonsoft.Json;
+namespace dosymep.Revit.ServerClient.DataContracts;
 
-namespace dosymep.Revit.ServerClient.DataContracts {
+/// <summary>
+///     The model history data.
+/// </summary>
+public class ModelHistoryData : RelativePathData {
     /// <summary>
-    /// The model history data.
+    ///     Constructs model history data.
     /// </summary>
-    public class ModelHistoryData : RelativePathData {
-        /// <summary>
-        /// Constructs model history data.
-        /// </summary>
-        /// <param name="path">The folder path..</param>
-        [JsonConstructor]
-        public ModelHistoryData(string path)
-            : base(path) {
-        }
-        
-        /// <summary>
-        /// The list of a model’s submission history.
-        /// </summary>
-        public List<ModelHistoryItem> Items { set; get; }
+    /// <param name="path">The folder path..</param>
+    [JsonConstructor]
+    public ModelHistoryData(string path)
+        : base(path) {
     }
+
+    /// <summary>
+    ///     The list of a model’s submission history.
+    /// </summary>
+    public List<ModelHistoryItem> Items { get; set; }
 }

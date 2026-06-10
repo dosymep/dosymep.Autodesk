@@ -4,18 +4,18 @@
         <TargetFramework>net48</TargetFramework>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
-    
+
     <PropertyGroup>
         <PackageProjectUrl>https://github.com/dosymep/dosymep.Autodesk/dosymep.Revit.Journaling</PackageProjectUrl>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" />
+        <PackageReference Include="Newtonsoft.Json"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\dosymep.AutodeskApps\dosymep.AutodeskApps.csproj" />
-      <ProjectReference Include="..\dosymep.Revit.FileInfo\dosymep.Revit.FileInfo.csproj" />
+        <ProjectReference Include="..\dosymep.AutodeskApps\dosymep.AutodeskApps.csproj"/>
+        <ProjectReference Include="..\dosymep.Revit.FileInfo\dosymep.Revit.FileInfo.csproj"/>
     </ItemGroup>
 
 </Project>

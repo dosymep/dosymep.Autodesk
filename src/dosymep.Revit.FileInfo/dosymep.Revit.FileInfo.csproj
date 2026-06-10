@@ -8,7 +8,7 @@
     <PropertyGroup>
         <PackageProjectUrl>https://github.com/dosymep/dosymep.Autodesk/dosymep.Revit.FileInfo</PackageProjectUrl>
     </PropertyGroup>
-    
+
     <ItemGroup>
         <PackageReference Include="OpenMcdf"/>
     </ItemGroup>

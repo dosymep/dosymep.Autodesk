@@ -1,36 +1,35 @@
 ﻿using System.Xml.Serialization;
 
-namespace dosymep.Revit.FileInfo.TransmissionDataStream {
+namespace dosymep.Revit.FileInfo.TransmissionDataStream;
+
+/// <summary>
+///     Path types.
+/// </summary>
+public enum PathType {
     /// <summary>
-    /// Path types.
+    ///     Absolute path.
     /// </summary>
-    public enum PathType {
-        /// <summary>
-        /// Absolute path.
-        /// </summary>
-        Absolute,
+    Absolute,
 
-        /// <summary>
-        /// Relative path.
-        /// </summary>
-        Relative,
+    /// <summary>
+    ///     Relative path.
+    /// </summary>
+    Relative,
 
-        /// <summary>
-        /// Path from RS or BIM360.
-        /// </summary>
-        [XmlEnum(Name = "Server Location")]
-        ServerLocation,
+    /// <summary>
+    ///     Path from RS or BIM360.
+    /// </summary>
+    [XmlEnum(Name = "Server Location")] ServerLocation,
 
-        /// <summary>
-        /// Relative to Central Model.
-        /// </summary>
-        [XmlEnum(Name = "Relative to Central Model")]
-        RelativeCentralModel,
+    /// <summary>
+    ///     Relative to Central Model.
+    /// </summary>
+    [XmlEnum(Name = "Relative to Central Model")]
+    RelativeCentralModel,
 
-        /// <summary>
-        /// Relative to Library Locations.
-        /// </summary>
-        [XmlEnum(Name = "Relative to Library Locations")]
-        RelativeLibraryLocations
-    }
+    /// <summary>
+    ///     Relative to Library Locations.
+    /// </summary>
+    [XmlEnum(Name = "Relative to Library Locations")]
+    RelativeLibraryLocations
 }
