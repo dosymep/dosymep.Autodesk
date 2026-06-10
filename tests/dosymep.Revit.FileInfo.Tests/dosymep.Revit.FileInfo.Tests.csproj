@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\dosymep.Revit.FileInfo\dosymep.Revit.FileInfo.csproj" />
+      <ProjectReference Include="..\..\src\dosymep.Revit.FileInfo\dosymep.Revit.FileInfo.csproj" />
     </ItemGroup>
 
     <ItemGroup>
