@@ -1,4 +1,10 @@
 ﻿<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="LICENSE.md" />
+    <File Path="README.md" />
+  </Folder>
   <Folder Name="/Tests/">
     <Project Path="tests/dosymep.Revit.FileInfo.Tests/dosymep.Revit.FileInfo.Tests.csproj" />
     <Project Path="tests/dosymep.Revit.Journaling.Tests/dosymep.Revit.Journaling.Tests.csproj" />
