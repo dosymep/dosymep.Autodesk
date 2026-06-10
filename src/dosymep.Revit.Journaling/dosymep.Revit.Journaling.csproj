@@ -18,12 +18,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\dosymep.AutodeskApps\dosymep.AutodeskApps.csproj" />
-      <ProjectReference Include="..\dosymep.Revit.FileInfo\dosymep.Revit.FileInfo.csproj" />
+        <PackageReference Include="Newtonsoft.Json" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+      <ProjectReference Include="..\dosymep.AutodeskApps\dosymep.AutodeskApps.csproj" />
+      <ProjectReference Include="..\dosymep.Revit.FileInfo\dosymep.Revit.FileInfo.csproj" />
     </ItemGroup>
 
 </Project>

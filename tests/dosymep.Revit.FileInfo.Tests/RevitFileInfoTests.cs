@@ -19,7 +19,7 @@ namespace dosymep.Revit.FileInfo.Tests {
         [TestCase(@"TestFiles\RVT\test_file.rvt")]
         public void ReadFileTest(string fullFilePath) {
             RevitFileInfo revitFileInfo = new RevitFileInfo(fullFilePath);
-            Assert.Multiple(() => {
+            using(Assert.EnterMultipleScope()) {
                 Assert.That(fullFilePath, Is.EqualTo(revitFileInfo.ModelPath));
                 Assert.That(revitFileInfo.BasicFileInfo.CentralPath,
                     Is.EqualTo(
@@ -43,18 +43,18 @@ namespace dosymep.Revit.FileInfo.Tests {
                 Assert.That(new Guid("e264af0c-75e2-4067-9e1c-d6c5517e21c7"),
                     Is.EqualTo(revitFileInfo.BasicFileInfo.CentralVersion.Id));
                 Assert.That(revitFileInfo.BasicFileInfo.CentralVersion.VersionNumber, Is.EqualTo(1));
-            });
+            }
 
-            Assert.Multiple(() => {
+            using(Assert.EnterMultipleScope()) {
                 Assert.That(new Guid("e264af0c-75e2-4067-9e1c-d6c5517e21c7"),
                     Is.EqualTo(revitFileInfo.BasicFileInfo.CurrentVersion.Id));
                 Assert.That(revitFileInfo.BasicFileInfo.CurrentVersion.VersionNumber, Is.EqualTo(1));
 
                 Assert.That(new ModelIdentity(new Guid("face0000-1223-3344-4455-555666666333")),
                     Is.EqualTo(revitFileInfo.BasicFileInfo.Identity));
-            });
+            }
             
-            Assert.Multiple(() => {
+            using(Assert.EnterMultipleScope()) {
                 Assert.That(new ModelIdentity(new Guid("face0000-1223-3344-4455-555666666333")),
                     Is.EqualTo(revitFileInfo.BasicFileInfo.CentralIdentity));
 
@@ -62,7 +62,7 @@ namespace dosymep.Revit.FileInfo.Tests {
                 Assert.That(revitFileInfo.TransmissionData.Version, Is.EqualTo(5));
                 Assert.That(revitFileInfo.TransmissionData.IsTransmitted, Is.False);
                 Assert.That(revitFileInfo.TransmissionData.ExternalFileReferences, Has.Count.EqualTo(2));
-            });
+            }
 
             Assert.That(revitFileInfo, Is.Not.Null);
         }
@@ -71,7 +71,7 @@ namespace dosymep.Revit.FileInfo.Tests {
         [TestCase(@"TestFiles\RVT\test_file2.rvt")]
         public void ReadFileTest2(string fullFilePath) {
             RevitFileInfo revitFileInfo = new RevitFileInfo(fullFilePath);
-            Assert.Multiple(() => {
+            using(Assert.EnterMultipleScope()) {
                 Assert.That(fullFilePath, Is.EqualTo(revitFileInfo.ModelPath));
                 Assert.That(revitFileInfo.BasicFileInfo.CentralPath, Is.Null);
                 Assert.That(revitFileInfo.BasicFileInfo.LastSavePath,
@@ -91,18 +91,18 @@ namespace dosymep.Revit.FileInfo.Tests {
                 Assert.That(new Guid("e30c18e2-f175-4f05-a814-c10bd9b910dd"),
                     Is.EqualTo(revitFileInfo.BasicFileInfo.CentralVersion.Id));
                 Assert.That(revitFileInfo.BasicFileInfo.CentralVersion.VersionNumber, Is.EqualTo(2));
-            });
+            }
 
-            Assert.Multiple(() => {
+            using(Assert.EnterMultipleScope()) {
                 Assert.That(new Guid("e30c18e2-f175-4f05-a814-c10bd9b910dd"),
                     Is.EqualTo(revitFileInfo.BasicFileInfo.CurrentVersion.Id));
                 Assert.That(revitFileInfo.BasicFileInfo.CurrentVersion.VersionNumber, Is.EqualTo(2));
 
                 Assert.That(new ModelIdentity(new Guid("00000000-0000-0000-0000-000000000000")),
                     Is.EqualTo(revitFileInfo.BasicFileInfo.Identity));
-            });
+            }
            
-            Assert.Multiple(() => {
+            using(Assert.EnterMultipleScope()) {
                 Assert.That(new ModelIdentity(new Guid("00000000-0000-0000-0000-000000000000")),
                     Is.EqualTo(revitFileInfo.BasicFileInfo.CentralIdentity));
 
@@ -110,7 +110,7 @@ namespace dosymep.Revit.FileInfo.Tests {
                 Assert.That(revitFileInfo.TransmissionData.Version, Is.EqualTo(5));
                 Assert.That(revitFileInfo.TransmissionData.IsTransmitted, Is.False);
                 Assert.That(revitFileInfo.TransmissionData.ExternalFileReferences, Has.Count.EqualTo(2));
-            });
+            }
 
             Assert.That(revitFileInfo, Is.Not.Null);
         }

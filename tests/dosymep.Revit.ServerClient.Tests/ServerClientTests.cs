@@ -49,7 +49,7 @@ namespace dosymep.Revit.ServerClient.Tests {
         public async Task ServerPropertiesTest() {
             ServerProperties serverProperties = await _serverClient.GetServerPropertiesAsync();
 
-            Assert.Multiple(() => {
+            using(Assert.EnterMultipleScope()) {
                 Assert.That(serverProperties.MachineName, Is.EqualTo(ServerName));
                 Assert.That(serverProperties.MaximumModelNameLength, Is.EqualTo(40));
                 Assert.That(serverProperties.MaximumFolderPathLength, Is.EqualTo(98));
@@ -59,7 +59,7 @@ namespace dosymep.Revit.ServerClient.Tests {
                     Is.EqualTo(serverProperties.ServerRoles));
 
                 Assert.That(serverProperties.AccessLevelTypes, Is.Null);
-            });
+            }
         }
 
         [Test]
@@ -67,11 +67,11 @@ namespace dosymep.Revit.ServerClient.Tests {
         public async Task FolderContentsTest(string folderPath) {
             FolderContents folderContents = await _serverClient.GetFolderContentsAsync(folderPath);
 
-            Assert.Multiple(() => {
+            using(Assert.EnterMultipleScope()) {
                 Assert.That(folderPath, Is.EqualTo(folderContents.Path));
                 Assert.That(folderContents.Models, Is.Empty);
                 Assert.That(folderContents.Folders, Has.Count.EqualTo(4));
-            });
+            }
         }
 
         [Test]
@@ -79,11 +79,11 @@ namespace dosymep.Revit.ServerClient.Tests {
         public async Task FolderInfoTest(string folderPath) {
             FolderInfoData folderInfoData = await _serverClient.GetFolderInfoAsync(folderPath);
 
-            Assert.Multiple(() => {
+            using(Assert.EnterMultipleScope()) {
                 Assert.That(folderPath, Is.EqualTo(folderInfoData.Path));
                 Assert.That(folderInfoData.Exists, Is.EqualTo(true));
                 Assert.That(folderInfoData.IsFolder, Is.EqualTo(true));
-            });
+            }
         }
 
         [Test]
@@ -109,10 +109,10 @@ namespace dosymep.Revit.ServerClient.Tests {
             using(Stream modelThumbnail = await _serverClient.GetModelThumbnailAsync(modelPath, width, height)) {
                 BitmapSource bitmap = BitmapFrame.Create(modelThumbnail);
 
-                Assert.Multiple(() => {
+                using(Assert.EnterMultipleScope()) {
                     Assert.That(width, Is.EqualTo((int) bitmap.Width));
                     Assert.That(height, Is.EqualTo((int) bitmap.Height));
-                });
+                }
             }
         }
 
@@ -167,7 +167,7 @@ namespace dosymep.Revit.ServerClient.Tests {
         [TestCase(@"UnitTests\RenamedFolder")]
         public async Task RemoveObjectTest(string folderPath) {
             await _serverClient.RemoveObjectAsync(folderPath);
-            Assert.ThrowsAsync<HttpRequestException>(async () => await ExistsFolder(folderPath));
+            await Assert.ThatAsync(async () => await ExistsFolder(folderPath), Throws.TypeOf<HttpRequestException>());
         }
 
         [Test]
