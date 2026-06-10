@@ -1,21 +1,24 @@
 ﻿<Solution>
     <Folder Name="/Solution Items/">
-        <File Path=".editorconfig"/>
-        <File Path=".gitignore"/>
-        <File Path="LICENSE.md"/>
-        <File Path="README.md"/>
+        <File Path=".editorconfig" />
+        <File Path=".gitignore" />
+        <File Path="Directory.Build.props" />
+        <File Path="Directory.Build.targets" />
+        <File Path="Directory.Packages.props" />
+        <File Path="LICENSE.md" />
+        <File Path="README.md" />
     </Folder>
     <Folder Name="/src/">
-        <Project Path="src/dosymep.AutodeskApps.FileInfo/dosymep.AutodeskApps.FileInfo.csproj"/>
-        <Project Path="src/dosymep.AutodeskApps/dosymep.AutodeskApps.csproj"/>
-        <Project Path="src/dosymep.Navisworks.FileInfo/dosymep.Navisworks.FileInfo.csproj"/>
-        <Project Path="src/dosymep.Revit.FileInfo/dosymep.Revit.FileInfo.csproj"/>
-        <Project Path="src/dosymep.Revit.Journaling/dosymep.Revit.Journaling.csproj"/>
-        <Project Path="src/dosymep.Revit.ServerClient/dosymep.Revit.ServerClient.csproj"/>
+        <Project Path="src/dosymep.AutodeskApps.FileInfo/dosymep.AutodeskApps.FileInfo.csproj" />
+        <Project Path="src/dosymep.AutodeskApps/dosymep.AutodeskApps.csproj" />
+        <Project Path="src/dosymep.Navisworks.FileInfo/dosymep.Navisworks.FileInfo.csproj" />
+        <Project Path="src/dosymep.Revit.FileInfo/dosymep.Revit.FileInfo.csproj" />
+        <Project Path="src/dosymep.Revit.Journaling/dosymep.Revit.Journaling.csproj" />
+        <Project Path="src/dosymep.Revit.ServerClient/dosymep.Revit.ServerClient.csproj" />
     </Folder>
     <Folder Name="/tests/">
-        <Project Path="tests/dosymep.Revit.FileInfo.Tests/dosymep.Revit.FileInfo.Tests.csproj"/>
-        <Project Path="tests/dosymep.Revit.Journaling.Tests/dosymep.Revit.Journaling.Tests.csproj"/>
-        <Project Path="tests/dosymep.Revit.ServerClient.Tests/dosymep.Revit.ServerClient.Tests.csproj"/>
+        <Project Path="tests/dosymep.Revit.FileInfo.Tests/dosymep.Revit.FileInfo.Tests.csproj" />
+        <Project Path="tests/dosymep.Revit.Journaling.Tests/dosymep.Revit.Journaling.Tests.csproj" />
+        <Project Path="tests/dosymep.Revit.ServerClient.Tests/dosymep.Revit.ServerClient.Tests.csproj" />
     </Folder>
 </Solution>
