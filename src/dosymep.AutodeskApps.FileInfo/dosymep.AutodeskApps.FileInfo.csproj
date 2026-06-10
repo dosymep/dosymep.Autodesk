@@ -2,19 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>net48</TargetFramework>
-        <Authors>dosymep</Authors>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+    
+    <PropertyGroup>
         <PackageProjectUrl>https://github.com/dosymep/dosymep.Autodesk/dosymep.Autodesk.FileInfo</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/dosymep/dosymep.Autodesk</RepositoryUrl>
-        <RepositoryType>Git</RepositoryType>
-        <PackageTags>dosymep, autodesk, files</PackageTags>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-        <DocumentationFile>bin\Debug\dosymep.AutodeskApps.FileInfo.xml</DocumentationFile>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <DocumentationFile>bin\Release\dosymep.AutodeskApps.FileInfo.xml</DocumentationFile>
     </PropertyGroup>
 
 </Project>
