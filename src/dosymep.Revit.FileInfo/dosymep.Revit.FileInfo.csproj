@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageProjectUrl>https://github.com/dosymep/dosymep.Autodesk/dosymep.Revit.FileInfo</PackageProjectUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="OpenMcdf">
+            <PrivateAssets>all</PrivateAssets>
+            <ExcludeAssets>runtime</ExcludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\dosymep.AutodeskApps\dosymep.AutodeskApps.csproj"/>
+        <ProjectReference Include="..\dosymep.AutodeskApps.FileInfo\dosymep.AutodeskApps.FileInfo.csproj"/>
+    </ItemGroup>
+
+</Project>

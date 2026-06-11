@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageProjectUrl>https://github.com/dosymep/dosymep.Autodesk/dosymep.Navisworks.FileInfo</PackageProjectUrl>
+    </PropertyGroup>
+
+</Project>
