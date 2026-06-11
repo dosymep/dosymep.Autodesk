@@ -62,7 +62,10 @@ class Build : NukeBuild, IHazSolution {
                 .EnableForce()
                 .DisableNoRestore()
                 .SetConfiguration(Configuration)
-                .SetProjectFile(((IHazSolution) this).Solution));
+                .CombineWith(BuildProjects,
+                    (s, p) => s
+                        .SetProjectFile(p)
+                        .SetOutputDirectory(Output)));
         });
 
     Target Tests => _ => _
@@ -88,6 +91,26 @@ class Build : NukeBuild, IHazSolution {
                     (s, p) => s
                         .SetProject(p)
                         .SetOutput(PublishOutput)));
+        });
+
+
+    Target DocsCompile => _ => _
+        .DependsOn(Compile)
+        .Executes(() => {
+            ProcessTasks.StartProcess(
+                "docfx",
+                DocsConfig
+                + (IsLocalBuild
+                    ? " --serve"
+                    : string.Empty),
+                RootDirectory).WaitForExit();
+
+            // DocFXBuild(s => s
+            //     .EnableForceRebuild()
+            //     .SetServe(IsLocalBuild)
+            //     .SetOutputFolder(DocsOutput)
+            //     .SetProcessWorkingDirectory(RootDirectory)
+            // );
         });
 
     /// Support plugins are available for:

@@ -26,6 +26,7 @@
       "enum": [
         "Clean",
         "Compile",
+        "DocsCompile",
         "Publish",
         "Restore",
         "Tests"
