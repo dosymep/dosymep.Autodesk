@@ -1,0 +1,41 @@
+name: build
+
+on:
+  workflow_dispatch:
+  
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '_build/**'
+      - '.github/workflows/*.yaml'
+  
+  pull_request_target:
+    branches: [ main ]
+    paths-ignore:
+      - '_build/**'
+      - '.github/workflows/*.yaml'
+
+jobs:
+  build:
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v6
+      
+      # Install the .NET Core workload
+      - name: Install .NET Core
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+        
+      # Build project
+      - name: Run './build.cmd '
+        run: ./build.cmd compile
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      # Upload docs site: https://github.com/marketplace/actions/upload-a-build-artifact
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: bin
+          path: bin
