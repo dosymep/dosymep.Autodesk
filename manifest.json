@@ -1,0 +1,1206 @@
+{
+  "source_base_path": "D:/a/dosymep.Autodesk/dosymep.Autodesk/docs",
+  "xrefmap": [
+    "xrefmap.yml",
+    "API.xrefmap.yml"
+  ],
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.AutodeskApps.FileInfo.LanguageCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.AutodeskApps.FileInfo.LanguageCode.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.AutodeskApps.FileInfo.LanguageCode",
+      "Summary": "<p sourcefile=\"api/dosymep.AutodeskApps.FileInfo.LanguageCode.yml\" sourcestartlinenumber=\"1\">Autodesk language code.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.AutodeskApps.FileInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.AutodeskApps.FileInfo.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.AutodeskApps.FileInfo",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.AutodeskApps.ITransformer-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.AutodeskApps.ITransformer-2.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.AutodeskApps.ITransformer<T, TVisitable>",
+      "Summary": "<p sourcefile=\"api/dosymep.AutodeskApps.ITransformer-2.yml\" sourcestartlinenumber=\"1\">Transform interface.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.AutodeskApps.ITransformer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.AutodeskApps.ITransformer.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.AutodeskApps.ITransformer",
+      "Summary": "<p sourcefile=\"api/dosymep.AutodeskApps.ITransformer.yml\" sourcestartlinenumber=\"1\">Marker transform interface.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.AutodeskApps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.AutodeskApps.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.AutodeskApps",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.BasicFileStream.ApplicationInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.BasicFileStream.ApplicationInfo.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.BasicFileStream.ApplicationInfo",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.BasicFileStream.ApplicationInfo.yml\" sourcestartlinenumber=\"1\">This is application information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.BasicFileStream.BasicFileInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.BasicFileStream.BasicFileInfo.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.BasicFileStream.BasicFileInfo",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.BasicFileStream.BasicFileInfo.yml\" sourcestartlinenumber=\"1\">Class provides basic file info.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.BasicFileStream.ModelIdentity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.BasicFileStream.ModelIdentity.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.BasicFileStream.ModelIdentity",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.BasicFileStream.ModelIdentity.yml\" sourcestartlinenumber=\"1\">Model identity</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.BasicFileStream.ModelVersionInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.BasicFileStream.ModelVersionInfo.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.BasicFileStream.ModelVersionInfo",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.BasicFileStream.ModelVersionInfo.yml\" sourcestartlinenumber=\"1\">This is the central model's version information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.BasicFileStream.WorksharingType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.BasicFileStream.WorksharingType.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.BasicFileStream.WorksharingType",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.BasicFileStream.WorksharingType.yml\" sourcestartlinenumber=\"1\">Worksharing types.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.BasicFileStream.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.BasicFileStream.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.BasicFileStream",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.Discipline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.Discipline.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.RevitAddins.Discipline",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.RevitAddins.Discipline.yml\" sourcestartlinenumber=\"1\">Describes the conditions under which a particular external command will be visible in the Revit UI.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.RevitAddinApplication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.RevitAddinApplication.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.RevitAddins.RevitAddinApplication",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.RevitAddins.RevitAddinApplication.yml\" sourcestartlinenumber=\"1\">Represents a Revit external application.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.RevitAddinCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.RevitAddinCommand.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.RevitAddins.RevitAddinCommand",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.RevitAddins.RevitAddinCommand.yml\" sourcestartlinenumber=\"1\">Represents a Revit external command.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.RevitAddinDBApplication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.RevitAddinDBApplication.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.RevitAddins.RevitAddinDBApplication",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.RevitAddins.RevitAddinDBApplication.yml\" sourcestartlinenumber=\"1\">Represents a Revit DB external application.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.RevitAddinItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.RevitAddinItem.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.RevitAddins.RevitAddinItem",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.RevitAddins.RevitAddinItem.yml\" sourcestartlinenumber=\"1\">Represents a single Revit Add-In.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.yml\" sourcestartlinenumber=\"1\">Represents the contents of a single .addin file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.VisibilityMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.VisibilityMode.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.RevitAddins.VisibilityMode",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.RevitAddins.VisibilityMode.yml\" sourcestartlinenumber=\"1\">Describes the conditions under which a particular external command will be visible in the Revit UI.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.WarningType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.WarningType.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.RevitAddins.WarningType",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.RevitAddins.WarningType.yml\" sourcestartlinenumber=\"1\">Defines types of warnings issued by Revit related to Add-In failures.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.RevitAddins.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.RevitAddins",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.RevitFileInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.RevitFileInfo.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.RevitFileInfo",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.RevitFileInfo.yml\" sourcestartlinenumber=\"1\">Revit file info.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.TransmissionDataStream.ExternalFileReference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.TransmissionDataStream.ExternalFileReference.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.TransmissionDataStream.ExternalFileReference",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.TransmissionDataStream.ExternalFileReference.yml\" sourcestartlinenumber=\"1\">External file reference.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.TransmissionDataStream.ExternalFileReferenceType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.TransmissionDataStream.ExternalFileReferenceType.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.TransmissionDataStream.ExternalFileReferenceType",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.TransmissionDataStream.ExternalFileReferenceType.yml\" sourcestartlinenumber=\"1\">Type linked files.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.TransmissionDataStream.LoadState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.TransmissionDataStream.LoadState.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.TransmissionDataStream.LoadState",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.TransmissionDataStream.LoadState.yml\" sourcestartlinenumber=\"1\">Linked file load states.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.TransmissionDataStream.PathType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.TransmissionDataStream.PathType.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.TransmissionDataStream.PathType",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.TransmissionDataStream.PathType.yml\" sourcestartlinenumber=\"1\">Path types.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.TransmissionDataStream.TransmissionData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.TransmissionDataStream.TransmissionData.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.TransmissionDataStream.TransmissionData",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.FileInfo.TransmissionDataStream.TransmissionData.yml\" sourcestartlinenumber=\"1\">Transmission data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.TransmissionDataStream.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.TransmissionDataStream.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo.TransmissionDataStream",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.FileInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.FileInfo.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.FileInfo",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.Journaling.JournalElements.DynamoCommandElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.Journaling.JournalElements.DynamoCommandElement.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.Journaling.JournalElements.DynamoCommandElement",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.Journaling.JournalElements.DynamoCommandElement.yml\" sourcestartlinenumber=\"1\">Dynamo command element.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.Journaling.JournalElements.DynamoNodeInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.Journaling.JournalElements.DynamoNodeInfo.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.Journaling.JournalElements.DynamoNodeInfo",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.Journaling.JournalElements.DynamoNodeInfo.yml\" sourcestartlinenumber=\"1\">Dynamo model node info.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.Journaling.JournalElements.ExternalCommandElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.Journaling.JournalElements.ExternalCommandElement.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.Journaling.JournalElements.ExternalCommandElement",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.Journaling.JournalElements.ExternalCommandElement.yml\" sourcestartlinenumber=\"1\">External command journal element.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.Journaling.JournalElements.JournalElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.Journaling.JournalElements.JournalElement.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.Journaling.JournalElements.JournalElement",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.Journaling.JournalElements.JournalElement.yml\" sourcestartlinenumber=\"1\">Abstract class revit journal element.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.yml\" sourcestartlinenumber=\"1\">Open central model journal element.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.Journaling.JournalElements.PurgeUnusedElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.Journaling.JournalElements.PurgeUnusedElement.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.Journaling.JournalElements.PurgeUnusedElement",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.Journaling.JournalElements.PurgeUnusedElement.yml\" sourcestartlinenumber=\"1\">Purge unused journal element.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.Journaling.JournalElements.SaveAsFileCommandElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.Journaling.JournalElements.SaveAsFileCommandElement.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.Journaling.JournalElements.SaveAsFileCommandElement",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.Journaling.JournalElements.SaveAsFileCommandElement.yml\" sourcestartlinenumber=\"1\">Save as command journal element.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.Journaling.JournalElements.SyncCentralModelElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.Journaling.JournalElements.SyncCentralModelElement.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.Journaling.JournalElements.SyncCentralModelElement",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.Journaling.JournalElements.SyncCentralModelElement.yml\" sourcestartlinenumber=\"1\">Synchronization central model journal element.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.Journaling.JournalElements.WorksetsOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.Journaling.JournalElements.WorksetsOption.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.Journaling.JournalElements.WorksetsOption",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.Journaling.JournalElements.WorksetsOption.yml\" sourcestartlinenumber=\"1\">Workset options</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.Journaling.JournalElements.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.Journaling.JournalElements.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.Journaling.JournalElements",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.Journaling.RevitJournalTransformer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.Journaling.RevitJournalTransformer.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.Journaling.RevitJournalTransformer",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.Journaling.RevitJournalTransformer.yml\" sourcestartlinenumber=\"1\">Journal transform.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.Journaling.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.Journaling.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.Journaling",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.FileData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.FileData.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.FileData",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.FileData.yml\" sourcestartlinenumber=\"1\">The file data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.FolderContents.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.FolderContents.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.FolderContents",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.FolderContents.yml\" sourcestartlinenumber=\"1\">The folder contents.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.FolderData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.FolderData.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.FolderData",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.FolderData.yml\" sourcestartlinenumber=\"1\">The folder data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.FolderInfoData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.FolderInfoData.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.FolderInfoData",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.FolderInfoData.yml\" sourcestartlinenumber=\"1\">The directory data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.LockContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.LockContext.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.LockContext",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.LockContext.yml\" sourcestartlinenumber=\"1\">The lock context.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.LockState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.LockState.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.LockState",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.LockState.yml\" sourcestartlinenumber=\"1\">The lock states.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.LockedDescendentsData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.LockedDescendentsData.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.LockedDescendentsData",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.LockedDescendentsData.yml\" sourcestartlinenumber=\"1\">The locked descendents data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ModelData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ModelData.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.ModelData",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.ModelData.yml\" sourcestartlinenumber=\"1\">The model data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ModelHistoryData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ModelHistoryData.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.ModelHistoryData",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.ModelHistoryData.yml\" sourcestartlinenumber=\"1\">The model history data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ModelHistoryItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ModelHistoryItem.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.ModelHistoryItem",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.ModelHistoryItem.yml\" sourcestartlinenumber=\"1\">The model history.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ModelInfoData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ModelInfoData.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.ModelInfoData",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.ModelInfoData.yml\" sourcestartlinenumber=\"1\">The model information data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ModelLockData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ModelLockData.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.ModelLockData",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.ModelLockData.yml\" sourcestartlinenumber=\"1\">The model lock data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ModelLockOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ModelLockOptions.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.ModelLockOptions",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.ModelLockOptions.yml\" sourcestartlinenumber=\"1\">The model lock options.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ModelLockType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ModelLockType.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.ModelLockType",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.ModelLockType.yml\" sourcestartlinenumber=\"1\">The model lock types.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ObjectData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ObjectData.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.ObjectData",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.ObjectData.yml\" sourcestartlinenumber=\"1\">The object data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ObjectInfoData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ObjectInfoData.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.ObjectInfoData",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.ObjectInfoData.yml\" sourcestartlinenumber=\"1\">The object info data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ParamInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ParamInfo.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.ParamInfo",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.ParamInfo.yml\" sourcestartlinenumber=\"1\">The parameter information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ParamInfoItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ParamInfoItem.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.ParamInfoItem",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.ParamInfoItem.yml\" sourcestartlinenumber=\"1\">The parameter information item.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ParamType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ParamType.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.ParamType",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.ParamType.yml\" sourcestartlinenumber=\"1\">The parameter types.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ParamValueType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ParamValueType.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.ParamValueType",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.ParamValueType.yml\" sourcestartlinenumber=\"1\">The parameter value type.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.PasteAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.PasteAction.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.PasteAction",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.PasteAction.yml\" sourcestartlinenumber=\"1\">The past actions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ProductVersion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ProductVersion.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.ProductVersion",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.ProductVersion.yml\" sourcestartlinenumber=\"1\">The product versions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ProjectInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ProjectInfo.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.ProjectInfo",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.ProjectInfo.yml\" sourcestartlinenumber=\"1\">The project information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.RelativePathData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.RelativePathData.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.RelativePathData",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.RelativePathData.yml\" sourcestartlinenumber=\"1\">The relative path data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ServerProperties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ServerProperties.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.ServerProperties",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.ServerProperties.yml\" sourcestartlinenumber=\"1\">The server properties.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ServerRole.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.ServerRole.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.ServerRole",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.ServerRole.yml\" sourcestartlinenumber=\"1\">The server's roles.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.UnlockDescendentsData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.UnlockDescendentsData.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts.UnlockDescendentsData",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.DataContracts.UnlockDescendentsData.yml\" sourcestartlinenumber=\"1\">The unlock descendents data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.DataContracts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.DataContracts.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.DataContracts",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.IServerClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.IServerClient.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.IServerClient",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.IServerClient.yml\" sourcestartlinenumber=\"1\">Provides connection to revit server.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.Internal.RevitHttpClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.Internal.RevitHttpClient.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.Internal.RevitHttpClient",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.Internal.RevitHttpClient.yml\" sourcestartlinenumber=\"1\">The revit http client.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.Internal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.Internal.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.Internal",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.ServerClientBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.ServerClientBuilder.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.ServerClientBuilder",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.ServerClientBuilder.yml\" sourcestartlinenumber=\"1\">Class build server client.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.ServerClientExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.ServerClientExtensions.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient.ServerClientExtensions",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.ServerClient.ServerClientExtensions.yml\" sourcestartlinenumber=\"1\">Class contains server client extensions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.ServerClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.ServerClient.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.ServerClient",
+      "Summary": null
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": "API",
+      "group": "API"
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    },
+    {
+      "name": "API",
+      "xrefmap": "API.xrefmap.yml"
+    }
+  ]
+}

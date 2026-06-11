@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Enum WarningType | dosymep.Autodesk </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Enum WarningType | dosymep.Autodesk ">
+      
+      <meta name="description" content="Defines types of warnings issued by Revit related to Add-In failures.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="dosymep.Autodesk">
+            dosymep.Autodesk
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="dosymep.Revit.FileInfo.RevitAddins.WarningType">
+
+
+
+
+  <h1 id="dosymep_Revit_FileInfo_RevitAddins_WarningType" data-uid="dosymep.Revit.FileInfo.RevitAddins.WarningType" class="text-break">
+Enum WarningType  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/WarningType.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="dosymep.html">dosymep</a>.<a class="xref" href="dosymep.Revit.html">Revit</a>.<a class="xref" href="dosymep.Revit.FileInfo.html">FileInfo</a>.<a class="xref" href="dosymep.Revit.FileInfo.RevitAddins.html">RevitAddins</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>dosymep.Revit.FileInfo.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Defines types of warnings issued by Revit related to Add-In failures.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum WarningType</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h2 id="fields">Fields
+</h2>
+  <dl class="parameters">
+    <dt id="dosymep_Revit_FileInfo_RevitAddins_WarningType_ClassNotFound"><code>ClassNotFound = 1</code></dt>
+  
+  <dd><p>Revit could not find the indicated class in the assembly file.</p>
+</dd>
+    <dt id="dosymep_Revit_FileInfo_RevitAddins_WarningType_GuidConflict"><code>GuidConflict = 4</code></dt>
+  
+  <dd><p>There is another add-in which registered the same Id (GUID).</p>
+</dd>
+    <dt id="dosymep_Revit_FileInfo_RevitAddins_WarningType_InvalidFormatClientId"><code>InvalidFormatClientId = 9</code></dt>
+  
+  <dd><p>Revit could not interop.</p>
+</dd>
+    <dt id="dosymep_Revit_FileInfo_RevitAddins_WarningType_InvalidRegenerationAttributeError"><code>InvalidRegenerationAttributeError = 13</code></dt>
+  
+  <dd><p>Not a valid regeneration attribute.</p>
+</dd>
+    <dt id="dosymep_Revit_FileInfo_RevitAddins_WarningType_InvalidTransactionAttributeError"><code>InvalidTransactionAttributeError = 12</code></dt>
+  
+  <dd><p>Not a valid transaction attribute.</p>
+</dd>
+    <dt id="dosymep_Revit_FileInfo_RevitAddins_WarningType_NoApplicationName"><code>NoApplicationName = 8</code></dt>
+  
+  <dd><p>Missing the required value of the Name node for application add-in.</p>
+</dd>
+    <dt id="dosymep_Revit_FileInfo_RevitAddins_WarningType_NoAssembly"><code>NoAssembly = 7</code></dt>
+  
+  <dd><p>Missing the required value of the Assembly node.</p>
+</dd>
+    <dt id="dosymep_Revit_FileInfo_RevitAddins_WarningType_NoClientId"><code>NoClientId = 6</code></dt>
+  
+  <dd><p>Missing the required value of the ClientId node.</p>
+</dd>
+    <dt id="dosymep_Revit_FileInfo_RevitAddins_WarningType_NoFullClassName"><code>NoFullClassName = 5</code></dt>
+  
+  <dd><p>Missing the required value of the FullClassName node.</p>
+</dd>
+    <dt id="dosymep_Revit_FileInfo_RevitAddins_WarningType_NoVendorId"><code>NoVendorId = 14</code></dt>
+  
+  <dd><p>Missing the required value of the VendorId node.</p>
+</dd>
+    <dt id="dosymep_Revit_FileInfo_RevitAddins_WarningType_NoWarning"><code>NoWarning = 0</code></dt>
+  
+  <dd><p>There is no warning in this Addin.</p>
+</dd>
+    <dt id="dosymep_Revit_FileInfo_RevitAddins_WarningType_UncaughtException"><code>UncaughtException = 3</code></dt>
+  
+  <dd><p>Unhandled exceptions were caught when the AddIn was executed.</p>
+</dd>
+    <dt id="dosymep_Revit_FileInfo_RevitAddins_WarningType_UncaughtExceptionInAvailabilityClass"><code>UncaughtExceptionInAvailabilityClass = 11</code></dt>
+  
+  <dd><p>Unhandled exceptions were caught when the availability command was executed.</p>
+</dd>
+    <dt id="dosymep_Revit_FileInfo_RevitAddins_WarningType_WrongAssemblyPath"><code>WrongAssemblyPath = 2</code></dt>
+  
+  <dd><p>Revit could not find the assembly file.</p>
+</dd>
+    <dt id="dosymep_Revit_FileInfo_RevitAddins_WarningType_WrongAvailabilityClass"><code>WrongAvailabilityClass = 10</code></dt>
+  
+  <dd><p>Revit could not invoke IExternalCommandAvailability correctly.</p>
+</dd>
+  </dl>
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright &copy; 2026 dosymep
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

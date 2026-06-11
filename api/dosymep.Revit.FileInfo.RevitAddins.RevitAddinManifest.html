@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RevitAddinManifest | dosymep.Autodesk </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RevitAddinManifest | dosymep.Autodesk ">
+      
+      <meta name="description" content="Represents the contents of a single .addin file.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="dosymep.Autodesk">
+            dosymep.Autodesk
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest">
+
+
+
+  <h1 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest" class="text-break">
+Class RevitAddinManifest  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="dosymep.html">dosymep</a>.<a class="xref" href="dosymep.Revit.html">Revit</a>.<a class="xref" href="dosymep.Revit.FileInfo.html">FileInfo</a>.<a class="xref" href="dosymep.Revit.FileInfo.RevitAddins.html">RevitAddins</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>dosymep.Revit.FileInfo.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents the contents of a single .addin file.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RevitAddinManifest</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">RevitAddinManifest</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The manifest contains a collection of external commands and external applications listed in the .addin file.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest__ctor_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.#ctor*"></a>
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest__ctor" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.#ctor">
+  RevitAddinManifest()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RevitAddinManifest()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_AddInApplicationTag" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.AddInApplicationTag">
+  AddInApplicationTag
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>AddInApplicationTag</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string AddInApplicationTag</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_AddInCommandTag" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.AddInCommandTag">
+  AddInCommandTag
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>AddInCommandTag</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string AddInCommandTag</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_AddInDBApplicationTag" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.AddInDBApplicationTag">
+  AddInDBApplicationTag
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>AddInDBApplicationTag</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string AddInDBApplicationTag</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_AddInTag" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.AddInTag">
+  AddInTag
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>AddInTag</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string AddInTag</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_AddinFileExt" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.AddinFileExt">
+  AddinFileExt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Revit addin file extension (.addin).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string AddinFileExt</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_RevitAddInTag" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.RevitAddInTag">
+  RevitAddInTag
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>RevitAddInTag</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string RevitAddInTag</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_RevitAddInsTag" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.RevitAddInsTag">
+  RevitAddInsTag
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>RevitAddInsTag</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string RevitAddInsTag</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_AddinApplications_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.AddinApplications*"></a>
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_AddinApplications" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.AddinApplications">
+  AddinApplications
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The collection of all external applications in the manifest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;RevitAddinApplication&gt; AddinApplications { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="dosymep.Revit.FileInfo.RevitAddins.RevitAddinApplication.html">RevitAddinApplication</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_AddinCommands_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.AddinCommands*"></a>
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_AddinCommands" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.AddinCommands">
+  AddinCommands
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The collection of all external commands in the manifest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;RevitAddinCommand&gt; AddinCommands { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="dosymep.Revit.FileInfo.RevitAddins.RevitAddinCommand.html">RevitAddinCommand</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_AddinDBApplications_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.AddinDBApplications*"></a>
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_AddinDBApplications" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.AddinDBApplications">
+  AddinDBApplications
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The collection of all external DB applications in the manifest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;RevitAddinDBApplication&gt; AddinDBApplications { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="dosymep.Revit.FileInfo.RevitAddins.RevitAddinDBApplication.html">RevitAddinDBApplication</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_AddinItems_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.AddinItems*"></a>
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_AddinItems" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.AddinItems">
+  AddinItems
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Enums all revit addin items in the manifest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;RevitAddinItem&gt; AddinItems { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="dosymep.Revit.FileInfo.RevitAddins.RevitAddinItem.html">RevitAddinItem</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_FullName_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.FullName*"></a>
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_FullName" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.FullName">
+  FullName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The full path and file name which is associated with the manifest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string FullName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_Name_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.Name*"></a>
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_Name" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The file name which is associated with the manifest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_CreateAddinManifest_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.CreateAddinManifest*"></a>
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_CreateAddinManifest_System_String_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.CreateAddinManifest(System.String)">
+  CreateAddinManifest(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates addin manifest by assembly path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RevitAddinManifest CreateAddinManifest(string assemblyPath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>assemblyPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Assembly path.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.html">RevitAddinManifest</a></dt>
+    <dd><p>Returns enums addin manifests.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_CreateAddinManifests_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.CreateAddinManifests*"></a>
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_CreateAddinManifests_System_String_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.CreateAddinManifests(System.String)">
+  CreateAddinManifests(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates addin manifest by root path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;RevitAddinManifest&gt; CreateAddinManifests(string rootPath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rootPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Root path.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.html">RevitAddinManifest</a>&gt;</dt>
+    <dd><p>Returns enums addin manifests.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_CreateAddinManifests_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.CreateAddinManifests*"></a>
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_CreateAddinManifests_System_String_System_IO_SearchOption_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.CreateAddinManifests(System.String,System.IO.SearchOption)">
+  CreateAddinManifests(string, SearchOption)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates addin manifest by root path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;RevitAddinManifest&gt; CreateAddinManifests(string rootPath, SearchOption searchOption)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rootPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Root path.</p>
+</dd>
+    <dt><code>searchOption</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.searchoption">SearchOption</a></dt>
+    <dd><p>Search option in root path.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.html">RevitAddinManifest</a>&gt;</dt>
+    <dd><p>Returns enums addin manifests.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_GetAddinManifest_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.GetAddinManifest*"></a>
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_GetAddinManifest_System_String_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.GetAddinManifest(System.String)">
+  GetAddinManifest(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates revit addin manifest (.addin file).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RevitAddinManifest GetAddinManifest(string fullFileName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fullFileName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Full file name to .addin file.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.html">RevitAddinManifest</a></dt>
+    <dd><p>Returns revit addin manifest (.addin file).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>When fullFileName is null or empty.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_GetAddinManifests_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.GetAddinManifests*"></a>
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_GetAddinManifests_System_String_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.GetAddinManifests(System.String)">
+  GetAddinManifests(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets addin manifest by root path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;RevitAddinManifest&gt; GetAddinManifests(string rootPath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rootPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Root path.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.html">RevitAddinManifest</a>&gt;</dt>
+    <dd><p>Returns enums addin manifests.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_GetAddinManifests_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.GetAddinManifests*"></a>
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_GetAddinManifests_System_String_System_IO_SearchOption_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.GetAddinManifests(System.String,System.IO.SearchOption)">
+  GetAddinManifests(string, SearchOption)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets addin manifest by root path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;RevitAddinManifest&gt; GetAddinManifests(string rootPath, SearchOption searchOption)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rootPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Root path.</p>
+</dd>
+    <dt><code>searchOption</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.searchoption">SearchOption</a></dt>
+    <dd><p>Search option in root path.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.html">RevitAddinManifest</a>&gt;</dt>
+    <dd><p>Returns enums addin manifests.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_Save_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.Save*"></a>
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_Save" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.Save">
+  Save()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves revit addin manifest file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Save()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_SaveAs_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.SaveAs*"></a>
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_SaveAs_System_String_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.SaveAs(System.String)">
+  SaveAs(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saved revit addin manifest file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SaveAs(string fullFileName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fullFileName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Full file name path to save.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_ToString_" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.ToString*"></a>
+
+  <h3 id="dosymep_Revit_FileInfo_RevitAddins_RevitAddinManifest_ToString" data-uid="dosymep.Revit.FileInfo.RevitAddins.RevitAddinManifest.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/dosymep/dosymep.Autodesk/blob/master/src/dosymep.Revit.FileInfo/RevitAddins/RevitAddinManifest.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright &copy; 2026 dosymep
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
