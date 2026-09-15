@@ -23,11 +23,6 @@ Jrn.Data "WorksetConfig" , "Custom", 1
 ' Confirm open worksets dialog 
 Jrn.PushButton "Modal , Opening Worksets , Dialog_Revit_Partitions", "OK, IDOK"
 
-' Continue working with the file
-Jrn.Data "TaskDialogResult", _
-    "The file revit_central_model_path.rvt was modified by the third-party updater RevitJournals Plugin : JournalUpdate which is not currently installed." & vbLf & "" & vbLf & "If you continue to edit the file, data maintained by RevitJournals Plugin : JournalUpdate will not be updated properly. This may create problems when revit_central_model_path.rvt  is later opened when RevitJournals Plugin : JournalUpdate is present.",  _
-        "Continue working with the file.", "1001"
-
 ' Synchronization central model
 Jrn.Command "Ribbon" , "Save the active project back to the Central Model , ID_FILE_SAVE_TO_MASTER"
 
@@ -141,6 +136,66 @@ Jrn.Data "BecomeMultiUser", 1
 ' Apply replace central file
 Jrn.Data  "TaskDialogResult", _
         "revit_central_model_path.rvt already exists. What do you want to do?", "Replace the original central model", "1002"
+
+' Open central model
+Jrn.Command "Ribbon" , "Open an existing project , ID_REVIT_FILE_OPEN"
+
+' Central open with audit
+Jrn.Data "FileOpenSubDialog", "AuditCheckBox", "True"
+
+' Set Central file name
+Jrn.Data "File Name" , "IDOK", "revit_central_model_path.rvt"
+
+' Set workset config
+Jrn.Data "WorksetConfig" , "Custom", 1
+
+' Confirm open worksets dialog 
+Jrn.PushButton "Modal , Opening Worksets , Dialog_Revit_Partitions", "OK, IDOK"
+
+' Unresolved references
+Jrn.Data "TaskDialogResult", _
+    "Revit could not find or read some references. What do you want to do?", _
+        "Ignore and continue opening the project", "1002"
+
+' Open central model
+Jrn.Command "Ribbon" , "Open an existing project , ID_REVIT_FILE_OPEN"
+
+' Central open with audit
+Jrn.Data "FileOpenSubDialog", "AuditCheckBox", "True"
+
+' Set Central file name
+Jrn.Data "File Name" , "IDOK", "revit_central_model_path.rvt"
+
+' Set workset config
+Jrn.Data "WorksetConfig" , "Custom", 1
+
+' Confirm open worksets dialog 
+Jrn.PushButton "Modal , Opening Worksets , Dialog_Revit_Partitions", "OK, IDOK"
+
+' Loading transmitted file
+Jrn.Data "TaskDialogResult", _
+    "This model has been transmitted from some other location. What do you want to do?", _
+        "Work with this model temporarily", "1002"
+
+' Open central model
+Jrn.Command "Ribbon" , "Open an existing project , ID_REVIT_FILE_OPEN"
+
+' Central open with audit
+Jrn.Data "FileOpenSubDialog", "AuditCheckBox", "True"
+
+' Set Central file name
+Jrn.Data "File Name" , "IDOK", "revit_central_model_path.rvt"
+
+' Set workset config
+Jrn.Data "WorksetConfig" , "Custom", 1
+
+' Confirm open worksets dialog 
+Jrn.PushButton "Modal , Opening Worksets , Dialog_Revit_Partitions", "OK, IDOK"
+
+' Missing third party updaters
+Jrn.Data "TaskDialogResult", _
+    "The file revit_central_model_path.rvt was modified by the third-party updaters PluginName which are not currently installed." & vbLf & "" & vbLf & "If you continue to edit the file, data maintained by Do not warn about these updaters again and continue working with the file. will not be updated properly. This may create problems when revit_central_model_path.rvt is later opened when Do not warn about these updaters again and continue working with the file. are present.", _
+        "Do not warn about these updaters again and continue working with the file.", "1002"
 
 ' Exit revit application
 Jrn.Command "SystemMenu" , "Quit the application; prompts to save projects , ID_APP_EXIT"
