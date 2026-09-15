@@ -27,8 +27,7 @@ public class Tests {
         yield return new SyncCentralModelElement();
 
         yield return new DynamoCommandElement {
-            ScriptPath = "@C:\\script_dynamo.dyn",
-            NodesInfo = [new() {Id = Guid.Empty, Name = "Name", Value = "Value"}]
+            ScriptPath = "@C:\\script_dynamo.dyn", NodesInfo = [new DynamoNodeInfo {Id = Guid.Empty, Name = "Name", Value = "Value"}]
         };
 
         yield return new ExternalCommandElement {
@@ -59,6 +58,24 @@ public class Tests {
             ReplaceExistingFile = true,
             EnableWorksharing = true,
             MakeThisFileCentalModel = true
+        };
+
+        yield return new OpenCentralModelElement {
+            ModelPath = modelPath,
+            WorksetOption = WorksetsOption.Custom,
+            UnresolvedReferences = UnresolvedReferences.Ignore
+        };
+        
+        yield return new OpenCentralModelElement {
+            ModelPath = modelPath,
+            WorksetOption = WorksetsOption.Custom,
+            LoadingTransmittedFile = LoadingTransmittedFile.OpenTemporary
+        };
+        
+        yield return new OpenCentralModelElement {
+            ModelPath = modelPath,
+            WorksetOption = WorksetsOption.Custom,
+            MissingThirdPartyUpdaters = MissingThirdPartyUpdaters.DoNotWarn
         };
     }
 }

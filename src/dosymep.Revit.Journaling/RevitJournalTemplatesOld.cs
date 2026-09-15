@@ -3,7 +3,7 @@
 /// <summary>
 ///     Journal templates for Revit after 2022 version.
 /// </summary>
-internal class RevitJournalTemplatesOld {
+internal static class RevitJournalTemplatesOld {
     /// <summary>
     ///     Synchronization central model template.
     /// </summary>
