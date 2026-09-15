@@ -495,6 +495,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.yml\" sourcestartlinenumber=\"1\">Loading transmitted file dialog buttons.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.yml\" sourcestartlinenumber=\"1\">Missing third party updaters dialog buttons.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.yml",
       "output": {
         ".html": {
@@ -552,6 +582,21 @@
       "IsMRef": true,
       "Title": "dosymep.Revit.Journaling.JournalElements.SyncCentralModelElement",
       "Summary": "<p sourcefile=\"api/dosymep.Revit.Journaling.JournalElements.SyncCentralModelElement.yml\" sourcestartlinenumber=\"1\">Synchronization central model journal element.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.html"
+        }
+      },
+      "version": "API",
+      "group": "API",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "dosymep.Revit.Journaling.JournalElements.UnresolvedReferences",
+      "Summary": "<p sourcefile=\"api/dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.yml\" sourcestartlinenumber=\"1\">Unresolved references dialog buttons.</p>\n"
     },
     {
       "type": "ManagedReference",

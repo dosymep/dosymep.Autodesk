@@ -2987,6 +2987,84 @@ references:
   fullName.vb: dosymep.Revit.Journaling.JournalElements.JournalElement.Reduce(Of T, TVisitable)(dosymep.AutodeskApps.ITransformer(Of T, TVisitable))
   nameWithType: JournalElement.Reduce<T, TVisitable>(ITransformer<T, TVisitable>)
   nameWithType.vb: JournalElement.Reduce(Of T, TVisitable)(ITransformer(Of T, TVisitable))
+- uid: dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile
+  name: LoadingTransmittedFile
+  href: api/dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.html
+  commentId: T:dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile
+  fullName: dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile
+  nameWithType: LoadingTransmittedFile
+- uid: dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.Cancel
+  name: Cancel
+  href: api/dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.html#dosymep_Revit_Journaling_JournalElements_LoadingTransmittedFile_Cancel
+  commentId: F:dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.Cancel
+  fullName: dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.Cancel
+  nameWithType: LoadingTransmittedFile.Cancel
+- uid: dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.Default
+  name: Default
+  href: api/dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.html#dosymep_Revit_Journaling_JournalElements_LoadingTransmittedFile_Default
+  commentId: F:dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.Default
+  fullName: dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.Default
+  nameWithType: LoadingTransmittedFile.Default
+- uid: dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.OpenTemporary
+  name: OpenTemporary
+  href: api/dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.html#dosymep_Revit_Journaling_JournalElements_LoadingTransmittedFile_OpenTemporary
+  commentId: F:dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.OpenTemporary
+  fullName: dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.OpenTemporary
+  nameWithType: LoadingTransmittedFile.OpenTemporary
+- uid: dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.Save
+  name: Save
+  href: api/dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.html#dosymep_Revit_Journaling_JournalElements_LoadingTransmittedFile_Save
+  commentId: F:dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.Save
+  fullName: dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.Save
+  nameWithType: LoadingTransmittedFile.Save
+- uid: dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.Skip
+  name: Skip
+  href: api/dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.html#dosymep_Revit_Journaling_JournalElements_LoadingTransmittedFile_Skip
+  commentId: F:dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.Skip
+  fullName: dosymep.Revit.Journaling.JournalElements.LoadingTransmittedFile.Skip
+  nameWithType: LoadingTransmittedFile.Skip
+- uid: dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters
+  name: MissingThirdPartyUpdaters
+  href: api/dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.html
+  commentId: T:dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters
+  fullName: dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters
+  nameWithType: MissingThirdPartyUpdaters
+- uid: dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.CloseWithoutSaving
+  name: CloseWithoutSaving
+  href: api/dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.html#dosymep_Revit_Journaling_JournalElements_MissingThirdPartyUpdaters_CloseWithoutSaving
+  commentId: F:dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.CloseWithoutSaving
+  fullName: dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.CloseWithoutSaving
+  nameWithType: MissingThirdPartyUpdaters.CloseWithoutSaving
+- uid: dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.ContinueWorking
+  name: ContinueWorking
+  href: api/dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.html#dosymep_Revit_Journaling_JournalElements_MissingThirdPartyUpdaters_ContinueWorking
+  commentId: F:dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.ContinueWorking
+  fullName: dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.ContinueWorking
+  nameWithType: MissingThirdPartyUpdaters.ContinueWorking
+- uid: dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.Default
+  name: Default
+  href: api/dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.html#dosymep_Revit_Journaling_JournalElements_MissingThirdPartyUpdaters_Default
+  commentId: F:dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.Default
+  fullName: dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.Default
+  nameWithType: MissingThirdPartyUpdaters.Default
+- uid: dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.DoNotWarn
+  name: DoNotWarn
+  href: api/dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.html#dosymep_Revit_Journaling_JournalElements_MissingThirdPartyUpdaters_DoNotWarn
+  commentId: F:dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.DoNotWarn
+  fullName: dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.DoNotWarn
+  nameWithType: MissingThirdPartyUpdaters.DoNotWarn
+- uid: dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.SaveUnderDifferentName
+  name: SaveUnderDifferentName
+  href: api/dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.html#dosymep_Revit_Journaling_JournalElements_MissingThirdPartyUpdaters_SaveUnderDifferentName
+  commentId: F:dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.SaveUnderDifferentName
+  fullName: dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.SaveUnderDifferentName
+  nameWithType: MissingThirdPartyUpdaters.SaveUnderDifferentName
+- uid: dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.Skip
+  name: Skip
+  href: api/dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.html#dosymep_Revit_Journaling_JournalElements_MissingThirdPartyUpdaters_Skip
+  commentId: F:dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.Skip
+  fullName: dosymep.Revit.Journaling.JournalElements.MissingThirdPartyUpdaters.Skip
+  nameWithType: MissingThirdPartyUpdaters.Skip
 - uid: dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement
   name: OpenCentralModelElement
   href: api/dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.html
@@ -3047,6 +3125,30 @@ references:
   commentId: Overload:dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.IsWorksharedModel
   fullName: dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.IsWorksharedModel
   nameWithType: OpenCentralModelElement.IsWorksharedModel
+- uid: dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.LoadingTransmittedFile
+  name: LoadingTransmittedFile
+  href: api/dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.html#dosymep_Revit_Journaling_JournalElements_OpenCentralModelElement_LoadingTransmittedFile
+  commentId: P:dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.LoadingTransmittedFile
+  fullName: dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.LoadingTransmittedFile
+  nameWithType: OpenCentralModelElement.LoadingTransmittedFile
+- uid: dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.LoadingTransmittedFile*
+  name: LoadingTransmittedFile
+  href: api/dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.html#dosymep_Revit_Journaling_JournalElements_OpenCentralModelElement_LoadingTransmittedFile_
+  commentId: Overload:dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.LoadingTransmittedFile
+  fullName: dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.LoadingTransmittedFile
+  nameWithType: OpenCentralModelElement.LoadingTransmittedFile
+- uid: dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.MissingThirdPartyUpdaters
+  name: MissingThirdPartyUpdaters
+  href: api/dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.html#dosymep_Revit_Journaling_JournalElements_OpenCentralModelElement_MissingThirdPartyUpdaters
+  commentId: P:dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.MissingThirdPartyUpdaters
+  fullName: dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.MissingThirdPartyUpdaters
+  nameWithType: OpenCentralModelElement.MissingThirdPartyUpdaters
+- uid: dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.MissingThirdPartyUpdaters*
+  name: MissingThirdPartyUpdaters
+  href: api/dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.html#dosymep_Revit_Journaling_JournalElements_OpenCentralModelElement_MissingThirdPartyUpdaters_
+  commentId: Overload:dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.MissingThirdPartyUpdaters
+  fullName: dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.MissingThirdPartyUpdaters
+  nameWithType: OpenCentralModelElement.MissingThirdPartyUpdaters
 - uid: dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.ModelPath
   name: ModelPath
   href: api/dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.html#dosymep_Revit_Journaling_JournalElements_OpenCentralModelElement_ModelPath
@@ -3074,6 +3176,18 @@ references:
   fullName.vb: dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.Reduce(Of T, TVisitable)(dosymep.AutodeskApps.ITransformer(Of T, TVisitable))
   nameWithType: OpenCentralModelElement.Reduce<T, TVisitable>(ITransformer<T, TVisitable>)
   nameWithType.vb: OpenCentralModelElement.Reduce(Of T, TVisitable)(ITransformer(Of T, TVisitable))
+- uid: dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.UnresolvedReferences
+  name: UnresolvedReferences
+  href: api/dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.html#dosymep_Revit_Journaling_JournalElements_OpenCentralModelElement_UnresolvedReferences
+  commentId: P:dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.UnresolvedReferences
+  fullName: dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.UnresolvedReferences
+  nameWithType: OpenCentralModelElement.UnresolvedReferences
+- uid: dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.UnresolvedReferences*
+  name: UnresolvedReferences
+  href: api/dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.html#dosymep_Revit_Journaling_JournalElements_OpenCentralModelElement_UnresolvedReferences_
+  commentId: Overload:dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.UnresolvedReferences
+  fullName: dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.UnresolvedReferences
+  nameWithType: OpenCentralModelElement.UnresolvedReferences
 - uid: dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.WithAudit
   name: WithAudit
   href: api/dosymep.Revit.Journaling.JournalElements.OpenCentralModelElement.html#dosymep_Revit_Journaling_JournalElements_OpenCentralModelElement_WithAudit
@@ -3395,6 +3509,36 @@ references:
   commentId: Overload:dosymep.Revit.Journaling.JournalElements.SyncCentralModelElement.UserCreatedWorksets
   fullName: dosymep.Revit.Journaling.JournalElements.SyncCentralModelElement.UserCreatedWorksets
   nameWithType: SyncCentralModelElement.UserCreatedWorksets
+- uid: dosymep.Revit.Journaling.JournalElements.UnresolvedReferences
+  name: UnresolvedReferences
+  href: api/dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.html
+  commentId: T:dosymep.Revit.Journaling.JournalElements.UnresolvedReferences
+  fullName: dosymep.Revit.Journaling.JournalElements.UnresolvedReferences
+  nameWithType: UnresolvedReferences
+- uid: dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.Default
+  name: Default
+  href: api/dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.html#dosymep_Revit_Journaling_JournalElements_UnresolvedReferences_Default
+  commentId: F:dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.Default
+  fullName: dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.Default
+  nameWithType: UnresolvedReferences.Default
+- uid: dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.Ignore
+  name: Ignore
+  href: api/dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.html#dosymep_Revit_Journaling_JournalElements_UnresolvedReferences_Ignore
+  commentId: F:dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.Ignore
+  fullName: dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.Ignore
+  nameWithType: UnresolvedReferences.Ignore
+- uid: dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.Open
+  name: Open
+  href: api/dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.html#dosymep_Revit_Journaling_JournalElements_UnresolvedReferences_Open
+  commentId: F:dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.Open
+  fullName: dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.Open
+  nameWithType: UnresolvedReferences.Open
+- uid: dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.Skip
+  name: Skip
+  href: api/dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.html#dosymep_Revit_Journaling_JournalElements_UnresolvedReferences_Skip
+  commentId: F:dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.Skip
+  fullName: dosymep.Revit.Journaling.JournalElements.UnresolvedReferences.Skip
+  nameWithType: UnresolvedReferences.Skip
 - uid: dosymep.Revit.Journaling.JournalElements.WorksetsOption
   name: WorksetsOption
   href: api/dosymep.Revit.Journaling.JournalElements.WorksetsOption.html
