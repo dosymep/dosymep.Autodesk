@@ -67,7 +67,7 @@ public class RevitJournalTransformer :
     }
 
     /// <summary>
-    ///     Open central model transformer.
+    ///     Open a central model transformer.
     /// </summary>
     /// <param name="visitable">Visitable object.</param>
     /// <returns>Returns transformation object.</returns>
@@ -101,9 +101,38 @@ public class RevitJournalTransformer :
             }
         }
 
-        builder.AppendLine();
-        builder.AppendFormat(
-            RevitJournalTemplates.PromptUpdaterContinueWorkingWithFile, Path.GetFileName(visitable.ModelPath));
+        if(visitable.LoadingTransmittedFile != LoadingTransmittedFile.Skip) {
+            if(visitable.LoadingTransmittedFile == LoadingTransmittedFile.Cancel) {
+                builder.AppendLine();
+                builder.AppendFormat(
+                    RevitJournalTemplates.LoadingTransmittedFile,
+                    OpenCentralModelElement.GetDialogButtonText(visitable.LoadingTransmittedFile),
+                    RevitJournalTemplates.LoadingTransmittedFileCancelId);
+            } else {
+                builder.AppendLine();
+                builder.AppendFormat(
+                    RevitJournalTemplates.LoadingTransmittedFile,
+                    OpenCentralModelElement.GetDialogButtonText(visitable.LoadingTransmittedFile),
+                    Convert.ToInt32(visitable.LoadingTransmittedFile).ToString());
+            }
+        }
+
+        if(visitable.MissingThirdPartyUpdaters != MissingThirdPartyUpdaters.Skip) {
+            builder.AppendLine();
+            builder.AppendFormat(
+                RevitJournalTemplates.MissingThirdPartyUpdaters,
+                Path.GetFileName(visitable.ModelPath),
+                OpenCentralModelElement.GetDialogButtonText(visitable.MissingThirdPartyUpdaters),
+                Convert.ToInt32(visitable.MissingThirdPartyUpdaters).ToString());
+        }
+
+        if(visitable.UnresolvedReferences != UnresolvedReferences.Skip) {
+            builder.AppendLine();
+            builder.AppendFormat(
+                RevitJournalTemplates.UnresolvedReferences,
+                OpenCentralModelElement.GetDialogButtonText(visitable.UnresolvedReferences),
+                Convert.ToInt32(visitable.UnresolvedReferences).ToString());
+        }
 
         return builder.ToString();
     }

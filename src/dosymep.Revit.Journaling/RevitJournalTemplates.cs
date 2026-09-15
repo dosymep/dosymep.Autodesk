@@ -3,7 +3,7 @@
 /// <summary>
 ///     Revit journal templates.
 /// </summary>
-internal class RevitJournalTemplates {
+internal static class RevitJournalTemplates {
     /// <summary>
     ///     Initialization template Revit.
     /// </summary>
@@ -52,37 +52,7 @@ Jrn.Command ""Ribbon"" , ""Purge(delete) unused families and types, ID_PURGE_UNU
 Jrn.PushButton ""Modal , Purge unused , Dialog_Revit_PurgeUnusedTree"", ""OK, IDOK""";
 
     /// <summary>
-    ///     Ignore missing links template.
-    /// </summary>
-    public static readonly string IgnoreMissingLinks
-        = @"
-' Ignore missing links
-Jrn.Data ""TaskDialogResult"",  _
-    ""Revit could not find or read 1 references. What do you want to do?"",  _
-        ""Ignore and continue opening the project"", ""1002""";
-
-    /// <summary>
-    ///     Continue working with the file.
-    /// </summary>
-    public static readonly string PromptUpdaterContinueWorkingWithFile
-        = @"
-' Continue working with the file
-Jrn.Data ""TaskDialogResult"", _
-    ""The file {0} was modified by the third-party updater RevitJournals Plugin : JournalUpdate which is not currently installed."" & vbLf & """" & vbLf & ""If you continue to edit the file, data maintained by RevitJournals Plugin : JournalUpdate will not be updated properly. This may create problems when {0}  is later opened when RevitJournals Plugin : JournalUpdate is present."",  _
-        ""Continue working with the file."", ""1001""";
-
-    /// <summary>
-    ///     Do not warn about this updater again and continue working with the file.
-    /// </summary>
-    public static readonly string PromptUpdaterDoNotWarnAgain
-        = @"
-' Do not warn about this updater again and continue working with the file
-Jrn.Data ""TaskDialogResult"", _
-    ""The file {0} was modified by the third-party updater RevitJournals Plugin : JournalUpdate which is not currently installed."" & vbLf & """" & vbLf & ""If you continue to edit the file, data maintained by RevitJournals Plugin : JournalUpdate will not be updated properly. This may create problems when {0}  is later opened when RevitJournals Plugin : JournalUpdate is present."",  _
-        ""Do not warn about this updater again and continue working with the file."", ""1002""";
-
-    /// <summary>
-    ///     Open central model template.
+    ///     Open a central model template.
     /// </summary>
     public static readonly string CentralOpen
         = @"
@@ -108,7 +78,7 @@ Jrn.Data ""WorksetConfig"" , ""{0}"", {1}";
 Jrn.PushButton ""Modal , Opening Worksets , Dialog_Revit_Partitions"", ""OK, IDOK""";
 
     /// <summary>
-    ///     Create local file template.
+    ///     Create a local file template.
     /// </summary>
     public static readonly string CentralOpenAsLocalCheckBox
         = @"
@@ -116,7 +86,7 @@ Jrn.PushButton ""Modal , Opening Worksets , Dialog_Revit_Partitions"", ""OK, IDO
 Jrn.Data ""FileOpenSubDialog"", ""OpenAsLocalCheckBox"", ""True""";
 
     /// <summary>
-    ///     Central open with detach.
+    ///     Central open with detaching.
     /// </summary>
     public static readonly string CentralOpenDetachCheckBox
         = @"
@@ -124,7 +94,7 @@ Jrn.Data ""FileOpenSubDialog"", ""OpenAsLocalCheckBox"", ""True""";
 Jrn.Data ""FileOpenSubDialog"", ""DetachCheckBox"", ""True""";
 
     /// <summary>
-    ///     Central open with audit template.
+    ///     Central open with an audit template.
     /// </summary>
     public static readonly string CentralOpenAuditCheckBox
         = @"
@@ -132,7 +102,7 @@ Jrn.Data ""FileOpenSubDialog"", ""DetachCheckBox"", ""True""";
 Jrn.Data ""FileOpenSubDialog"", ""AuditCheckBox"", ""True""";
 
     /// <summary>
-    ///     Save as file command template.
+    ///     Save as a file command template.
     /// </summary>
     public static readonly string SaveAsFile
         = @"
@@ -148,7 +118,7 @@ Jrn.Command ""Ribbon"", ""Save the active project with a new name , ID_REVIT_FIL
 Jrn.Data  ""SaveOptionsData"", {0}, {1}, {2}, {3}, ""{4}""";
 
     /// <summary>
-    ///     Save as file name option.
+    ///     Save as a file name option.
     /// </summary>
     public static readonly string SaveAsFileNameOption
         = @"
@@ -276,4 +246,146 @@ Jrn.Data ""APIStringStringMapJournalData"" _";
 ' Launch dynamo
 Jrn.RibbonEvent ""TabActivated:Manage""
 Jrn.Command ""Ribbon"" , ""Launch Dynamo, ID_VISUAL_PROGRAMMING_DYNAMO""";
+
+    #region Unresolved references dialog template
+
+    /*
+     *
+     * ' 0:< TaskDialog "Revit could not find or read 3 references. What do you want to do?"
+     * 'Id : TaskDialog_Unresolved_References
+     * 'Command Links:
+     * '1001 : Open Manage Links to correct the problem
+     * '1002 : Ignore and continue opening the project
+     * 'DefaultButton : 1001
+     *
+     */
+
+    /// <summary>
+    ///     Unresolved references dialog template.
+    /// </summary>
+    /// {0} Option text.
+    /// {1} Option command ID.
+    public static readonly string UnresolvedReferences
+        = @"
+' Unresolved references
+Jrn.Data ""TaskDialogResult"", _
+    ""Revit could not find or read some references. What do you want to do?"", _
+        ""{0}"", ""{1}""";
+
+    /// <summary>
+    ///     Open manage links option text.
+    /// </summary>
+    public static readonly string UnresolvedReferencesOpenManageLinks = "Open Manage Links to correct the problem";
+
+    /// <summary>
+    ///     Ignore and continue option text.
+    /// </summary>
+    public static readonly string UnresolvedReferencesIgnore = "Ignore and continue opening the project";
+
+    #endregion
+
+    #region Loading transmitted file
+
+    /*
+     *
+     * ' 0:< TaskDialog "This model has been transmitted from some other location. What do you want to do?"
+     * 'Id : TaskDialog_Loading_Transmitted_File
+     * 'CommonButtons : Cancel
+     * 'Command Links:
+     * '1001 : Save this model as a central model in its current location
+     * '1002 : Work with this model temporarily
+     * 'DefaultButton : 1001
+     *
+     */
+
+
+    /// <summary>
+    ///     Loading the transmitted file dialog template.
+    /// </summary>
+    /// {0} Option text.
+    /// {1} Option command ID.
+    public static readonly string LoadingTransmittedFile
+        = @"
+' Loading transmitted file
+Jrn.Data ""TaskDialogResult"", _
+    ""This model has been transmitted from some other location. What do you want to do?"", _
+        ""{0}"", ""{1}""";
+
+    /// <summary>
+    ///     Save this model as a central model in its current location option text.
+    /// </summary>
+    public static readonly string LoadingTransmittedFileSaveAsCentral =
+        "Save this model as a central model in its current location";
+
+    /// <summary>
+    ///     Work with this model temporarily option text.
+    /// </summary>
+    public static readonly string LoadingTransmittedFileWorkTemporarily = "Work with this model temporarily";
+
+    /// <summary>
+    ///     Cancel option ID.
+    /// </summary>
+    public static readonly string LoadingTransmittedFileCancelId = "IDCANCEL";
+
+    /// <summary>
+    ///     Cancel option text.
+    /// </summary>
+    public static readonly string LoadingTransmittedFileCancelText = "Cancel";
+
+    #endregion
+
+    #region Missing third party updaters dialog template
+
+    /*
+     *
+     * ' 1:< TaskDialog "The file PROJECT-01 was modified by the third-party updaters PluginName which are not currently installed.
+     * '
+     * 'If you continue to edit the file, data maintained by PluginName will not be updated properly. This may create problems when PROJECT-01  is later opened when PluginName are present."
+     * 'Id : TaskDialog_Missing_Third_Party_Updaters
+     * 'Command Links:
+     * '1001 : Continue working with the file.
+     * '1002 : Do not warn about these updaters again and continue working with the file.
+     * '1003 : Close without saving.
+     * '1004 : Save the file under a different name and continue working.
+     * 'DefaultButton : 1003
+     *
+     */
+
+
+    /// <summary>
+    ///     Missing third party updaters dialog template.
+    /// </summary>
+    /// {0} Model name/path.
+    /// {1} Option text.
+    /// {2} Option command ID.
+    public static readonly string MissingThirdPartyUpdaters
+        = @"
+' Missing third party updaters
+Jrn.Data ""TaskDialogResult"", _
+    ""The file {0} was modified by the third-party updaters PluginName which are not currently installed."" & vbLf & """" & vbLf & ""If you continue to edit the file, data maintained by {1} will not be updated properly. This may create problems when {0} is later opened when {1} are present."", _
+        ""{1}"", ""{2}""";
+
+    /// <summary>
+    ///     Continue working with the file option text.
+    /// </summary>
+    public static readonly string MissingThirdPartyUpdatersContinue = "Continue working with the file.";
+
+    /// <summary>
+    ///     Do not warn about these updaters again option text.
+    /// </summary>
+    public static readonly string MissingThirdPartyUpdatersDoNotWarnAgain =
+        "Do not warn about these updaters again and continue working with the file.";
+
+    /// <summary>
+    ///     Close without saving option text.
+    /// </summary>
+    public static readonly string MissingThirdPartyUpdatersCloseWithoutSaving = "Close without saving.";
+
+    /// <summary>
+    ///     Save the file under a different name option text.
+    /// </summary>
+    public static readonly string MissingThirdPartyUpdatersSaveAsDifferentName =
+        "Save the file under a different name and continue working.";
+
+    #endregion
 }
